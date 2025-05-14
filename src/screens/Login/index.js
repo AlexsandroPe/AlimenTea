@@ -1,6 +1,6 @@
 import { ImageBackground, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import Button from "../../components/Button";
 import Styles from "./style";
 import InputBox from "../../components/InputBox";
 function Login() {
@@ -12,7 +12,8 @@ function Login() {
           borderBottomLeftRadius={30}
           borderBottomRightRadius={30}
           resizeMode="cover"
-          style={Styles.imageContainer}>
+          style={Styles.imageContainer}
+          t>
           <View style={Styles.imageContent}>
             <Text>Logo</Text>
             <Text style={Styles.message}>
@@ -30,10 +31,13 @@ function Login() {
                 alignSelf: "flex-end",
                 color: "#2B59C3",
                 textDecorationLine: "underline",
+                marginTop: 8,
               }}>
               Esqueci minha senha
             </Text>
           </View>
+
+          <Button title="Entrar" />
         </View>
       </View>
     </SafeAreaView>

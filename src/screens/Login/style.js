@@ -9,7 +9,7 @@ const Styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: "#dedede",
+    backgroundColor: "#fff",
   },
 
   imageContent: {
@@ -26,8 +26,11 @@ const Styles = StyleSheet.create({
 
   forms: {
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: 24,
     paddingHorizontal: 27,
+    // borderWidth: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 
   inputs: {
