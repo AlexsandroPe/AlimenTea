@@ -31,7 +31,7 @@ function Login() {
               style={{
                 alignSelf: "flex-end",
                 color: "#2B59C3",
-                textDecorationLine: "underline",
+
                 marginTop: 8,
               }}>
               Esqueci minha senha
