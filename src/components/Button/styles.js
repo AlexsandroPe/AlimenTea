@@ -4,12 +4,10 @@ const Styles = StyleSheet.create({
   buttonContainer: {
     borderRadius: 10,
     backgroundColor: "#282c33",
-    height: 50,
+    height: 60,
     padding: 10,
-    width: 300,
     justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
+    width: 300,
   },
 });
 

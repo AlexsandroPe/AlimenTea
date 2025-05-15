@@ -3,13 +3,11 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
   imageContainer: {
     height: 430,
-    borderRadius: 30,
-    elevation: 7,
   },
 
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#F7F5F5",
   },
 
   imageContent: {
@@ -36,6 +34,17 @@ const Styles = StyleSheet.create({
   inputs: {
     // borderWidth: 1,
     gap: 10,
+  },
+
+  cadastroText: {
+    fontSize: 18,
+  },
+
+  cadastroLink: {
+    color: "#2743FA",
+    textDecorationLine: "underline",
+
+    fontSize: 18,
   },
 });
 

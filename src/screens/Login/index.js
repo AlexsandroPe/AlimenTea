@@ -3,14 +3,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../../components/Button";
 import Styles from "./style";
 import InputBox from "../../components/InputBox";
+import { useNavigation } from "@react-navigation/native";
 function Login() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={Styles.container}>
         <ImageBackground
           source={require("../../assets/loginBG2.png")}
-          borderBottomLeftRadius={30}
-          borderBottomRightRadius={30}
           resizeMode="cover"
           style={Styles.imageContainer}
           t>
@@ -38,6 +39,17 @@ function Login() {
           </View>
 
           <Button title="Entrar" />
+
+          <Text style={Styles.cadastroText}>
+            Não possui conta?{" "}
+            <Text
+              onPress={() => {
+                navigation.navigate("cadastro");
+              }}
+              style={Styles.cadastroLink}>
+              Cadastre-se
+            </Text>
+          </Text>
         </View>
       </View>
     </SafeAreaView>
