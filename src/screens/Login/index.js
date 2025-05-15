@@ -16,7 +16,7 @@ function Login() {
           style={Styles.imageContainer}
           t>
           <View style={Styles.imageContent}>
-            <Text>Logo</Text>
+            <Text>AlimentaTea</Text>
             <Text style={Styles.message}>
               Vamos controlar alimentação de forma saudável
             </Text>
