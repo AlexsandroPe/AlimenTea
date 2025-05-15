@@ -11,7 +11,7 @@ function Login() {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={Styles.container}>
         <ImageBackground
-          source={require("../../assets/loginBG2.png")}
+          source={require("../../assets/login-imagebg.png")}
           resizeMode="cover"
           style={Styles.imageContainer}
           t>
