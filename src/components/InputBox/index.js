@@ -1,9 +1,13 @@
 import { TextInput, View } from "react-native";
 import Styles from "./styles";
 
-function InputBox({ placeholder }) {
+function InputBox({ placeholder, passw = false }) {
   return (
-    <TextInput style={Styles.input} placeholder={placeholder} secureTextEntry />
+    <TextInput
+      style={Styles.input}
+      placeholder={placeholder}
+      secureTextEntry={passw}
+    />
   );
 }
 
