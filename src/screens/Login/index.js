@@ -26,12 +26,11 @@ function Login() {
         <View style={Styles.forms}>
           <View style={Styles.inputs}>
             <InputBox placeholder="Informe seu email:" />
-            <InputBox placeholder="Informe sua senha:" />
+            <InputBox placeholder="Informe sua senha:" passw={true} />
             <Text
               style={{
                 alignSelf: "flex-end",
                 color: "#2B59C3",
-
                 marginTop: 8,
               }}>
               Esqueci minha senha
