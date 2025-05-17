@@ -7,6 +7,9 @@ import { useNavigation } from "@react-navigation/native";
 function Login() {
   const navigation = useNavigation();
 
+  const handleNavigation = (nav) => {
+    navigation.navigate(nav);
+  };
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={Styles.container}>
@@ -32,19 +35,18 @@ function Login() {
                 alignSelf: "flex-end",
                 color: "#2B59C3",
                 marginTop: 8,
-              }}>
+              }}
+              onPress={() => handleNavigation("RecuperarSenha")}>
               Esqueci minha senha
             </Text>
           </View>
 
-          <Button title="Entrar" />
+          <Button title="Entrar" nav="tabs" />
 
           <Text style={Styles.cadastroText}>
             Não possui conta?{" "}
             <Text
-              onPress={() => {
-                navigation.navigate("cadastro");
-              }}
+              onPress={() => handleNavigation("cadastro")}
               style={Styles.cadastroLink}>
               Cadastre-se
             </Text>

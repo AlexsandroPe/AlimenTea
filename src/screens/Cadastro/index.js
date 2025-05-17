@@ -11,11 +11,9 @@ function Cadastro() {
         resizeMode="cover"
         height={{ flex: 1 }}>
         <Text>Cadastro tela</Text>
-        <TextInput placeholder="Insira seu nome"/>
+        <TextInput placeholder="Insira seu nome" />
       </ImageBackground>
     </SafeAreaView>
-  
-
   );
 }
 
