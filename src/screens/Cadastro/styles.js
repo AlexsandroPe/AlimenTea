@@ -6,6 +6,18 @@ const Styles = StyleSheet.create({
     // backgroundColor: "#884422",
   },
 
+  removePhoto: {
+    borderWidth: 1,
+    width: 150,
+    height: 50,
+    backgroundColor: "#070707",
+    color: "#fff",
+    borderRadius: 8,
+    textAlign: "center",
+  },
+
+  userImageProfile: {},
+
   bgContainer: {
     flex: 1,
   },

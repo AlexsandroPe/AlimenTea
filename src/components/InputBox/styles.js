@@ -10,6 +10,7 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
     height: 55,
     fontSize: 18,
+    backgroundColor: "#fff",
   },
 });
 

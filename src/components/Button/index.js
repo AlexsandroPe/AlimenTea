@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
 import Styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
