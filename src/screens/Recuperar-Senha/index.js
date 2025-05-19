@@ -12,9 +12,7 @@ function RecuperarSenha() {
 
   function emailEnviado(){
     setMensagem("Email enviado!");
-    if (mensagem == "Email enviado!"){
-      navigation.navigate("Login")
-    }
+    
   }
 
   return (
@@ -46,7 +44,7 @@ function RecuperarSenha() {
           <TouchableOpacity
           style={Styles.buttonStyle}
           activeOpacity={0.96}
-          onPress={emailEnviado}>
+          onPress={emailEnviado }>
             <Text
               style={{
                 color: "#fff",
