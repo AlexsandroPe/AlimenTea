@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "../../screens/Login";
 import Cadastro from "../../screens/Cadastro/index";
+import CadastroIngrediente from "../../screens/Ingrediente/index";
 import BottomTabs from "../BottomTabs";
 import RecuperarSenha from "../../screens/Recuperar-Senha";
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -11,7 +12,7 @@ function StackNav() {
       <Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Screen
         name="cadastro"
-        component={Cadastro}
+        component={CadastroIngrediente}
         options={{ headerShown: false }}
       />
 
