@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-export default function CadastroIngrediente({ navigation }) {
+export default function ListarIngredientes({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <Image
@@ -26,7 +26,7 @@ export default function CadastroIngrediente({ navigation }) {
         onPress={() => {
      
           if (navigation) {
-            navigation.navigate('Ingredientes'); 
+            navigation.navigate('CadastroIngrediente'); 
           }
         }}
       >
