@@ -8,15 +8,15 @@ import {
   Touchable,
   KeyboardAvoidingView,
 } from "react-native";
-import Feather from "@react-native-vector-icons/feather";
-import Styles from "./styles";
-import * as ImagePicker from "expo-image-picker";
-
 import { SafeAreaView } from "react-native-safe-area-context";
+import Feather from "@react-native-vector-icons/feather";
+import * as ImagePicker from "expo-image-picker";
+import Styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+
 import InputBox from "../../components/InputBox";
 import Button from "../../components/Button";
-import { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 
 function Cadastro() {
   const navigation = useNavigation();
@@ -75,6 +75,7 @@ function Cadastro() {
                 />
               )}
             </Pressable>
+
             {/* 
               Precisa ver depois esse icon
             

@@ -6,15 +6,15 @@ const Styles = StyleSheet.create({
     // backgroundColor: "#884422",
   },
 
-  removePhoto: {
-    borderWidth: 1,
-    width: 150,
-    height: 50,
-    backgroundColor: "#070707",
-    color: "#fff",
-    borderRadius: 8,
-    textAlign: "center",
-  },
+  // removePhoto: {
+  //   // borderWidth: 1,
+  //   width: 150,
+  //   height: 50,
+  //   backgroundColor: "#070707",
+  //   color: "#fff",
+  //   borderRadius: 8,
+  //   textAlign: "center",
+  // },
 
   userImageProfile: {
     // borderWidth: 1,
@@ -28,17 +28,17 @@ const Styles = StyleSheet.create({
   forms: {
     flex: 1,
     // paddingVertical: 24,
-    // paddingHorizontal: 27,
-    borderWidth: 1,
+    paddingHorizontal: 27,
+    // borderWidth: 1,
     width: "100%",
-    // justifyContent: "center",
+    justifyContent: "center",
     alignItems: "center",
     gap: 100,
   },
 
   inputs: {
-    borderWidth: 1,
-    justifyContent: "center",
+    // borderWidth: 1,
+    // justifyContent: "center",
     flex: 1,
     gap: 20,
   },
