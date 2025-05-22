@@ -6,6 +6,7 @@ import {
   Image,
   Pressable,
   Touchable,
+  KeyboardAvoidingView,
 } from "react-native";
 import Feather from "@react-native-vector-icons/feather";
 import Styles from "./styles";
@@ -39,12 +40,12 @@ function Cadastro() {
 
   return (
     <SafeAreaView style={Styles.safeArea}>
-      <ImageBackground
-        resizeMethod="auto"
-        resizeMode="cover"
-        source={require("../../assets/cadastroBG3.png")}
-        style={Styles.bgContainer}>
-        <View style={Styles.forms}>
+      <KeyboardAvoidingView style={Styles.safeArea}>
+        <ImageBackground
+          resizeMethod="auto"
+          resizeMode="cover"
+          source={require("../../assets/cadastroBG3.png")}
+          style={Styles.bgContainer}>
           <View style={Styles.userImageProfile}>
             <Pressable onPress={pickImage}>
               <Image
@@ -83,24 +84,26 @@ function Cadastro() {
             */}
           </View>
 
-          <View style={Styles.inputs}>
-            <InputBox placeholder="Nome completo:" />
-            <InputBox placeholder="Informe seu email:" />
-            <InputBox placeholder="Informe sua senha:" passw={true} />
-          </View>
+          <View style={Styles.forms}>
+            <View style={Styles.inputs}>
+              <InputBox placeholder="Nome completo:" />
+              <InputBox placeholder="Informe seu email:" />
+              <InputBox placeholder="Informe sua senha:" passw={true} />
+            </View>
 
-          <Button title="Cadastrar" nav="tabs" />
+            <Button title="Cadastrar" nav="tabs" />
 
-          <Text style={Styles.cadastroText}>
-            Já possui conta?{" "}
-            <Text
-              onPress={() => handleNavigation("Login")}
-              style={Styles.cadastroLink}>
-              Entrar
+            <Text style={Styles.cadastroText}>
+              Já possui conta?{" "}
+              <Text
+                onPress={() => handleNavigation("Login")}
+                style={Styles.cadastroLink}>
+                Entrar
+              </Text>
             </Text>
-          </Text>
-        </View>
-      </ImageBackground>
+          </View>
+        </ImageBackground>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }

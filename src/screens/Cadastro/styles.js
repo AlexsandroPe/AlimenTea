@@ -16,7 +16,10 @@ const Styles = StyleSheet.create({
     textAlign: "center",
   },
 
-  userImageProfile: {},
+  userImageProfile: {
+    // borderWidth: 1,
+    alignItems: "center",
+  },
 
   bgContainer: {
     flex: 1,
@@ -24,16 +27,19 @@ const Styles = StyleSheet.create({
 
   forms: {
     flex: 1,
-    paddingVertical: 24,
-    paddingHorizontal: 27,
+    // paddingVertical: 24,
+    // paddingHorizontal: 27,
     borderWidth: 1,
-    justifyContent: "center",
+    width: "100%",
+    // justifyContent: "center",
     alignItems: "center",
-    gap: 130,
+    gap: 100,
   },
 
   inputs: {
-    // borderWidth: 1,
+    borderWidth: 1,
+    justifyContent: "center",
+    flex: 1,
     gap: 20,
   },
 });
