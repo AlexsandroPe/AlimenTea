@@ -34,7 +34,7 @@ function BottomTabs() {
         name="Home"
         component={Home}
         options={{
-          headerShown: true,
+          // headerShown: true,
 
           headerStyle: {
             backgroundColor: "#555a57",

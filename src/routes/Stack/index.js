@@ -9,11 +9,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 function StackNav() {
   return (
     <Navigator>
-
-      <Screen 
-      name="Login" 
-      component={Login} 
-      options={{ headerShown: false }} />
+      <Screen name="Login" component={Login} options={{ headerShown: false }} />
 
       <Screen
         name="cadastro"
@@ -32,12 +28,11 @@ function StackNav() {
         component={BottomTabs}
         options={{ headerShown: false }}
       />
-      
+
       <Screen
         name="cadastroAutista"
         component={CadastroAutista}
         options={{ headerShown: false, headerBackVisible: false }}
-
       />
     </Navigator>
   );
