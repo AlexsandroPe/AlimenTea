@@ -19,111 +19,68 @@ function RecuperarSenha() {
 
   function emailEnviado() {
     setMensagem("Email enviado!");
-<<<<<<< Updated upstream
-    
-=======
+
     if (mensagem == "Email enviado!") {
       navigation.navigate("Login");
     }
->>>>>>> Stashed changes
   }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <View style={Styles.container}>
+        <View style={Styles.imageContainer}>
+          <Image
+            source={require("../../assets/logo.png")}
+            style={{ width: 100, height: 100 }}
+          />
+        </View>
 
-    <View style={Styles.container}>
-      <View style={Styles.imageContainer}>
-<<<<<<< Updated upstream
-         <Image
-          source={require('../../assets/logo.png')}
-          style= {{width:100, height:100, borderWidth: 1}}
-          /> 
-          <Text style={Styles.mensagem}> {mensagem} </Text>
-      </View>
+        <View
+          style={{
+            fontWeight: "bold",
+            fontSize: 28,
+            position: "absolute",
+            bottom: 520,
+            alignSelf: "center",
+          }}>
+          <Text style={{ fontWeight: "bold", fontSize: 28 }}> {mensagem} </Text>
+        </View>
 
-        
-      
-      <View style={Styles.forms}>
-       <View style={Styles.inputs}>
-          <Text > Digite seu e-mail para enviarmos sua senha: </Text>
+        <View style={Styles.emailContainer}>
+          <Text style={{ fontWeight: "400", fontSize: 18, padding: 10 }}>
+            {" "}
+            Digite seu e-mail para enviarmos sua senha:{" "}
+          </Text>
           <InputBox placeholder={"Email: "}> </InputBox>
         </View>
-        <View style={Styles.navegacao}>
+
+        <View style={Styles.buttonContainer}>
           <TouchableOpacity
-          style={Styles.button}
-          activeOpacity={0.96}
-          onPress={emailEnviado }>
+            style={Styles.buttonStyle}
+            activeOpacity={0.96}
+            onPress={emailEnviado}>
             <Text
               style={{
                 color: "#fff",
                 fontSize: 20,
                 width: "100%",
                 textAlign: "center",
-                // backgroundColor: "#0866"
               }}>
               Enviar
             </Text>
           </TouchableOpacity>
-
-          <Text>Lembrou sua senha? 
-            <Text>Entrar na conta</Text>    
-          </Text>
-          
         </View>
-      </View>
-=======
-        <Image
-          source={require("../../assets/logo.png")}
-          style={{ width: 100, height: 100 }}
-        />
-      </View>
 
-      <View
-        style={{
-          fontWeight: "bold",
-          fontSize: 28,
-          position: "absolute",
-          bottom: 520,
-          alignSelf: "center",
-        }}>
-        <Text style={{ fontWeight: "bold", fontSize: 28 }}> {mensagem} </Text>
-      </View>
-
-      <View style={Styles.emailContainer}>
-        <Text style={{ fontWeight: "400", fontSize: 18, padding: 10 }}>
-          {" "}
-          Digite seu e-mail para enviarmos sua senha:{" "}
-        </Text>
-        <InputBox placeholder={"Email: "}> </InputBox>
-      </View>
-
-      <View style={Styles.buttonContainer}>
-        <TouchableOpacity
-          style={Styles.buttonStyle}
-          activeOpacity={0.96}
-          onPress={emailEnviado}>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 20,
-              width: "100%",
-              textAlign: "center",
-            }}>
-            Enviar
+        <View style={Styles.textEntrarConta}>
+          <Text style={{ fontWeight: "400", fontSize: 16 }}>
+            Lembrou sua senha?{"  "}
+            <Text
+              style={{ textDecorationLine: "underline", color: "blue" }}
+              onPress={() => navigation.navigate("Login")}>
+              Entrar na conta
+            </Text>
           </Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={Styles.textEntrarConta}>
-        <Text style={{ fontWeight: "400", fontSize: 16 }}>
-          Lembrou sua senha?{"  "}
-          <Text
-            style={{ textDecorationLine: "underline", color: "blue" }}
-            onPress={() => navigation.navigate("Login")}>
-            Entrar na conta
-          </Text>
-        </Text>
->>>>>>> Stashed changes
+        </View>
       </View>
     </SafeAreaView>
   );
