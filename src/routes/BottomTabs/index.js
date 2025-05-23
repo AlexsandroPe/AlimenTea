@@ -25,7 +25,7 @@ function BottomTabs() {
         tabBarStyle: {
           backgroundColor: "#BABABA",
           borderTopWidth: 0,
-          height: 60,
+          height: 80,
         },
         tabBarIconStyle: { flex: 1 },
       }}
@@ -40,7 +40,9 @@ function BottomTabs() {
             backgroundColor: "#555a57",
           },
 
-          tabBarIcon: () => <Ionicons name="home" color="white" size={30} />,
+          tabBarIcon: () => (
+            <Ionicons name="home-outline" color="black" size={30} />
+          ),
         }}
       />
       <Screen
@@ -49,9 +51,10 @@ function BottomTabs() {
         options={{
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
-            <Image
-              source={require("../../assets/perfilAutistaIcon075.png")}
-              // style={{ height: 46, width: 40 }}
+            <Ionicons
+              name="person-outline"
+              color={focused ? "#282C33" : "#01161E"}
+              size={33}
             />
           ),
         }}
@@ -77,7 +80,7 @@ function BottomTabs() {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name="person-outline"
+              name="settings-outline"
               color={focused ? "#282C33" : "#01161E"}
               size={33}
             />

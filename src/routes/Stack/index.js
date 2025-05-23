@@ -4,6 +4,8 @@ import Cadastro from "../../screens/Cadastro/index";
 import BottomTabs from "../BottomTabs";
 import RecuperarSenha from "../../screens/Recuperar-Senha";
 import CadastroAutista from "../../screens/Cadastro-Autista";
+import CadastroIngrediente from "../../screens/Cadastro-Ingrediente";
+import ListarIngredientes from "../../screens/Ingrediente";
 const { Navigator, Screen } = createNativeStackNavigator();
 
 function StackNav() {
@@ -27,6 +29,17 @@ function StackNav() {
         name="tabs"
         component={BottomTabs}
         options={{ headerShown: false }}
+      />
+
+      <Screen
+        name="CadastroIngredientes"
+        component={CadastroIngrediente}
+        options={{ headerShown: true }}
+      />
+      <Screen
+        name="ListaIngredientes"
+        component={ListarIngredientes}
+        options={{ headerShown: true }}
       />
 
       <Screen

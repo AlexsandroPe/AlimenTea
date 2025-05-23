@@ -14,8 +14,8 @@ import { useNavigation } from "@react-navigation/native";
 function PerfilAutista() {
   const navigation = useNavigation();
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
         <View>
           <Image
             source={require("../../assets/autista.png")}
@@ -32,31 +32,26 @@ function PerfilAutista() {
         <View style={Styles.form}>
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Espectro:
-              <Text>Nivel 1</Text>
+              Espectro: <Text style={Styles.dadoAutista}>Nivel 1</Text>
             </Text>
           </View>
 
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Alergia alimentar:
-              <Text>Sim</Text>
+              Alergia alimentar: <Text style={Styles.dadoAutista}>Sim</Text>
             </Text>
           </View>
 
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Intôlerancia alimentar:
-              <Text>Sim</Text>
+              Intôlerancia alimentar:{" "}
+              <Text style={Styles.dadoAutista}>Sim</Text>
             </Text>
           </View>
         </View>
 
         <View style={Styles.buttonContainer}>
-          <Button
-            title={"Editar"}
-            onPress={() => navigation.navigate("EditarAutista")}
-          />
+          <Button title={"Editar"} />
         </View>
       </View>
     </SafeAreaView>

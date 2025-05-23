@@ -5,14 +5,10 @@ import {
   View,
   Image,
   title,
+  SafeAreaView,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 function CadastroAutista() {
-  return (
-    <SafeAreaView>
-      <Text>Cadastro Autista</Text>
-    </SafeAreaView>
-  );
+  return <Text> Seila</Text>;
 }
 export default CadastroAutista;

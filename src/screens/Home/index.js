@@ -1,8 +1,16 @@
-import { Text, View, Image, ImageBackground, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import Button from "../../components/Button";
-
+import { Touchable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 const images = [
   {
     id: 1,
@@ -27,13 +35,14 @@ const images = [
 ];
 
 function Home() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ImageBackground
         source={require("../../assets/homeBGv2.png")}
         style={{ flex: 1 }}>
         <View style={Styles.container}>
-          <View style={{ paddingVertical: 8, borderWitdh: 1, height: 200 }}>
+          <View style={{ paddingVertical: 8, height: 200 }}>
             <FlatList
               contentContainerStyle={{
                 alignSelf: "center",
@@ -64,7 +73,7 @@ function Home() {
             }}>
             <Button title="Diario alimentar" />
             <Button title="Receitas preferidas" />
-            <Button title="Cadastrar ingredientes" />
+            <Button title="Cadastrar ingredientes" nav="ListaIngredientes" />
           </View>
         </View>
       </ImageBackground>
