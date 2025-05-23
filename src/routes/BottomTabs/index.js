@@ -37,7 +37,8 @@ function BottomTabs() {
           // headerShown: true,
 
           headerStyle: {
-            backgroundColor: "#555a57",
+            backgroundColor: "#c2c2c2",
+            // opacity: 0.1,
           },
 
           tabBarIcon: () => (
