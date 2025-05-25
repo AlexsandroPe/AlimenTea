@@ -1,3 +1,4 @@
+import React, { Children, useContext } from "react";
 import {
   BottomTabBarHeightCallbackContext,
   createBottomTabNavigator,
@@ -10,11 +11,12 @@ import Feather from "@react-native-vector-icons/feather";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import CadastroAutista from "../../screens/Cadastro-Autista";
+import { Autista } from "../../contexts/autistContext.js";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 function BottomTabs() {
   const navigation = useNavigation();
-
+  const { autista } = useContext(Autista);
   return (
     <Navigator
       screenOptions={{
@@ -34,8 +36,8 @@ function BottomTabs() {
         name="Home"
         component={Home}
         options={{
-          // headerShown: true,
-
+          headerShown: true,
+          title: autista.name,
           headerStyle: {
             backgroundColor: "#c2c2c2",
             // opacity: 0.1,

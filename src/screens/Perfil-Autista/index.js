@@ -1,18 +1,12 @@
-import {
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  View,
-  Image,
-  title,
-  SafeAreaView,
-} from "react-native";
+import { Text, View, Image, SafeAreaView } from "react-native";
 import Styles from "./styles.js";
 import Button from "../../components/Button/index.js";
 import { useNavigation } from "@react-navigation/native";
+import { useContext } from "react";
+import { Autista } from "../../contexts/autistContext.js";
 
 function PerfilAutista() {
-  const navigation = useNavigation();
+  const { autista } = useContext(Autista);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -25,7 +19,7 @@ function PerfilAutista() {
 
         <View style={{ width: "100%", alignItems: "center", marginTop: 10 }}>
           <Text style={{ fontWeight: "bold", fontSize: 30 }}>
-            Nome do autista
+            {autista.name}
           </Text>
         </View>
 
@@ -51,7 +45,7 @@ function PerfilAutista() {
         </View>
 
         <View style={Styles.buttonContainer}>
-          <Button title={"Editar"} />
+          <Button title="Editar" nav="EditAutista" />
         </View>
       </View>
     </SafeAreaView>
