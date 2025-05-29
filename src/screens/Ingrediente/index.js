@@ -2,10 +2,9 @@ import React from "react";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import Button from "../../components/Button";
-import CadastroIngrediente from "../Cadastro-Ingrediente";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function ListarIngredientes({ navigation }) {
+export default function ListarIngredientes() {
   return (
     <SafeAreaView style={styles.container}>
       <Image

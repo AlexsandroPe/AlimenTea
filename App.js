@@ -1,5 +1,3 @@
-import { StatusBar } from "react-native";
-import { StyleSheet, Text, View } from "react-native";
 import Routes from "./src/routes";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -11,7 +9,6 @@ export default function App() {
         <NavigationContainer>
           <Routes />
         </NavigationContainer>
-        <StatusBar barStyle={"dark-content"} backgroundColor={"white"} />
       </ContextProvider>
     </>
   );
