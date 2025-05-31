@@ -17,9 +17,11 @@ import { useState } from "react";
 
 import InputBox from "../../components/InputBox";
 import Button from "../../components/Button";
+import { criarPost } from "../../services/adminServices/adminService";
 
 function Cadastro() {
   const navigation = useNavigation();
+  const [nome, setNome] = useState();
   const [image, setImage] = useState();
   const handleNavigation = (nav) => {
     navigation.navigate(nav);
@@ -37,6 +39,8 @@ function Cadastro() {
 
     if (!result.canceled) setImage(result.assets[0].uri.toString());
   };
+
+
 
   return (
     <SafeAreaView style={Styles.safeArea}>
@@ -87,12 +91,15 @@ function Cadastro() {
 
           <View style={Styles.forms}>
             <View style={Styles.inputs}>
-              <InputBox placeholder="Nome completo:" />
+              <InputBox placeholder="Nome completo:" onChangeText={(nomeV) => {setNome(nomeV)}}/>
               <InputBox placeholder="Informe seu email:" />
               <InputBox placeholder="Informe sua senha:" passw={true} />
             </View>
 
-            <Button title="Cadastrar" nav="tabs" />
+            <Button title="Cadastrar"  onPress={() => {criarPost({
+              nome: nome,
+              image: image,
+            })}}/>
 
             <Text style={Styles.cadastroText}>
               Já possui conta?{" "}
