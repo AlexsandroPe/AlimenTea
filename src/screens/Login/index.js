@@ -19,7 +19,7 @@ function Login() {
           style={Styles.imageContainer}
           t>
           <View style={Styles.imageContent}>
-            <Text>AlimentaTea</Text>
+            <Text style={{fontSize: 30, fontWeight: "400", paddingLeft: 20}}>AlimentaTea</Text>
             <Text style={Styles.message}>
               Vamos controlar alimentação de forma saudável
             </Text>

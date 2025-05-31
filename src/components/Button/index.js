@@ -2,17 +2,23 @@ import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
 import Styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
-function Button({ title, nav, ...rest }) {
+function Button({ title, nav, goback, ...rest }) {
   const navigation = useNavigation();
-  const handleNavigation = (route) => {
-    navigation.navigate(route);
+  const handleNavigation = (route, goback) => {
+    if(goback) { 
+      setTimeout(() => {
+        navigation.goBack();
+      }, 400)
+      return;
+    }
+    navigation.navigate(route)
   };
 
   return (
     <TouchableOpacity
       style={Styles.buttonContainer}
       activeOpacity={0.96}
-      onPress={() => handleNavigation(nav)}
+      onPress={() => handleNavigation(nav, goback)}
       {...rest}>
       <Text
         style={{

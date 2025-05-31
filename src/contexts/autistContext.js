@@ -4,7 +4,7 @@ export const Autista = createContext();
 
 function ContextProvider({ children }) {
   const [autista, setName] = useState({
-    name: "aa",
+    name: "AlimenTea",
     foto: undefined,
     espectro: undefined,
     alergiaAlimentar: undefined,

@@ -7,7 +7,7 @@ import RecuperarSenha from "../../screens/Recuperar-Senha";
 import CadastroAutista from "../../screens/Cadastro-Autista";
 import CadastroIngrediente from "../../screens/Cadastro-Ingrediente";
 import ListarIngredientes from "../../screens/Ingrediente";
-
+import Diario from "../../screens/Diario";
 const { Navigator, Screen } = createNativeStackNavigator();
 
 function StackNav() {
@@ -36,19 +36,21 @@ function StackNav() {
       <Screen
         name="CadastroIngredientes"
         component={CadastroIngrediente}
-        options={{ headerShown: true }}
+        options={{ headerShown: true,}}
       />
       <Screen
         name="ListaIngredientes"
         component={ListarIngredientes}
-        options={{ headerShown: true }}
+        options={{ headerShown: true, title: "Ingredientes", headerTitleStyle:{color: "#555555", fontSize: 20} }}
       />
 
+   
       <Screen
-        name="cadastroAutista"
-        component={CadastroAutista}
-        options={{ headerShown: false, headerBackVisible: false }}
+        name="Diario"
+        component={Diario}
+        options={{ headerShown: true, }}
       />
+
     </Navigator>
   );
 }

@@ -13,6 +13,7 @@ const Styles = StyleSheet.create({
   imageContent: {
     flex: 1,
     justifyContent: "space-between",
+    paddingTop: 20,
     padding: 10,
   },
 

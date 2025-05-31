@@ -9,6 +9,7 @@ export default function CadastroIngrediente() {
   const [nome, setNome] = useState("");
   const [categorias, setCategorias] = useState({
     proteinas: false,
+    lacticinios: false,
     vegetais: false,
     carboidratos: false,
     temperos: false,
@@ -47,6 +48,15 @@ export default function CadastroIngrediente() {
         />
 
         <Text style={styles.titlesimple}>Categoria de Ingrediente</Text>
+
+        <TouchableOpacity
+          onPress={() => alterarCheckbox("lacticinios")}
+          style={styles.checkboxRow}>
+          <View
+            style={[styles.checkbox, categorias.lacticinios && styles.checkedBox]}
+          />
+          <Text style={styles.checkboxLabel}>Lacticinios</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => alterarCheckbox("proteinas")}
@@ -105,7 +115,7 @@ export default function CadastroIngrediente() {
           <Text style={styles.checkboxLabel}>Contém Lactose</Text>
         </TouchableOpacity>
 
-        <Button title="Salvar" />
+        <Button title="Salvar" goback={true}/>
       </View>
     </View>
   );
