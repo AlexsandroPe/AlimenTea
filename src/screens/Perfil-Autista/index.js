@@ -2,17 +2,32 @@ import { Text, View, Image, SafeAreaView } from "react-native";
 import Styles from "./styles.js";
 import Button from "../../components/Button/index.js";
 import { useNavigation } from "@react-navigation/native";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Autista } from "../../contexts/autistContext.js";
+import { getUsuariosTeid } from "../../services/usuariosTeaServices/index.js";
 
 function PerfilAutista() {
   const { autista } = useContext(Autista);
+  const [tea, setTea] = useState({}) 
+  const buscarPorId = async (id) => {
+    const response = await getUsuariosTeid(id)
+    console.log(response)
+
+    if(!response.error){
+      console.log("deu certo")
+      setTea(response);
+    }
+  }
+
+  useEffect(() => {
+    buscarPorId(autista.id);
+  }, [])
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
         <View>
           <Image
-            source={require("../../assets/autista.png")}
+            source={{uri: autista.image}}
             style={{ width: 412, height: 310, resizeMode: "cover" }}
           />
         </View>
@@ -26,7 +41,7 @@ function PerfilAutista() {
         <View style={Styles.form}>
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Espectro: <Text style={Styles.dadoAutista}>Nivel 1</Text>
+              Espectro: <Text style={Styles.dadoAutista}>{}</Text>
             </Text>
           </View>
 

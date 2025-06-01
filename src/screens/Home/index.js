@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect} from "react";
 import { Autista } from "../../contexts/autistContext.js";
 import {
   View,
@@ -11,6 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { getUsuariosTea } from "../../services/usuariosTeaServices/";
 
 const images = [
   { id: 1, name: "Arthur", url: "https://placecats.com/millie/400/200" },
@@ -23,8 +24,22 @@ const images = [
 function Home() {
   const [click, setClick] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [usuariosTea, setUsuariosTea] = useState([]);
   const { autista, setName } = useContext(Autista);
   const navigation = useNavigation();
+
+  const callUsuariosTea = async () => {
+    const response = await getUsuariosTea();
+    console.log(response)
+    if(!response.error){
+      setUsuariosTea(response);
+    }
+  }
+
+  useEffect(() =>{ 
+    callUsuariosTea();
+  }, [])
+
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right"]}>
       <ImageBackground
@@ -39,17 +54,17 @@ function Home() {
                 paddingVertical: 16,
                 gap: 10,
               }}
-              data={images}
+              data={usuariosTea}
               renderItem={({ item }) => (
                 <TouchableOpacity
                   onPress={() => {
                     setClick(item.id);
-                    setImageUrl(item.url);
-                    setName({ ...autista, name: item.name });
+                    setImageUrl(item.imgtea);
+                    setName({ ...autista, name: item.nome, image: item.imgtea, id: item.id});
                   }}
                   activeOpacity={0.9}>
                   <Image
-                    source={{ uri: item.url }}
+                    source={{ uri: item.imgtea }}
                     style={
                       click === item.id
                         ? { height: 130, width: 130, borderRadius: 100 }

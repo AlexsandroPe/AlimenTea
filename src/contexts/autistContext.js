@@ -4,8 +4,9 @@ export const Autista = createContext();
 
 function ContextProvider({ children }) {
   const [autista, setName] = useState({
+    id: undefined,
     name: "AlimenTea",
-    foto: undefined,
+    image: undefined,
     espectro: undefined,
     alergiaAlimentar: undefined,
     intolerancia: undefined,
