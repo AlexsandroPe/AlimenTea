@@ -8,20 +8,24 @@ import { getUsuariosTeid } from "../../services/usuariosTeaServices/index.js";
 
 function PerfilAutista() {
   const { autista } = useContext(Autista);
-  const [tea, setTea] = useState({}) 
+  const [tea, setTea] = useState({default: "carregando"}) 
+
   const buscarPorId = async (id) => {
     const response = await getUsuariosTeid(id)
-    console.log(response)
-
+    console.log("dado por id", response.data[0])
+      
     if(!response.error){
       console.log("deu certo")
-      setTea(response);
+      setTea(response.data[0]);
+      console.log(tea)
     }
+    console.log(error.message)   
   }
 
   useEffect(() => {
     buscarPorId(autista.id);
-  }, [])
+  }, [autista])
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1 }}>
@@ -41,13 +45,13 @@ function PerfilAutista() {
         <View style={Styles.form}>
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Espectro: <Text style={Styles.dadoAutista}>{}</Text>
+              Espectro: <Text style={Styles.dadoAutista}>{tea.espectro}</Text>
             </Text>
           </View>
 
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Alergia alimentar: <Text style={Styles.dadoAutista}>Sim</Text>
+              Alergia alimentar: <Text style={Styles.dadoAutista}>{ tea ?tea.alergia : "carregando"}</Text>
             </Text>
           </View>
 

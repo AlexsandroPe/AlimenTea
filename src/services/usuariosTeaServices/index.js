@@ -11,8 +11,8 @@ export async function getUsuariosTea() {
 
 export async function getUsuariosTeid(id) {
   try {
-    const posts = await api.get(`/autistas:${id}`);
-    return posts.data;
+    const posts = await api.get(`/autista/${id}`);
+    return posts;
   } catch (error) {
     console.log("deu ruim")
     console.error(error.message);
