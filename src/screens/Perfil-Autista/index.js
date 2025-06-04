@@ -58,7 +58,7 @@ function PerfilAutista() {
           <View style={Styles.box}>
             <Text style={Styles.text}>
               Intôlerancia alimentar:{" "}
-              <Text style={Styles.dadoAutista}>Sim</Text>
+              <Text style={Styles.dadoAutista}>{tea.intolerancia}</Text>
             </Text>
           </View>
         </View>
