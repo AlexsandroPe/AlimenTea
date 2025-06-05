@@ -1,10 +1,11 @@
 import { Text, View, Image, SafeAreaView } from "react-native";
 import Styles from "./styles.js";
 import Button from "../../components/Button/index.js";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect} from "@react-navigation/native";
 import { useContext, useEffect, useState } from "react";
 import { Autista } from "../../contexts/autistContext.js";
 import { getUsuariosTeid } from "../../services/usuariosTeaServices/index.js";
+
 
 function PerfilAutista() {
   const { autista } = useContext(Autista);
@@ -21,6 +22,7 @@ function PerfilAutista() {
     }
     console.log(error.message)   
   }
+
 
   useEffect(() => {
     buscarPorId(autista.id);

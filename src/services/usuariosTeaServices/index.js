@@ -27,3 +27,7 @@ export async function adicionarTeaUsers(data) {
     console.error("Erro ao criar post:", error);
   }
 }
+
+export async function deletarUserTea(){ 
+   
+}

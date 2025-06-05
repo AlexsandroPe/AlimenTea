@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect} from "react";
+import React, { useContext, useState, useEffect} from "react";
 import { Autista } from "../../contexts/autistContext.js";
 import {
   View,
@@ -10,7 +10,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import Button from "../../components/Button";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation,useFocusEffect, } from "@react-navigation/native";
 import { getUsuariosTea } from "../../services/usuariosTeaServices/";
 
 const images = [
@@ -24,6 +24,7 @@ const images = [
 function Home() {
   const [click, setClick] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [foco, setFoco] = useState(0);
   const [usuariosTea, setUsuariosTea] = useState([]);
   const { autista, setName } = useContext(Autista);
   const navigation = useNavigation();
@@ -36,9 +37,15 @@ function Home() {
     }
   }
 
-  useEffect(() =>{ 
-    callUsuariosTea();
-  }, [])
+
+  
+  useFocusEffect(() => {
+    // setFoco(() => foco + foco)
+        callUsuariosTea();
+    // console.log("em foco", foco)
+  })
+
+
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right"]}>

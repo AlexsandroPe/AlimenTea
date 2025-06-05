@@ -31,7 +31,7 @@ function BottomTabs() {
         },
         tabBarIconStyle: { flex: 1 },
       }}
-      initialRouteName="Home">
+      initialRouteName="Home" >
       <Screen
         name="Home"
         component={Home}
