@@ -17,35 +17,35 @@ export default function ListarIngredientes({ navigation }) {
       />
       <Text style={styles.title}>Ingredientes</Text>
 
-      <View style={{ height: 350 }}>
-        <ScrollView style={styles.form}>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
-          <Text style={styles.label}>Ingrediente1</Text>
+      <View style={styles.form}>
+
+        <View style={{flexDirection: "row"}}>
+          <Text style={styles.ingredienteTopico}>Ingrediente</Text>
+          <Text style={styles.categoriaTopico}>Categoria</Text>
+        </View>
+
+        <ScrollView>
+
+          <View style={styles.linhaScroll}>
+            <Text style={styles.label}>Pão de forma</Text>
+            <Text style={styles.label2}>Massa</Text>
+          </View>
+
+          <View style={styles.linhaScroll}>
+            <Text style={styles.label}>Banana</Text>
+            <Text style={styles.label2}>Vegetais</Text>
+          </View>
+
+          
+          
         </ScrollView>
+
       </View>
+
       <View style={styles.addButton}>
         <Button title="Cadastrar ingrediente" nav="CadastroIngredientes" />
       </View>
+
     </SafeAreaView>
   );
 }
