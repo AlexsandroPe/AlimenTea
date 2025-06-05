@@ -42,14 +42,20 @@ function StackNav() {
       <Screen
         name="ListaIngredientes"
         component={ListarIngredientes}
-        options={{ headerShown: true, title: "Ingredientes", headerTitleStyle:{color: "#555555", fontSize: 20} }}
+        options={{ headerShown: false }}
       />
 
    
       <Screen
         name="Diario"
         component={Diario}
-        options={{ headerShown: true, }}
+        options={{ headerShown: false, headerBackVisible: false }}
+      />
+
+       <Screen
+        name="Receitas"
+        component={Receita}
+        options={{ headerShown: false, headerBackVisible: false }}
       />
       <Screen
         name="Receita"

@@ -16,23 +16,29 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   form: {
-    height: 1000,
-    margin: 20,
-    // padding: 15,
+    height: 350,
+    width: 340,
     borderWidth: 1,
-    borderColor: "#ccc",
     borderRadius: 12,
-    backgroundColor: "#f9f9f9",
+    alignSelf: "center",
+    marginTop: 30,
+
   },
   label: {
-    fontSize: 16,
-    marginBottom: 10,
+   marginLeft: 22,
+   width: 100,
+   
+  },
+  label2:{
+    marginLeft:66,
+    width: 100,
   },
   addButton: {
     alignSelf: "center",
     flex: 0.5,
     justifyContent: "center",
     // borderWidth: 1,
+    marginTop: 30
   },
   addText: {
     fontSize: 28,
@@ -62,6 +68,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+  ingredienteTopico:{
+    fontSize: 18,
+    marginLeft: 20,
+    width: 100
+  },
+  categoriaTopico:{
+    fontSize:18,
+    marginLeft: 67,
+    width: 100
+  },
+  linhaScroll:{
+    flexDirection:"row",
+    marginTop: 10
+  }
 });
 
 export default styles;

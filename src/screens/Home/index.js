@@ -91,10 +91,10 @@ function Home() {
               alignItems: "center",
               gap: 40,
             }}>
-            <Button title="Diario"  nav={"Diario"}/>
+            <Button title="Diario" nav="Diario" />
 
-            <Button title="Receitas preferidas" nav="Receita" />
-            <Button title="Ingredientes" nav="ListaIngredientes" />
+            <Button title="Receitas" nav="Receitas"/>
+            <Button title="ingredientes" nav="ListaIngredientes" />
           </View>
         </View>
       </ImageBackground>
