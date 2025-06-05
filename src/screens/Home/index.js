@@ -13,13 +13,13 @@ import Button from "../../components/Button";
 import { useNavigation,useFocusEffect, } from "@react-navigation/native";
 import { getUsuariosTea } from "../../services/usuariosTeaServices/";
 
-const images = [
-  { id: 1, name: "Arthur", url: "https://placecats.com/millie/400/200" },
-  { id: 2, name: "Maria", url: "https://placecats.com/millie/400/200" },
-  { id: 3, name: "Pedro", url: "https://placecats.com/millie/400/200" },
-  { id: 4, name: "Ana", url: "https://placecats.com/millie/400/200" },
-  { id: 5, name: "João", url: "https://placecats.com/millie/400/200" },
-];
+// const images = [
+//   { id: 1, name: "Arthur", url: "https://placecats.com/millie/400/200" },
+//   { id: 2, name: "Maria", url: "https://placecats.com/millie/400/200" },
+//   { id: 3, name: "Pedro", url: "https://placecats.com/millie/400/200" },
+//   { id: 4, name: "Ana", url: "https://placecats.com/millie/400/200" },
+//   { id: 5, name: "João", url: "https://placecats.com/millie/400/200" },
+// ];
 
 function Home() {
   const [click, setClick] = useState(null);
@@ -31,10 +31,13 @@ function Home() {
 
   const callUsuariosTea = async () => {
     const response = await getUsuariosTea();
-    // console.log(response)
+    console.log(response)
     if(!response.error){
       setUsuariosTea(response);
+
     }
+
+    
   }
 
 
@@ -95,10 +98,10 @@ function Home() {
               alignItems: "center",
               gap: 40,
             }}>
-            <Button title="Diario"  nav={"Diario"}/>
+            <Button title="Diario" nav="Diario" />
 
-            <Button title="Receitas preferidas" />
-            <Button title="Ingredientes" nav="ListaIngredientes" />
+            <Button title="Receitas" nav="Receitas"/>
+            <Button title="ingredientes" nav="ListaIngredientes" />
           </View>
         </View>
       </ImageBackground>
