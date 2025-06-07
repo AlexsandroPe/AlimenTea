@@ -45,6 +45,8 @@ function Cadastro() {
   };
 
 
+  
+
 
   return (
     <SafeAreaView style={Styles.safeArea}>
@@ -99,6 +101,7 @@ function Cadastro() {
               <InputBox placeholder="Informe seu email:" onChangeText={(emailvalue) => {setEmail(emailvalue)}} />
               <InputBox placeholder="Informe sua senha:" passw={true} onChangeText={(senhavalue) => {setSenha(senhavalue)}} />
               <InputBox placeholder="Informe seu telefone:" onChangeText={(telvalue) => {setTelefone(telvalue)}} keyboardType="numeric" />
+             
             </View>
             
             <Button title="Cadastrar"  onPress={() => {criarAdmin({
@@ -106,6 +109,7 @@ function Cadastro() {
               email: email,
               senha: senha,
               telefone: telefone,
+              dataNascimento: "2025-05-05"
             })}}/>
 
             <Text style={Styles.cadastroText}>

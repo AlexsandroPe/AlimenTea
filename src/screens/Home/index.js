@@ -31,7 +31,7 @@ function Home() {
 
   const callUsuariosTea = async () => {
     const response = await getUsuariosTea();
-    console.log(response)
+    // console.log(response);
     if(!response.error){
       setUsuariosTea(response);
 
