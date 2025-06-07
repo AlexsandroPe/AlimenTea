@@ -37,7 +37,7 @@ function BottomTabs() {
         component={Home}
         options={{
           headerShown: true,
-          title: autista.name,
+          title: autista.name ? autista.name : "Alimentea",
           headerStyle: {
             backgroundColor: "#c2c2c2",
             // opacity: 0.1,

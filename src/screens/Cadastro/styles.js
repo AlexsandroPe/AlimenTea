@@ -4,6 +4,7 @@ const Styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     // backgroundColor: "#884422",
+
   },
 
   // removePhoto: {
@@ -19,10 +20,13 @@ const Styles = StyleSheet.create({
   userImageProfile: {
     // borderWidth: 1,
     alignItems: "center",
+    
   },
 
   bgContainer: {
     flex: 1,
+    justifyContent: "center",
+    paddingVertical: 20,
   },
 
   forms: {
@@ -33,12 +37,12 @@ const Styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    gap: 100,
+    gap: 70,
   },
 
   inputs: {
     // borderWidth: 1,
-    // justifyContent: "center",
+    justifyContent: "center",
     flex: 1,
     gap: 20,
   },

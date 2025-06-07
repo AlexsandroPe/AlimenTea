@@ -17,12 +17,16 @@ import { useState } from "react";
 
 import InputBox from "../../components/InputBox";
 import Button from "../../components/Button";
-import { criarPost } from "../../services/adminServices/adminService";
+import { criarAdmin } from "../../services/adminServices/adminService";
 
 function Cadastro() {
   const navigation = useNavigation();
   const [nome, setNome] = useState();
   const [image, setImage] = useState();
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+  const [telefone, setTelefone] = useState();
+
   const handleNavigation = (nav) => {
     navigation.navigate(nav);
   };
@@ -92,13 +96,16 @@ function Cadastro() {
           <View style={Styles.forms}>
             <View style={Styles.inputs}>
               <InputBox placeholder="Nome completo:" onChangeText={(nomeV) => {setNome(nomeV)}}/>
-              <InputBox placeholder="Informe seu email:" />
-              <InputBox placeholder="Informe sua senha:" passw={true} />
+              <InputBox placeholder="Informe seu email:" onChangeText={(emailvalue) => {setEmail(emailvalue)}} />
+              <InputBox placeholder="Informe sua senha:" passw={true} onChangeText={(senhavalue) => {setSenha(senhavalue)}} />
+              <InputBox placeholder="Informe seu telefone:" onChangeText={(telvalue) => {setTelefone(telvalue)}} keyboardType="numeric" />
             </View>
-
-            <Button title="Cadastrar"  onPress={() => {criarPost({
+            
+            <Button title="Cadastrar"  onPress={() => {criarAdmin({
               nome: nome,
-              image: image,
+              email: email,
+              senha: senha,
+              telefone: telefone,
             })}}/>
 
             <Text style={Styles.cadastroText}>

@@ -9,7 +9,7 @@ function InputBox({ placeholder, passw = false, ...rest}) {
       placeholder={placeholder}
       secureTextEntry={passw}
       {...rest}
-    
+      
     />
   );
 }

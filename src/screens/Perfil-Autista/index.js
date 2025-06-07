@@ -13,14 +13,11 @@ function PerfilAutista() {
 
   const buscarPorId = async (id) => {
     const response = await getUsuariosTeid(id)
-    console.log("dado por id", response.data[0])
-      
-    if(!response.error){
-      console.log("deu certo")
-      setTea(response.data[0]);
-      console.log(tea)
-    }
-    console.log(error.message)   
+    // console.log("dado por id", response.data[0])
+    // consol.log("deu certo")
+    setTea(response.data[0]);
+    console.log(tea)
+    // console.log(error.message)   
   }
 
 
@@ -39,28 +36,28 @@ function PerfilAutista() {
         </View>
 
         <View style={{ width: "100%", alignItems: "center", marginTop: 10 }}>
-          <Text style={{ fontWeight: "bold", fontSize: 30 }}>
-            {autista.name}
+          <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+            {autista.name ? autista.name : "Aguardando selecionar na tela inicial..."}
           </Text>
         </View>
 
         <View style={Styles.form}>
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Espectro: <Text style={Styles.dadoAutista}>{tea.espectro}</Text>
+              Espectro: <Text style={Styles.dadoAutista}>{ tea ?tea.espectro : "aguardando..."}</Text>
             </Text>
           </View>
 
           <View style={Styles.box}>
             <Text style={Styles.text}>
-              Alergia alimentar: <Text style={Styles.dadoAutista}>{ tea ?tea.alergia : "carregando"}</Text>
+              Alergia alimentar: <Text style={Styles.dadoAutista}>{ tea ?tea.alergia : "aguardando..."}</Text>
             </Text>
           </View>
 
           <View style={Styles.box}>
             <Text style={Styles.text}>
               Intôlerancia alimentar:{" "}
-              <Text style={Styles.dadoAutista}>{tea.intolerancia}</Text>
+              <Text style={Styles.dadoAutista}>{tea?tea.intolerancia : "aguardando..."}</Text>
             </Text>
           </View>
         </View>

@@ -9,11 +9,11 @@ export async function getPosts() {
   }
 }
 
-export async function criarPost(data) {
+export async function criarAdmin(data) {
   try {
     const responde = await api.post("/admin", data);
     console.log(" Criado:", responde.data);
   } catch (error) {
-    console.error("Erro ao criar post:", error);
+    console.error("Erro ao criar post:", error.message);
   }
 }
