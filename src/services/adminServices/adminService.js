@@ -31,6 +31,7 @@ export async function criarAdmin(data) {
 export async function loginGet(data) { 
   console.log(data.senha)
   const loginRetorno = await api.get(`/admin/${data.email}/${data.senha}`);
+  console.log(loginRetorno)
   console.log(typeof loginRetorno.data.id);
   
   console.log(loginRetorno.data.id);

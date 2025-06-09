@@ -42,20 +42,20 @@ function StackNav() {
       <Screen
         name="ListaIngredientes"
         component={ListarIngredientes}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
 
    
       <Screen
         name="Diario"
         component={Diario}
-        options={{ headerShown: false, headerBackVisible: false }}
+        options={{ headerShown: true, headerBackVisible: true }}
       />
 
        <Screen
         name="Receitas"
         component={Receita}
-        options={{ headerShown: false, headerBackVisible: false }}
+        options={{ headerShown: true, headerBackVisible: true }}
       />
       <Screen
         name="Receita"

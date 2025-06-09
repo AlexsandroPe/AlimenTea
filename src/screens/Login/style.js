@@ -2,11 +2,15 @@ import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create({
   imageContainer: {
-    height: 430,
+    height: 390,
+  },
+  imageContainerKeyboardAct: {
+    height: 350,
   },
 
   container: {
     flex: 1,
+    // borderWidth: 1,
     backgroundColor: "#F7F5F5",
   },
 
@@ -22,19 +26,25 @@ const Styles = StyleSheet.create({
     fontWeight: "600",
     textAlign: "center",
   },
+  messageKeyboard: {
+    fontSize: 20,
+    fontWeight: "600",
+    textAlign: "center",
+  },
 
   forms: {
     flex: 1,
     paddingVertical: 24,
     paddingHorizontal: 27,
-    // borderWidth: 1,
-    justifyContent: "space-between",
+    borderWidth: 1,
+    justifyContent: "space-evenly",
     alignItems: "center",
   },
 
   inputs: {
-    // borderWidth: 1,
-    gap: 10,
+    flex: 1,
+    borderWidth: 1,
+    gap: 20,
   },
 
   cadastroText: {
@@ -44,7 +54,6 @@ const Styles = StyleSheet.create({
   cadastroLink: {
     color: "#2743FA",
     textDecorationLine: "underline",
-
     fontSize: 18,
   },
 });
