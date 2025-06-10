@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 function Receita(){
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{flex:1}}>
             <View>
                 <View>
                     <Image
@@ -54,7 +54,7 @@ function Receita(){
                 </View>
 
                 <View style={Styles.botãoContainer}>
-                    <Button title={"Adicionar"}></Button>
+                    <Button title={"Adicionar"} nav={"ReceitaCadastro"}></Button>
                 </View>
 
             </View>

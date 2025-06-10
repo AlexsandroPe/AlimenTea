@@ -9,6 +9,8 @@ import CadastroIngrediente from "../../screens/Cadastro-Ingrediente";
 import ListarIngredientes from "../../screens/Ingrediente";
 import Diario from "../../screens/Diario";
 import Receita from "../../screens/Receita";
+import CadastroReceita from "../../screens/Cadastro-receita";
+import CadastroDiario from "../../screens/Cadastro-Diario";
 const { Navigator, Screen } = createNativeStackNavigator();
 
 function StackNav() {
@@ -61,6 +63,16 @@ function StackNav() {
         name="Receita"
         component={Receita}
         options={{ headerShown: true, }}
+      />
+      <Screen
+        name="ReceitaCadastro"
+        component={CadastroReceita}
+        options={{ headerShown: false, }}
+      />
+      <Screen
+        name="DiarioCadastro"
+        component={CadastroDiario}
+        options={{ headerShown: false, }}
       />
 
     </Navigator>

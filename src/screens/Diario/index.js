@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 function Diario(){
 
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1}}>
             <View>
 
                    
@@ -59,7 +59,7 @@ function Diario(){
                     </ScrollView>
                 </View>
                 <View style={Styles.buttonContainer}>
-                    <Button title={"Adicionar"}></Button>
+                    <Button title={"Adicionar"} nav={"DiarioCadastro"}></Button>
                 </View>
             </View>
         </SafeAreaView>

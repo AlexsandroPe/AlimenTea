@@ -9,6 +9,14 @@ import {
 } from "react-native";
 
 function CadastroAutista() {
-  return <Text> Seila</Text>;
+  return (
+    <SafeAreaView>
+      <View>
+        
+      </View>
+    </SafeAreaView>
+
+
+  );
 }
 export default CadastroAutista;
