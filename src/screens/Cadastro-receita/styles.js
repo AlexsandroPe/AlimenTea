@@ -1,0 +1,83 @@
+import { StyleSheet } from "react-native";
+
+const Styles = StyleSheet.create ({ 
+    topicoReceita:{
+        fontSize: 25,
+        alignSelf: "center"
+    },
+    textInput:{
+        marginTop: 20
+    },
+    radioContainer:{
+        flexDirection: "row",
+        width: 250,
+        alignSelf:"center",
+        marginTop: 30,
+        
+    },
+    radioContainer2:{
+        flexDirection: "row",
+        width: 250,
+        alignSelf:"center",
+        
+    },
+    textoCafe:{
+        
+        marginLeft: 35
+    },
+    textoAlmoco:{
+        
+        marginLeft: 40
+    },
+
+
+    textoTarde:{
+        
+        marginLeft: 35
+    },
+    textoJanta:{
+        
+        marginLeft: 55
+    },
+
+
+    manha:{
+        
+        width: 40,
+        marginLeft: 55
+    },
+    almoco:{
+        
+        width: 40,
+        marginLeft: 42
+    },
+
+
+    tarde:{
+        
+        width: 40,
+        marginLeft: 55
+    },
+    janta:{
+        
+        width: 40,
+        marginLeft: 50
+    },
+    containerDescricao:{
+        borderWidth: 1,
+        width: 300,
+        height: 150,
+        alignSelf: "center", 
+        marginTop: 10,
+        borderRadius: 20
+
+    },
+    buttonContainer:{
+        marginTop: 100,
+        alignSelf: "center",
+        bottom: 60
+    }
+
+
+})
+export default Styles;
