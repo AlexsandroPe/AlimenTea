@@ -16,7 +16,7 @@ function CadastroDiario() {
   const [abrir, setAbrir] = useState(false);
   const [valorSelecionado, setValorSelecionado] = useState(null);
   const [itens, setItens] = useState([
-    { label: "Bolo de banana", value:"boloDeBanana"},
+    {label: "Bolo de banana", value:"boloDeBanana"},
     {label: "Tapioca recheada", value: "tapiocaRecheada"},
     {label: "Pão de Queijo", value: "paoDeQueijo"},
   

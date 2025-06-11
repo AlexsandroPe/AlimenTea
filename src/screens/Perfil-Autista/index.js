@@ -63,7 +63,7 @@ function PerfilAutista() {
         </View>
 
         <View style={Styles.buttonContainer}>
-          <Button title="Editar" nav="EditAutista" />
+          <Button title="Editar" nav="CadastroAutista" />
         </View>
       </View>
     </SafeAreaView>

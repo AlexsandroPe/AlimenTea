@@ -99,9 +99,8 @@ function Home() {
               gap: 40,
             }}>
             <Button title="Diario" nav="Diario" />
-
             <Button title="Receitas" nav="Receitas"/>
-            <Button title="ingredientes" nav="ListaIngredientes" />
+            <Button title="ingredientes" nav="Ingredientes" />
           </View>
         </View>
       </ImageBackground>

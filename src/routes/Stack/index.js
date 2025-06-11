@@ -36,34 +36,25 @@ function StackNav() {
         options={{ headerShown: false }}
       />
 
+
       <Screen
-        name="CadastroIngredientes"
-        component={CadastroIngrediente}
-        options={{ headerShown: true,}}
-      />
-      <Screen
-        name="ListaIngredientes"
+        name="Ingredientes"
         component={ListarIngredientes}
         options={{ headerShown: true }}
       />
 
-   
       <Screen
         name="Diario"
         component={Diario}
-        options={{ headerShown: true, headerBackVisible: true }}
+        options={{ headerShown: false, headerBackVisible: true }}
       />
 
        <Screen
         name="Receitas"
         component={Receita}
-        options={{ headerShown: true, headerBackVisible: true }}
+        options={{ headerShown: false, headerBackVisible: true }}
       />
-      <Screen
-        name="Receita"
-        component={Receita}
-        options={{ headerShown: true, }}
-      />
+     
       <Screen
         name="ReceitaCadastro"
         component={CadastroReceita}
@@ -73,6 +64,11 @@ function StackNav() {
         name="DiarioCadastro"
         component={CadastroDiario}
         options={{ headerShown: false, }}
+      />
+       <Screen
+        name="CadastroIngredientes"
+        component={CadastroIngrediente}
+        options={{ headerShown: true,}}
       />
 
     </Navigator>
