@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, SafeAreaView} from "react-native";
 import styles from "./styles";
 import Button from "../../components/Button";
+import { criarAdmin } from "../../services/adminServices/adminService";
+import { addIngredientes } from "../../services/ingredientes/ingredientes";
 
 export default function CadastroIngrediente() {
   const [contGluten, setContGluten] = useState(false);
@@ -10,16 +12,18 @@ export default function CadastroIngrediente() {
   const [categorias, setCategorias] = useState({
     proteinas: false,
     lacticinios: false,
-    vegetais: false,
+    vegetaisELegumes: false,
     carboidratos: false,
     temperos: false,
   });
 
   const alterarCheckbox = (categoriaSelecionada) => {
+    
     const novasCategorias = Object.keys(categorias).reduce((acc, cat) => {
       acc[cat] = cat === categoriaSelecionada;
       return acc;
     }, {});
+    // console.log(novasCategorias)
     setCategorias(novasCategorias);
   };
   const salvar = () => {
@@ -109,13 +113,24 @@ export default function CadastroIngrediente() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => setContLactose(!contLactose)}
+            onPress={() =>{ 
+              setContLactose(!contLactose)
+            }}
             style={styles.checkboxRow}>
             <View style={[styles.checkbox, contLactose && styles.checkedBox]} />
             <Text style={styles.checkboxLabel}>Contém Lactose</Text>
           </TouchableOpacity>
 
-          <Button title="Salvar" goback={true}/>
+          <Button title="Salvar" onPress={() => {
+            addIngredientes({
+                  nome: nome,
+                  categorias: Object.entries(categorias).find(value => {
+        return value[1]=== true;
+    }),
+                  gluten: contGluten,
+                  lactose: contLactose,
+                });
+          }} goback={true}/>
         </View>
       </View>
     </SafeAreaView>

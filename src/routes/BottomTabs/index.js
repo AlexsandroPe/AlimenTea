@@ -27,7 +27,7 @@ function BottomTabs() {
         tabBarStyle: {
           backgroundColor: "#BABABA",
           borderTopWidth: 0,
-          height: 80,
+          height: 90,
         },
         tabBarIconStyle: { flex: 1 },
       }}

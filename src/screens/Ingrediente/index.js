@@ -1,10 +1,38 @@
-import React from "react";
-import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Image, ScrollView, TouchableOpacity, FlatList } from "react-native";
+
 import styles from "./styles";
 import Button from "../../components/Button";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { getIngredientes } from "../../services/ingredientes/ingredientes";
+import { useFocusEffect } from "@react-navigation/native";
+
+
+  
+
 
 export default function ListarIngredientes() {
+
+    const [ingredientes, setIngredientes] = useState({});
+
+    const callIngredientes = async () => {
+
+  
+    const response = await getIngredientes();
+    // console.log(response);
+    if(!response.error){
+      setIngredientes(response);
+    }
+  }
+
+
+  
+  useFocusEffect(() => {
+    // setFoco(() => foco + foco)
+        callIngredientes();
+    // console.log("em foco", foco)
+  })
+
   return (
     <SafeAreaView style={styles.container}>
       <Image
@@ -23,11 +51,33 @@ export default function ListarIngredientes() {
           <Text style={styles.categoriaTopico}>Categoria</Text>
         </View>
 
-        <ScrollView>
+
+         <FlatList
+                      contentContainerStyle={{
+                        alignSelf: "center",
+                        paddingVertical: 16,
+                        gap: 10,
+                      }}
+                      data={ingredientes}
+                      renderItem={({ item }) => (
+                         <View style={styles.linhaScroll}>
+                         <Text style={styles.label}>{item.nome}</Text>
+                         <Text style={styles.label2}>{item.categoria}</Text>
+                         </View>
+                      )}
+                      scrollIndicatorInsets={false}
+                      showsHorizontalScrollIndicator={false}
+                    />
+
+        {/* <ScrollView>
 
           <View style={styles.linhaScroll}>
-            <Text style={styles.label}>Pão de forma</Text>
-            <Text style={styles.label2}>Massa</Text>
+            <Text style={styles.label}>{ingredientes.nome}</Text>
+            <Text style={styles.label2}>{ingredientes.categoria}</Text>
+          </View>
+          <View style={styles.linhaScroll}>
+            <Text style={styles.label}>{ingredientes.nome}</Text>
+            <Text style={styles.label2}>{ingredientes.categoria}</Text>
           </View>
 
           <View style={styles.linhaScroll}>
@@ -37,7 +87,7 @@ export default function ListarIngredientes() {
 
           
           
-        </ScrollView>
+        </ScrollView> */}
 
       </View>
 

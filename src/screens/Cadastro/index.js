@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Feather from "@react-native-vector-icons/feather";
 import * as ImagePicker from "expo-image-picker";
+
 import Styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
@@ -43,10 +44,6 @@ function Cadastro() {
 
     if (!result.canceled) setImage(result.assets[0].uri.toString());
   };
-
-
-  
-
 
   return (
     <SafeAreaView style={Styles.safeArea}>
@@ -97,20 +94,47 @@ function Cadastro() {
 
           <View style={Styles.forms}>
             <View style={Styles.inputs}>
-              <InputBox placeholder="Nome completo:" onChangeText={(nomeV) => {setNome(nomeV)}}/>
-              <InputBox placeholder="Informe seu email:" onChangeText={(emailvalue) => {setEmail(emailvalue)}} />
-              <InputBox placeholder="Informe sua senha:" passw={true} onChangeText={(senhavalue) => {setSenha(senhavalue)}} />
-              <InputBox placeholder="Informe seu telefone:" onChangeText={(telvalue) => {setTelefone(telvalue)}} keyboardType="numeric" />
-             
+              <InputBox
+                placeholder="Nome completo:"
+                onChangeText={(nomeV) => {
+                  setNome(nomeV);
+                }}
+              />
+              <InputBox
+                placeholder="Informe seu email:"
+                onChangeText={(emailvalue) => {
+                  setEmail(emailvalue);
+                }}
+              />
+              <InputBox
+                placeholder="Informe sua senha:"
+                passw={true}
+                onChangeText={(senhavalue) => {
+                  setSenha(senhavalue);
+                }}
+              />
+              <InputBox
+                placeholder="Informe seu telefone:"
+                onChangeText={(telvalue) => {
+                  setTelefone(telvalue);
+                }}
+                keyboardType="numeric"
+              />
             </View>
-            
-            <Button title="Cadastrar"  onPress={() => {criarAdmin({
-              nome: nome,
-              email: email,
-              senha: senha,
-              telefone: telefone,
-              dataNascimento: "2025-05-05"
-            })}}/>
+
+            <Button
+              title="Cadastrar"
+              onPress={() => {
+                criarAdmin({
+                  nome: nome,
+                  email: email,
+                  senha: senha,
+                  telefone: telefone,
+                  dataNascimento: "2025-05-05",
+                });
+                handleNavigation("Login");
+              }}
+            />
 
             <Text style={Styles.cadastroText}>
               Já possui conta?{" "}

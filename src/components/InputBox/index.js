@@ -7,12 +7,12 @@ function InputBox({ placeholder, passw = false, ...rest }) {
       style={Styles.input}
       placeholder={placeholder}
       secureTextEntry={passw}
-      {...rest}
       // onPointerCancel={}
       onPressOut={() => {
         console.log("apertou fora");
       }}
       showSoftInputOnFocus={true}
+      {...rest}
     />
   );
 }
