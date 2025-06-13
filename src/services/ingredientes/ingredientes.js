@@ -13,15 +13,15 @@ export async function getIngredientes() {
   }
 }
 
-export async function getUsuariosTeid(id) {
-  try {
-    const usuarioTEA = await api.get(`/autista/${id}`);
-    return usuarioTEA;
-  } catch (error) {
-    console.log("deu ruim")
-    console.error(error.message);
-  }
-}
+// export async function getUsuariosTeid(id) {
+//   try {
+//     const usuarioTEA = await api.get(`/autista/${id}`);
+//     return usuarioTEA;
+//   } catch (error) {
+//     console.log("deu ruim")
+//     console.error(error.message);
+//   }
+// }
 
 export async function addIngredientes(data) {
   try {
