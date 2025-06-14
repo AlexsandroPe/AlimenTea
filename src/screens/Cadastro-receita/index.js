@@ -1,38 +1,51 @@
-import {Text, TouchableOpacity, StyleSheet, View, Image, SafeAreaView, inputBox, TextInput, ScrollView} from "react-native";
-import React from "react";
+import {Text, TouchableOpacity, StyleSheet, View, Image, inputBox, TextInput, ScrollView, KeyboardAvoidingView, Platform} from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import {RadioButton} from "react-native-paper";
 import Button from "../../components/Button";
 import {useNavigation} from "@react-navigation/native";
 import InputBox from "../../components/InputBox";
+import { addReceita } from "../../services/receita/receitaServices";
 
 function CadastroReceita() {
-  
-  const [periodo, setPeriodo] = React.useState(" ");
-  const navigate = useNavigation();
 
+  const [nomeReceita, setNomereceita] = useState();
+  const [descricaoReceita, setDesc] = useState();
+  const [modoPreparo, setModoPreparao] = useState();
+
+
+  const navigation = useNavigation();
+  const handleNavigation = () => {
+    navigation.goBack();
+   }
   return (
-    <SafeAreaView style={{flex: 2}}>
-      <ScrollView style={{flex:1}}>
+  <KeyboardAvoidingView 
+  style={{ flex: 1, }} 
+  behavior={Platform.OS === "ios" ? "padding" : "height"}
+>
+ 
+    <SafeAreaView style={{flex: 1}}   keyboardShouldPersistTaps="handled">
+       <ScrollView style={{flex: 1,}}>
         <View>
           <Image
               source={require("../../assets/receita.png")}
-              style= {{width:"100%", height:310, resizeMode:"cover",}}
+              style= {{width:"100%", height:250, resizeMode:"cover",}}
           />
         </View>
 
-        <View>
+      
           <Text style={Styles.topicoReceita}>
-            Cadastrar
+            Cadastrar Receita
           </Text>
-        </View>
+
 
         <View style={Styles.textInput}>
-          <InputBox placeholder={"Nome da Receita"}/>
+          <InputBox onChangeText={(nome) => setNomereceita(nome)} placeholder={"Nome da Receita"}/>
         </View>
 
         {/*O value={periodo} informa ao componente qual botão será marcado. Primerio ele atualiza o periodo com o onValueChange, depois ele avisa qual será marcado por meio do value={periodo} :) */}
-        <RadioButton.Group onValueChange={novaOpcao => setPeriodo(novaOpcao)} value={periodo}> 
+        {/* <RadioButton.Group onValueChange={novaOpcao => setPeriodo(novaOpcao)} value={periodo}> 
           <View style={Styles.radioContainer}>  
             
             <View>
@@ -69,15 +82,15 @@ function CadastroReceita() {
 
           </View>
 
-        </RadioButton.Group>
-
+        </RadioButton.Group> */}
+      <View style={{gap: 10}}>
         <View style={Styles.containerDescricao}>
           <Text style={{alignSelf: "center"}}>
             Descrição
           </Text>
 
           <View>
-            <TextInput style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} multiline={true} />
+            <TextInput style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} multiline={true} onChangeText={(desc) => setDesc(desc)} />
           </View>
         </View>
 
@@ -87,17 +100,24 @@ function CadastroReceita() {
           </Text>
 
           <View>
-            <TextInput style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} multiline={true} />
+            <TextInput style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} onChangeText={(modo) => setModoPreparao(modo)}  multiline={true} />
           </View>
         </View>
-
+      </View>
         <View style={Styles.buttonContainer}>
-          <Button title={"Salvar"} goback={"Receita"}></Button>    
+          <Button title={"Salvar"} onPress={() => {
+            addReceita({ 
+              nomeReceita: nomeReceita,
+              descricaoReceita: descricaoReceita,
+              modoPreparo: modoPreparo,
+            });
+            handleNavigation();
+          }}></Button>    
         </View>
-      </ScrollView>
-      
+  </ScrollView>
     </SafeAreaView>
-
+ 
+</KeyboardAvoidingView>
 
   );
 }

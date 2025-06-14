@@ -1,64 +1,80 @@
-import { Text, TouchableOpacity, StyleSheet, View, Image, title, SafeAreaView, TextInput, ScrollView } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  View,
+  Image,
+  title,
+  TextInput,
+  ScrollView,
+  FlatList,
+} from "react-native";
 import Styles from "./style.js";
 import Button from "../../components/Button";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { getReceitas } from "../../services/receita/receitaServices.js";
+import { useState } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 
-function Receita(){
+function Receita() {
 
-    return(
-        <SafeAreaView style={{flex:1}}>
-            <View>
+   const [receitas, setReceitas] = useState([]);
+  
+    const callReceitas = async () => {
+      const receitasRes = await getReceitas();
+      // console.log(response);
+      if (!receitasRes.error) {
+        setReceitas(receitasRes);
+      }
+    };
+  
+    useFocusEffect(() => {
+      // setFoco(() => foco + foco)
+      callReceitas();
+      // console.log("em foco", foco)
+    });
+
+
+
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View>
+        <View>
+          <Image
+            source={require("../../assets/receita.png")}
+            style={{ width: "100%", height: 280, resizeMode: "cover" }}
+          />
+        </View>
+
+        <View style={Styles.receitaTextContainer}>
+          <Text style={{ fontSize: 32 }}> Receitas</Text>
+        </View>
+
+        <View style={Styles.receitaContainer}>
+           {receitas.length != 0 ? (
+                <FlatList
+            data={receitas}
+            renderItem={({ item }) =>
                 <View>
-                    <Image
-                    source={require('../../assets/receita.png')}
-                    style= {{width:"100%", height:310, resizeMode:"cover",}}
-                    />
+                  <Text style={{borderWidth: 1, fontSize: 16, textAlign: "center", padding: 6}}>{item.nomeReceita}</Text>
                 </View>
+            }
+            style
+            scrollIndicatorInsets={false}
+            showsHorizontalScrollIndicator={false}
+          />
+              ) : (
+                <Text style={{textAlign: "center"}}>Não há ingredientes ainda...</Text>
+              )
+            }
+        </View>
 
-                <View style={Styles.receitaTextContainer}>
-                    <Text style={{fontSize: 32}}> Receita</Text>
-                </View> 
-
-                <View style={Styles.receitaContainer}>
-                
-
-                    <View style={Styles.topicoReceitaContainer}>
-                    
-                        <Text style={Styles.textoTopicoNumero}>
-                            N
-                        </Text >
-
-                        <Text style={Styles.textoTopicoReceita}>
-                            Receita
-                        </Text>
-
-                        <Text style={Styles.textoTopicoPeriodo}>
-                            Período
-                        </Text>
-                    </View>
-                    <ScrollView>
-                        <View style={Styles.linhaContainer} > 
-                            <Text style={Styles.textoNumero}>1</Text>
-                            <Text style={Styles.textoReceita}>Panqueca</Text>
-                            <Text style={Styles.textoPeriodo}>Café da manhã</Text>
-                        </View>
-
-                        <View style={Styles.linhaContainer} > 
-                            <Text style={Styles.textoNumero}>2</Text>
-                            <Text style={Styles.textoReceita}>Pão</Text>
-                            <Text style={Styles.textoPeriodo}>Almoço</Text>
-                        </View>
-                       
-
-                    </ScrollView>
-
-                </View>
-
-                <View style={Styles.botãoContainer}>
-                    <Button title={"Adicionar"} nav={"ReceitaCadastro"}></Button>
-                </View>
-
-            </View>
-        </SafeAreaView>
-    )
+        <View style={Styles.botãoContainer}>
+          <Button title={"Adicionar"} nav={"ReceitaCadastro"} />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
 }
-export default Receita; 
+export default Receita;

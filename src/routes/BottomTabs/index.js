@@ -21,7 +21,7 @@ function BottomTabs() {
     <Navigator
       screenOptions={{
         tabBarButton: (props) => (
-          <TouchableOpacity {...props} activeOpacity={0.9} />
+          <TouchableOpacity {...props} activeOpacity={0.7} />
         ),
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -30,7 +30,9 @@ function BottomTabs() {
           height: 90,
         },
         tabBarIconStyle: { flex: 1 },
+         tabBarActiveTintColor: "white",
       }}
+
       initialRouteName="Home" >
       <Screen
         name="Home"
@@ -43,7 +45,7 @@ function BottomTabs() {
             // opacity: 0.1,
           },
 
-          tabBarIcon: () => (
+          tabBarIcon: (focused, color) => (
             <Ionicons name="home-outline" color="black" size={30} />
           ),
         }}

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, SafeAreaView} from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  
+} from "react-native";
 import styles from "./styles";
 import Button from "../../components/Button";
 import { criarAdmin } from "../../services/adminServices/adminService";
 import { addIngredientes } from "../../services/ingredientes/ingredientes";
-
+import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 export default function CadastroIngrediente() {
   const [contGluten, setContGluten] = useState(false);
   const [contLactose, setContLactose] = useState(false);
@@ -17,8 +25,9 @@ export default function CadastroIngrediente() {
     temperos: false,
   });
 
+  const navigation = useNavigation();
+
   const alterarCheckbox = (categoriaSelecionada) => {
-    
     const novasCategorias = Object.keys(categorias).reduce((acc, cat) => {
       acc[cat] = cat === categoriaSelecionada;
       return acc;
@@ -32,7 +41,7 @@ export default function CadastroIngrediente() {
   };
 
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <Image
           source={{
@@ -57,7 +66,10 @@ export default function CadastroIngrediente() {
             onPress={() => alterarCheckbox("lacticinios")}
             style={styles.checkboxRow}>
             <View
-              style={[styles.checkbox, categorias.lacticinios && styles.checkedBox]}
+              style={[
+                styles.checkbox,
+                categorias.lacticinios && styles.checkedBox,
+              ]}
             />
             <Text style={styles.checkboxLabel}>Lacticinios</Text>
           </TouchableOpacity>
@@ -66,7 +78,10 @@ export default function CadastroIngrediente() {
             onPress={() => alterarCheckbox("proteinas")}
             style={styles.checkboxRow}>
             <View
-              style={[styles.checkbox, categorias.proteinas && styles.checkedBox]}
+              style={[
+                styles.checkbox,
+                categorias.proteinas && styles.checkedBox,
+              ]}
             />
             <Text style={styles.checkboxLabel}>Proteínas</Text>
           </TouchableOpacity>
@@ -75,7 +90,10 @@ export default function CadastroIngrediente() {
             onPress={() => alterarCheckbox("vegetais")}
             style={styles.checkboxRow}>
             <View
-              style={[styles.checkbox, categorias.vegetais && styles.checkedBox]}
+              style={[
+                styles.checkbox,
+                categorias.vegetais && styles.checkedBox,
+              ]}
             />
             <Text style={styles.checkboxLabel}>Vegetais e Legumes</Text>
           </TouchableOpacity>
@@ -96,7 +114,10 @@ export default function CadastroIngrediente() {
             onPress={() => alterarCheckbox("temperos")}
             style={styles.checkboxRow}>
             <View
-              style={[styles.checkbox, categorias.temperos && styles.checkedBox]}
+              style={[
+                styles.checkbox,
+                categorias.temperos && styles.checkedBox,
+              ]}
             />
             <Text style={styles.checkboxLabel}>
               Temperos, Molhos e Complementos
@@ -113,24 +134,28 @@ export default function CadastroIngrediente() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() =>{ 
-              setContLactose(!contLactose)
+            onPress={() => {
+              setContLactose(!contLactose);
             }}
             style={styles.checkboxRow}>
             <View style={[styles.checkbox, contLactose && styles.checkedBox]} />
             <Text style={styles.checkboxLabel}>Contém Lactose</Text>
           </TouchableOpacity>
 
-          <Button title="Salvar" onPress={() => {
-            addIngredientes({
-                  nome: nome,
-                  categorias: Object.entries(categorias).find(value => {
-        return value[1]=== true;
-    }),
-                  gluten: contGluten,
-                  lactose: contLactose,
-                });
-          }} goback={true}/>
+          <Button
+            title="Salvar"
+            onPress={() => {
+              addIngredientes({
+                nome: nome,
+                categorias: Object.entries(categorias).find((value) => {
+                  return value[1] === true;
+                }),
+                gluten: contGluten,
+                lactose: contLactose,
+              });
+              navigation.goBack();
+            }}
+          />
         </View>
       </View>
     </SafeAreaView>

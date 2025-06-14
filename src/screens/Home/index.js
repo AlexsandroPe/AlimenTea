@@ -34,21 +34,14 @@ function Home() {
     // console.log(response);
     if(!response.error){
       setUsuariosTea(response);
-
     }
-
-    
   }
 
-
-  
   useFocusEffect(() => {
     // setFoco(() => foco + foco)
         callUsuariosTea();
     // console.log("em foco", foco)
   })
-
-
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["left", "right"]}>

@@ -37,7 +37,7 @@ function PerfilAutista() {
         <View style={{ width: "100%", alignItems: "center", marginTop: 10 }}>
           <Text style={{ fontWeight: "bold", fontSize: 20 }}>
             {autista.name
-              ? autista.name
+              ? autista.name 
               : "Aguardando selecionar na tela inicial..."}
           </Text>
         </View>

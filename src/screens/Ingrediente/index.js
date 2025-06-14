@@ -32,7 +32,7 @@ export default function ListarIngredientes() {
   });
 
   return (
-    <SafeAreaView style={styles.container} edges={["left"]}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={{ gap: 10 }}>
         <Image
           source={{

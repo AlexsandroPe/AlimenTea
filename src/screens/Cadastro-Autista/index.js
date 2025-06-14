@@ -62,7 +62,7 @@ function CadastroAutista() {
     alergia,
     intolerancia
   ) => {
- const res =  await adicionarTeaUsers({
+    const res = await adicionarTeaUsers({
       nome: name,
       imagem: image,
       dataNascimento: dataNascimento,
@@ -71,7 +71,7 @@ function CadastroAutista() {
       intolerancia: intolerancia,
       parentesco: "Pais",
     });
-    console.log("Criou ", res)
+    console.log("Criou ", res);
   };
 
   function aoMudar(event, novaData) {
@@ -97,7 +97,7 @@ function CadastroAutista() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ gap: 8, padding: 16 }}>
+      <ScrollView style={{ gap: 8, padding: 16 }}>
         <ImageBackground
           resizeMode="cover"
           source={image ? { uri: image } : require("../../assets/nophoto.png")}
@@ -205,7 +205,7 @@ function CadastroAutista() {
             handleCadastroAut(
               nome,
               image,
-              (dataSelecionada.toISOString()).split('T')[0],
+              dataSelecionada.toISOString().split("T")[0],
               valorEspectro,
               valorAlergia,
               valorIntolerancia
@@ -214,7 +214,7 @@ function CadastroAutista() {
             setValorEspectro("");
             setValorAlergia("");
             setValorIntolerancia("");
-            setImage("")
+            setImage("");
             setDataSelecionada(new Date());
             nav.goBack();
           }}>
@@ -230,7 +230,7 @@ function CadastroAutista() {
             Salvar
           </Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
