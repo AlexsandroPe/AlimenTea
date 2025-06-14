@@ -19,13 +19,21 @@ import { useFocusEffect } from "@react-navigation/native";
 function Receita() {
 
    const [receitas, setReceitas] = useState([]);
-  
+   const [receitaState, setReceitaState] = useState(Boolean);
     const callReceitas = async () => {
       const receitasRes = await getReceitas();
-      // console.log(response);
-      if (!receitasRes.error) {
+      if(receitasRes.length == 0) {
+        setReceitaState(true);
+        setReceitas([]);
+      } else {
+        setReceitaState(false);
         setReceitas(receitasRes);
       }
+
+      // if (!receitasRes.error) {
+      //   //  console.log("receitasRes:", typeof receitasRes);
+      //   setReceitas(receitasRes);
+      // }
     };
   
     useFocusEffect(() => {
@@ -52,7 +60,7 @@ function Receita() {
         </View>
 
         <View style={Styles.receitaContainer}>
-           {receitas.length != 0 ? (
+           {!receitaState ? (
                 <FlatList
             data={receitas}
             renderItem={({ item }) =>
@@ -60,7 +68,7 @@ function Receita() {
                   <Text style={{borderWidth: 1, fontSize: 16, textAlign: "center", padding: 6}}>{item.nomeReceita}</Text>
                 </View>
             }
-            style
+          
             scrollIndicatorInsets={false}
             showsHorizontalScrollIndicator={false}
           />

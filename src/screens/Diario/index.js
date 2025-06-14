@@ -30,8 +30,8 @@ function Diario(){
                 <View style={Styles.rotinaContainer}>
                     <View style={Styles.topicosContainer}>  
                         <Text style={Styles.textoTopicoData}>Data</Text>
-                        <Text style={Styles.textoTopicoRefeicao}>Refeição</Text>
                         <Text style={Styles.textoTopicoReceita}>Receita</Text>
+                        <Text style={Styles.textoTopicoRefeicao}>Refeição</Text>
                     </View>
                     
                     <ScrollView style={Styles.scrollContainer}>

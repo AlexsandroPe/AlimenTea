@@ -4,9 +4,7 @@ import api from "../api.js";
 export async function getReceitas() {
   try {
     const receitas = await api.get("/receitas");
-    // console.log( typeof ingredites)
-    // console.log(ingredites.data[0])
-    // console.debug("userTea services: ",  Object.entries(usuariosTEA.data))
+    // console.log(receitas.data);
     return receitas.data;
   } catch (error) {
     console.error(error);
@@ -33,6 +31,7 @@ export async function addReceita(data) {
     //     return value[1] === true;
     // })
     // console.log(dataFormat)
+
     const receitaRes= await api.post("/receita", data);
     console.log("Receita Criada:", receitaRes.data);
   } catch (error) {
