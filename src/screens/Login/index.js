@@ -73,7 +73,7 @@ function Login() {
               style={{
                 alignSelf: "flex-end",
                 color: "#2B59C3",
-                marginTop: 8,
+                fontSize: 15
               }}
               onPress={() => handleNavigation("RecuperarSenha")}>
               Esqueci minha senha

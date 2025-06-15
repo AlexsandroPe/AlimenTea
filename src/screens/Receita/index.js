@@ -19,6 +19,7 @@ import { useFocusEffect } from "@react-navigation/native";
 function Receita() {
 
    const [receitas, setReceitas] = useState([]);
+   
    const [receitaState, setReceitaState] = useState(Boolean);
     const callReceitas = async () => {
       const receitasRes = await getReceitas();
@@ -50,7 +51,7 @@ function Receita() {
       <View>
         <View>
           <Image
-            source={require("../../assets/receita.png")}
+            source={require("../../assets/receitas2.png")}
             style={{ width: "100%", height: 280, resizeMode: "cover" }}
           />
         </View>
@@ -68,7 +69,6 @@ function Receita() {
                   <Text style={{borderWidth: 1, fontSize: 16, textAlign: "center", padding: 6}}>{item.nomeReceita}</Text>
                 </View>
             }
-          
             scrollIndicatorInsets={false}
             showsHorizontalScrollIndicator={false}
           />

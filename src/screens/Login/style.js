@@ -37,13 +37,15 @@ const Styles = StyleSheet.create({
     paddingVertical: 24,
     paddingHorizontal: 27,
     // borderWidth: 1,
-    justifyContent: "space-evenly",
+    gap: 20,
     alignItems: "center",
   },
 
   inputs: {
     flex: 1,
+    paddingTop: 20,
     // borderWidth: 1,
+    // justifyContent: "center",
     gap: 20,
   },
 

@@ -13,14 +13,6 @@ import Button from "../../components/Button";
 import { useNavigation,useFocusEffect, } from "@react-navigation/native";
 import { getUsuariosTea } from "../../services/usuariosTeaServices/";
 
-// const images = [
-//   { id: 1, name: "Arthur", url: "https://placecats.com/millie/400/200" },
-//   { id: 2, name: "Maria", url: "https://placecats.com/millie/400/200" },
-//   { id: 3, name: "Pedro", url: "https://placecats.com/millie/400/200" },
-//   { id: 4, name: "Ana", url: "https://placecats.com/millie/400/200" },
-//   { id: 5, name: "João", url: "https://placecats.com/millie/400/200" },
-// ];
-
 function Home() {
   const [click, setClick] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
@@ -60,7 +52,15 @@ function Home() {
               data={usuariosTea}
               renderItem={({ item }) => (
                 <TouchableOpacity
+                  onLongPress={() => { 
+                    // setClick("");
+                    // setImageUrl("");
+                    // setName({});
+                    // setClick(false)
+                    // navigation.navigate("AdminProfile")
+                  }}
                   onPress={() => {
+                  
                     setClick(item.id);
                     setImageUrl(item.imgtea);
                     setName({ ...autista, name: item.nome, image: item.imgtea, id: item.id});
@@ -70,10 +70,11 @@ function Home() {
                     source={{ uri: item.imgtea }}
                     style={
                       click === item.id
-                        ? { height: 130, width: 130, borderRadius: 100 }
-                        : { height: 100, width: 100, borderRadius: 100 }
+                      ? { height: 150, width: 150, borderRadius: 100, borderWidth: 2   }
+                      : { height: 130, width: 130, borderRadius: 100, }
                     }
                   />
+
                 </TouchableOpacity>
               )}
               keyExtractor={(item) => item.id.toString()}

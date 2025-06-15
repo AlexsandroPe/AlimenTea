@@ -1,13 +1,11 @@
-import React, { Children, useContext } from "react";
+import  {useContext } from "react";
 import {
-  BottomTabBarHeightCallbackContext,
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
-import { Image, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import Home from "../../screens/Home";
 import AdminProfile from "../../screens/AdminProfile";
 import PerfilAutista from "../../screens/Perfil-Autista";
-import Feather from "@react-native-vector-icons/feather";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import CadastroAutista from "../../screens/Cadastro-Autista";
@@ -44,7 +42,12 @@ function BottomTabs() {
             backgroundColor: "#c2c2c2",
             // opacity: 0.1,
           },
-
+          
+           headerRight: () => (
+            <TouchableOpacity style={{paddingRight: 20}}>
+              <Ionicons name="menu-outline" color="black" size={28}/>
+            </TouchableOpacity>
+          ),
           tabBarIcon: (focused, color) => (
             <Ionicons name="home-outline" color="black" size={30} />
           ),

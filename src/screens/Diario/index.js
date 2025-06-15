@@ -1,8 +1,28 @@
-import { Text, TouchableOpacity, StyleSheet, View, Image, title, SafeAreaView, TextInput, ScrollView } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View, Image, title, SafeAreaView, TextInput, ScrollView, FlatList } from "react-native";
 import Styles from "./style.js";
 import Button from "../../components/Button";
+import { getDiario } from "../../services/diario/diarioService.js";
+import { useFocusEffect } from "@react-navigation/native";
+import { useState } from "react";
 
 function Diario(){
+
+
+    const [diario, setDiario] = useState({});
+
+  const callDiario = async () => {
+    const response = await getDiario();
+    // console.log(response);
+    if (!response.error) {
+      setDiario(response);
+    }
+  };
+
+  useFocusEffect(() => {
+    // setFoco(() => foco + foco)
+    callDiario();
+    // console.log("em foco", foco)
+  });
 
     return(
         <SafeAreaView style={{flex: 1}}>
@@ -27,8 +47,28 @@ function Diario(){
                 </View>
 
                 
-                <View style={Styles.rotinaContainer}>
-                    <View style={Styles.topicosContainer}>  
+    <View style={Styles.rotinaContainer}>
+            <View style={Styles.topicosContainer}>  
+                        <Text style={Styles.textoTopicoData}>Data</Text>
+                        <Text style={Styles.textoTopicoReceita}>Receita</Text>
+                        <Text style={Styles.textoTopicoRefeicao}>Refeição</Text>
+            </View>
+                    
+          <FlatList
+            
+            data={diario}
+            renderItem={({ item }) =>
+                <View style={{flexDirection: "row", gap: 60}} >
+                  <Text >{item.data}</Text>
+                  <Text >{item.nomeReceita}</Text>
+                  <Text >{item.refeicaodia}</Text>
+                </View>
+            }
+           keyExtractor={(item) => item.data.toString()}
+            scrollIndicatorInsets={false}s
+            showsHorizontalScrollIndicator={false}
+          />
+                    {/* <View style={Styles.topicosContainer}>  
                         <Text style={Styles.textoTopicoData}>Data</Text>
                         <Text style={Styles.textoTopicoReceita}>Receita</Text>
                         <Text style={Styles.textoTopicoRefeicao}>Refeição</Text>
@@ -55,9 +95,9 @@ function Diario(){
                             <Text style={Styles.textoReceita}> Pão</Text>
                             <Text style={Styles.textoRefeicao}> Almoço</Text>
                         </View> 
-                                                            
-                    </ScrollView>
-                </View>
+                                                             }
+                 </ScrollView> */}
+    </View>
                 <View style={Styles.buttonContainer}>
                     <Button title={"Adicionar"} nav={"DiarioCadastro"}></Button>
                 </View>

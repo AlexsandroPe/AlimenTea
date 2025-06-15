@@ -29,7 +29,7 @@ function PerfilAutista() {
       <View style={{ flex: 1 }}>
         <View>
           <Image
-            source={{ uri: autista.image }}
+            source={autista.image ? {uri: autista.image}: require("../../assets/nophoto.png")}
             style={{ width: 412, height: 310, resizeMode: "cover" }}
           />
         </View>

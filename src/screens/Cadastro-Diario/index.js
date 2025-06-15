@@ -6,7 +6,9 @@ import { Button } from "react-native-paper";
 import {RadioButton} from "react-native-paper";
 import React from "react";
 import DropDownPicker from "react-native-dropdown-picker";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { getReceitas } from "../../services/receita/receitaServices";
+
 
 function CadastroDiario() {
   const [dataSelecionada, setDataSelecionada] = useState(new Date());
@@ -15,12 +17,9 @@ function CadastroDiario() {
 
   const [abrir, setAbrir] = useState(false);
   const [valorSelecionado, setValorSelecionado] = useState(null);
-  const [itens, setItens] = useState([
-    {label: "Bolo de banana", value:"boloDeBanana"},
-    {label: "Tapioca recheada", value: "tapiocaRecheada"},
-    {label: "Pão de Queijo", value: "paoDeQueijo"},
-  
-  ])
+
+  // const [receitas, setReceitas] = useState([]);
+  const [itens, setItens] = useState();
 
   const nav = useNavigation()
   function aoMudar (event, novaData){
@@ -30,11 +29,28 @@ function CadastroDiario() {
       setDataSelecionada(novaData)
     }
   };
+      // const callReceitas = async () => {
+      //   const receitasRes = await getReceitas();
+      //   setItens(receitasRes);
+      //     // setReceitaState(false);
+      //   // if (!receitasRes.error) {
+      //   //   //  console.log("receitasRes:", typeof receitasRes);
+      //   //   setReceitas(receitasRes);
+      //   // }
+      // };
+
+
+    
+      // useFocusEffect(() => {
+       
+      //     callReceitas();
+      //   // setFoco(() => foco + foco)
+      //   // console.log("em foco", foco)
+      // });
 
   return (
     <SafeAreaView style={{flex: 2}}>
       <ScrollView style={{flex:1}}>
-        
         <View>
             <Image
             source={require('../../assets/diario.png')}
@@ -122,14 +138,14 @@ function CadastroDiario() {
         </View>
 
         <View>
-          <TouchableOpacity style={Styles.buttonContainer} activeOpacity={0.96} onPress={() => nav.goBack()}>
+          <TouchableOpacity style={Styles.buttonContainer} activeOpacity={0.96} 
+          onPress={() => {
+          
+            nav.goBack()
+            }}>
             <Text style={{color: "#fff",fontSize: 20,width: "100%", textAlign: "center", marginTop: 8}}> Salvar</Text>
           </TouchableOpacity>
         </View>
-        
-
-
-
       </ScrollView>
     </SafeAreaView>
 
