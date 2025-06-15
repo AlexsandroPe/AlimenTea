@@ -22,9 +22,9 @@ export async function getUsuariosTeid(id) {
 
 export async function adicionarTeaUsers(data) {
   try {
-    console.log(data)
+    // console.log(data)
     const responde = await api.post("/autista", data);
-    console.log("Post Criado:", responde.data);
+    // console.log("Post Criado:", responde.data);
   } catch (error) {
     console.error("Erro ao criar post:", error);
   }

@@ -1,8 +1,9 @@
 import api from "../api.js";
 
-export async function getDiario() {
+export async function getDiario(id) {
   try {
-    const receitas = await api.get("/diario");
+    // console.log("diarioService: ", id)
+    const receitas = await api.get(`/diario/${id}`);
     console.log(receitas.data);
     return receitas.data;
   } catch (error) {
@@ -20,7 +21,7 @@ export async function getDiario() {
 //   }
 // }
 
-export async function addReceita(data) {
+export async function addDiario(data) {
   try {
     console.log("receita Service ", data)
     // while(Object.keys(data.categorias) == true ){ 
@@ -31,8 +32,8 @@ export async function addReceita(data) {
     // })
     // console.log(dataFormat)
 
-    const receitaRes= await api.post("/receita", data);
-    console.log("Receita Criada:", receitaRes.data);
+    const diarioRes= await api.post("/diario", data);
+    // console.log("Receita Criada:", diarioRes.data);
   } catch (error) {
     console.error("Erro ao criar receita:", error);
   }

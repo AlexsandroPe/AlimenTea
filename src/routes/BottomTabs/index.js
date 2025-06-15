@@ -85,7 +85,10 @@ function BottomTabs() {
         name="AdminProfile"
         component={AdminProfile}
         options={{
-          headerShown: false,
+          
+          title:"",
+          headerShown: true,
+          headerTransparent: true,
           tabBarIcon: ({ focused }) => (
             <Ionicons
               name="settings-outline"
@@ -93,6 +96,12 @@ function BottomTabs() {
               size={33}
             />
           ),
+          headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+            <Ionicons name="menu-sharp" color="black" size={30}/>
+            </TouchableOpacity>
+          ),
+          headerRightContainerStyle: {alignItems: "center", paddingRight: 30, paddingTop: 30}
         }}
       />
     </Navigator>

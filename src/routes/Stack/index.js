@@ -43,7 +43,7 @@ function StackNav() {
       <Screen
         name="Ingredientes"
         component={ListarIngredientes}
-        options={{ headerShown: true, headerTintColor: "#000", title: ""}}
+        options={{ headerShown: true, presentation: "modal", headerTintColor: "#000", title: ""}}
       />
 
       <Screen

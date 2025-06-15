@@ -1,18 +1,24 @@
-import { Text, TouchableOpacity, StyleSheet, View, Image, title, SafeAreaView, TextInput, ScrollView, FlatList } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View, Image, title, SafeAreaView, TextInput, ScrollView, FlatList, RefreshControl } from "react-native";
 import Styles from "./style.js";
 import Button from "../../components/Button";
 import { getDiario } from "../../services/diario/diarioService.js";
 import { useFocusEffect } from "@react-navigation/native";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Autista } from "../../contexts/autistContext.js";
 
 function Diario(){
 
-
+    const {autista}= useContext(Autista)
     const [diario, setDiario] = useState({});
-
-  const callDiario = async () => {
-    const response = await getDiario();
-    // console.log(response);
+    const [receitaId, setReceitaId] = useState()
+  const callDiario = async (id) => {
+    const response = await getDiario(id);
+    // console.log(response)
+    const [receitaId] = response.map((item) => {
+    return item.id;
+    });
+    // console.log("id", receitaId)
+    setReceitaId(receitaId)
     if (!response.error) {
       setDiario(response);
     }
@@ -20,15 +26,13 @@ function Diario(){
 
   useFocusEffect(() => {
     // setFoco(() => foco + foco)
-    callDiario();
+    callDiario(autista.id);
     // console.log("em foco", foco)
   });
 
     return(
         <SafeAreaView style={{flex: 1}}>
             <View>
-
-                   
                 <View>
                     <Image
                     source={require('../../assets/diario.png')}
@@ -45,7 +49,6 @@ function Diario(){
                         Diário
                     </Text>
                 </View>
-
                 
     <View style={Styles.rotinaContainer}>
             <View style={Styles.topicosContainer}>  
@@ -53,7 +56,6 @@ function Diario(){
                         <Text style={Styles.textoTopicoReceita}>Receita</Text>
                         <Text style={Styles.textoTopicoRefeicao}>Refeição</Text>
             </View>
-                    
           <FlatList
             
             data={diario}
@@ -64,8 +66,8 @@ function Diario(){
                   <Text >{item.refeicaodia}</Text>
                 </View>
             }
-           keyExtractor={(item) => item.data.toString()}
-            scrollIndicatorInsets={false}s
+           keyExtractor={(item) => item.refeicaodia}
+            scrollIndicatorInsets={false}
             showsHorizontalScrollIndicator={false}
           />
                     {/* <View style={Styles.topicosContainer}>  

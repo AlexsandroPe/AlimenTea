@@ -23,7 +23,10 @@ function Home() {
 
   const callUsuariosTea = async () => {
     const response = await getUsuariosTea();
-    // console.log(response);
+    // console.log(response.map((item) => { 
+    //   return item
+    // }))
+    // console.log(response);s
     if(!response.error){
       setUsuariosTea(response);
     }
@@ -60,12 +63,12 @@ function Home() {
                     // navigation.navigate("AdminProfile")
                   }}
                   onPress={() => {
-                  
+                    console.log(item.id);
                     setClick(item.id);
                     setImageUrl(item.imgtea);
-                    setName({ ...autista, name: item.nome, image: item.imgtea, id: item.id});
+                    setName({...autista, name: item.nome, image: item.imgtea, id: item.id, });
                   }}
-                  activeOpacity={0.9}>
+                  activeOpacity={0.9}> 
                   <Image
                     source={{ uri: item.imgtea }}
                     style={

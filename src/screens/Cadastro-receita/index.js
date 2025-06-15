@@ -6,7 +6,7 @@ import {RadioButton} from "react-native-paper";
 import Button from "../../components/Button";
 import {useNavigation} from "@react-navigation/native";
 import InputBox from "../../components/InputBox";
-import { addReceita } from "../../services/receita/receitaServices";
+import { addReceita } from "../../services/receita/receitaServices.js";
 
 function CadastroReceita() {
 
