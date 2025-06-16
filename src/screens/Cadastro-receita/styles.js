@@ -6,7 +6,8 @@ const Styles = StyleSheet.create ({
         alignSelf: "center"
     },
     textInput:{
-        marginTop: 20
+        marginTop: 25,
+        
     },
     radioContainer:{
         flexDirection: "row",
@@ -75,7 +76,7 @@ const Styles = StyleSheet.create ({
     buttonContainer:{
         marginTop: 100,
         alignSelf: "center",
-        bottom: 60
+        
     }
 
 

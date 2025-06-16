@@ -7,6 +7,8 @@ import {
   Pressable,
   Touchable,
   KeyboardAvoidingView,
+  ScrollView,
+  Platform
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Feather from "@react-native-vector-icons/feather";
@@ -50,78 +52,82 @@ function Cadastro() {
 
   return (
     <SafeAreaView style={Styles.safeArea}>
-      <KeyboardAvoidingView style={Styles.safeArea}>
-        <ImageBackground
-          resizeMethod="auto"
-          resizeMode="cover"
-          source={require("../../assets/cadastroBG3.png")}
-          style={Styles.bgContainer}>
-          <View style={Styles.userImageProfile}>
-            <Pressable onPress={pickImage}>
-              <Image
-                source={
-                  image
-                    ? { uri: image }
-                    : require("../../assets/noProfilePhoto.png")
-                }
-                style={{
-                  width: 140,
-                  height: 140,
-                  borderRadius: 100,
-                }}
-              />
-
-              {!image && (
-                <Feather
-                  name="camera"
-                  size={28}
+      <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={10}>
+        <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
+          <ImageBackground
+            resizeMethod="auto"
+            resizeMode="cover"
+            source={require("../../assets/cadastroBG3.png")}
+            style={Styles.bgContainer}>
+            <View style={Styles.userImageProfile}>
+              <Pressable onPress={pickImage}>
+                <Image
+                  source={
+                    image
+                      ? { uri: image }
+                      : require("../../assets/noProfilePhoto.png")
+                  }
                   style={{
-                    position: "absolute",
-                    left: 56,
-                    top: 55,
-                    zIndex: 1,
+                    width: 140,
+                    height: 140,
+                    borderRadius: 100,
                   }}
-                  color="#636363"
                 />
-              )}
-            </Pressable>
 
-            {/* 
-              Precisa ver depois esse icon
-            
-            {!image && <Feather name="trash" size={25} color="#636363" />} 
+                {!image && (
+                  <Feather
+                    name="camera"
+                    size={28}
+                    style={{
+                      position: "absolute",
+                      left: 56,
+                      top: 55,
+                      zIndex: 1,
+                    }}
+                    color="#636363"
+                  />
+                )}
+              </Pressable>
+
+              {/* 
+                Precisa ver depois esse icon
               
-            
-            */}
-          </View>
-
-          <View style={Styles.forms}>
-            <View style={Styles.inputs}>
-              <InputBox placeholder="Nome completo:" onChangeText={(nomeV) => {setNome(nomeV)}}/>
-              <InputBox placeholder="Informe seu email:" onChangeText={(emailvalue) => {setEmail(emailvalue)}} />
-              <InputBox placeholder="Informe sua senha:" passw={true} onChangeText={(senhavalue) => {setSenha(senhavalue)}} />
-              <InputBox placeholder="Informe seu telefone:" onChangeText={(telvalue) => {setTelefone(telvalue)}} keyboardType="numeric" />
-             
+              {!image && <Feather name="trash" size={25} color="#636363" />} 
+                
+              
+              */}
             </View>
-            
-            <Button title="Cadastrar"  onPress={() => {criarAdmin({
-              nome: nome,
-              email: email,
-              senha: senha,
-              telefone: telefone,
-              dataNascimento: "2025-05-05"
-            })}}/>
 
-            <Text style={Styles.cadastroText}>
-              Já possui conta?{" "}
-              <Text
-                onPress={() => handleNavigation("Login")}
-                style={Styles.cadastroLink}>
-                Entrar
+            <View style={Styles.forms}>
+              <View style={Styles.inputs}>
+                <InputBox placeholder="Nome completo:" onChangeText={(nomeV) => {setNome(nomeV)}}/>
+                <InputBox placeholder="Informe seu email:" onChangeText={(emailvalue) => {setEmail(emailvalue)}} />
+                <InputBox placeholder="Informe sua senha:" passw={true} onChangeText={(senhavalue) => {setSenha(senhavalue)}} />
+                <InputBox placeholder="Informe seu telefone:" onChangeText={(telvalue) => {setTelefone(telvalue)}} keyboardType="numeric" />
+              
+              </View>
+              
+              <Button title="Cadastrar"  onPress={() => {criarAdmin({
+                nome: nome,
+                email: email,
+                senha: senha,
+                telefone: telefone,
+                dataNascimento: "2025-05-05"
+              })}}/>
+
+              <Text style={{fontSize: 20}}>
+                Já possui conta?{" "}
+                <Text
+                  onPress={() => handleNavigation("Login")}
+                  style={{color: "blue"}}
+                  >
+                  Entrar
+                </Text>
               </Text>
-            </Text>
-          </View>
-        </ImageBackground>
+            </View>
+          </ImageBackground>
+
+        </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
