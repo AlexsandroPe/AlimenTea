@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create({
   imageContainer: {
-    height: 390,
+    height: 400,
   },
   imageContainerKeyboardAct: {
     height: 350,
@@ -10,7 +10,6 @@ const Styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    // borderWidth: 1,
     backgroundColor: "#F7F5F5",
   },
 
@@ -36,26 +35,23 @@ const Styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 24,
     paddingHorizontal: 27,
-    // borderWidth: 1,
-    gap: 20,
+    justifyContent: "space-evenly",
     alignItems: "center",
+    
   },
 
   inputs: {
-    flex: 1,
-    paddingTop: 20,
-    // borderWidth: 1,
-    // justifyContent: "center",
+   
     gap: 20,
   },
 
   cadastroText: {
     fontSize: 18,
+    marginTop: 30
   },
 
   cadastroLink: {
-    color: "#2743FA",
-    textDecorationLine: "underline",
+    color: "blue",
     fontSize: 18,
   },
 });

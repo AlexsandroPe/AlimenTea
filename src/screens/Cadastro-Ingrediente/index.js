@@ -43,24 +43,25 @@ export default function CadastroIngrediente() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <Image
-          source={{
-            uri: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*kHkPg5ZbmgbuRFv9bv3IoQ.jpeg",
-          }}
-          style={styles.image}
-          resizeMode="cover"
-        />
-        <View style={styles.formContainer}>
-          <Text style={styles.title}>Cadastro de Ingrediente</Text>
-
-          <TextInput
-            style={styles.input}
-            placeholder="Nome do ingrediente"
-            value={nome}
-            onChangeText={setNome}
+        
+          <Image
+            source={{
+              uri: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*kHkPg5ZbmgbuRFv9bv3IoQ.jpeg",
+            }}
+            style={styles.image}
+            resizeMode="cover"
           />
+          <View style={styles.formContainer}>
+            <Text style={styles.title}>Cadastro de Ingrediente</Text>
 
-          <Text style={styles.titlesimple}>Categoria de Ingrediente</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Nome do ingrediente"
+              value={nome}
+              onChangeText={setNome}
+            />
+
+            <Text style={styles.titlesimple}>Categoria de Ingrediente</Text>
 
           <TouchableOpacity
             onPress={() => alterarCheckbox("lacticinios")}
@@ -98,17 +99,17 @@ export default function CadastroIngrediente() {
             <Text style={styles.checkboxLabel}>Vegetais e Legumes</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={() => alterarCheckbox("carboidratos")}
-            style={styles.checkboxRow}>
-            <View
-              style={[
-                styles.checkbox,
-                categorias.carboidratos && styles.checkedBox,
-              ]}
-            />
-            <Text style={styles.checkboxLabel}>Grãos, Massas e Tubérculos</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => alterarCheckbox("carboidratos")}
+              style={styles.checkboxRow}>
+              <View
+                style={[
+                  styles.checkbox,
+                  categorias.carboidratos && styles.checkedBox,
+                ]}
+              />
+              <Text style={styles.checkboxLabel}>Grãos, Massas e Tubérculos</Text>
+            </TouchableOpacity>
 
           <TouchableOpacity
             onPress={() => alterarCheckbox("temperos")}
@@ -124,14 +125,14 @@ export default function CadastroIngrediente() {
             </Text>
           </TouchableOpacity>
 
-          <Text style={styles.titlesimple}>Restrições Alimentares</Text>
+            <Text style={styles.titlesimple}>Restrições Alimentares</Text>
 
-          <TouchableOpacity
-            onPress={() => setContGluten(!contGluten)}
-            style={styles.checkboxRow}>
-            <View style={[styles.checkbox, contGluten && styles.checkedBox]} />
-            <Text style={styles.checkboxLabel}>Contém Glúten</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setContGluten(!contGluten)}
+              style={styles.checkboxRow}>
+              <View style={[styles.checkbox, contGluten && styles.checkedBox]} />
+              <Text style={styles.checkboxLabel}>Contém Glúten</Text>
+            </TouchableOpacity>
 
           <TouchableOpacity
             onPress={() => {

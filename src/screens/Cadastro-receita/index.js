@@ -62,25 +62,25 @@ function CadastroReceita() {
               </View>
             </View>  
 
-          </View>
-
-          <View style={Styles.radioContainer2}>
-
-            <View>
-              <Text style={Styles.textoTarde}>Café da tarde</Text>
-              <View style={Styles.tarde}> 
-                <RadioButton value="Café da tarde"/>  
-              </View>
-            </View>  
-            
-              <View>
-              <Text style={Styles.textoJanta}>Janta</Text>
-              <View style={Styles.janta}>
-                <RadioButton value="Janta"/>  
-              </View>
             </View>
 
-          </View>
+            <View style={Styles.radioContainer2}>
+
+              <View>
+                <Text style={Styles.textoTarde}>Café da tarde</Text>
+                <View style={Styles.tarde}> 
+                  <RadioButton value="Café da tarde"/>  
+                </View>
+              </View>  
+              
+                <View>
+                <Text style={Styles.textoJanta}>Janta</Text>
+                <View style={Styles.janta}>
+                  <RadioButton value="Janta"/>  
+                </View>
+              </View>
+
+            </View>
 
         </RadioButton.Group> */}
       <View style={{gap: 10}}>
@@ -94,10 +94,10 @@ function CadastroReceita() {
           </View>
         </View>
 
-        <View style={Styles.containerDescricao}>
-          <Text style={{alignSelf: "center"}}>
-            Modo de preparo
-          </Text>
+          <View style={Styles.containerDescricao}>
+            <Text style={{alignSelf: "center"}}>
+              Modo de preparo
+            </Text>
 
           <View>
             <TextInput style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} onChangeText={(modo) => setModoPreparao(modo)}  multiline={true} />

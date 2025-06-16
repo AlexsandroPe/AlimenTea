@@ -41,10 +41,11 @@ const Styles = StyleSheet.create({
   },
 
   inputs: {
-    // borderWidth: 1,
+     
     justifyContent: "center",
     flex: 1,
     gap: 20,
+    marginTop: 80
   },
 });
 

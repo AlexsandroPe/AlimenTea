@@ -78,67 +78,67 @@ function CadastroDiario() {
             />
         </View>
 
-        <View style={Styles.autistaContainer}>
-            <Image
-            source={require('../../assets/autista.png')}
-            style= {{width:100, height:100, borderRadius:100}}
-            />
-            <Text style={{fontSize: 35, fontWeight:"bold"}}>
-                Registrar Diário
-            </Text>
-
-        </View>
-
-        <View style={Styles.dateInput}>
-         <Text style={{alignSelf: "center", marginLeft: 50}}> Data: {dataSelecionada.toLocaleDateString()} </Text>
-         
-         <View style={{width: 250, position: "absolute", height: 50,}}>
-           <Button onPress={() => setMostrar(true)} > </Button>
-         </View>
-         {/*Se mostrar for (true), ele vai executar o datetimepicker*/}
-         {mostrar && ( 
-            <DateTimePicker 
-             value={dataSelecionada}
-             mode="date"
-             onChange={aoMudar}
-            />
-         )}
-        </View>
-
-        
-        <RadioButton.Group onValueChange={novaOpcao => setPeriodo(novaOpcao)} value={periodo}> 
-          <View style={Styles.containerRadio}>
-
-            <View>
-              <Text>Café da Manhã </Text>
-              <View>
-                <RadioButton value="Café da manhã"/>
-              </View>
-            </View>
-
-            <View>
-              <Text>Almoço </Text>
-              <View>
-                <RadioButton value="Almoço"/>
-              </View>
-            </View>
-
-            <View>
-              <Text>Café da tarde</Text>
-              <View>
-                <RadioButton value="Café da tarde"/>
-              </View>
-            </View>
-
-            <View>
-              <Text>Janta </Text>
-              <View>
-                <RadioButton value="Janta"/>
-              </View>
-            </View>
+          <View style={Styles.autistaContainer}>
+              <Image
+              source={require('../../assets/autista.png')}
+              style= {{width:100, height:100, borderRadius:100}}
+              />
+              <Text style={{fontSize: 35, fontWeight:"bold"}}>
+                  Registrar Diário
+              </Text>
 
           </View>
-        </RadioButton.Group>
+
+          <View style={Styles.dateInput}>
+          <Text style={{alignSelf: "center", marginLeft: 50}}> Data: {dataSelecionada.toLocaleDateString()} </Text>
+          
+          <View style={{width: 250, position: "absolute", height: 50,}}>
+            <Button onPress={() => setMostrar(true)} > </Button>
+          </View>
+          {/*Se mostrar for (true), ele vai executar o datetimepicker*/}
+          {mostrar && ( 
+              <DateTimePicker 
+              value={dataSelecionada}
+              mode="date"
+              onChange={aoMudar}
+              />
+          )}
+          </View>
+
+          
+          <RadioButton.Group onValueChange={novaOpcao => setPeriodo(novaOpcao)} value={periodo}> 
+            <View style={Styles.containerRadio}>
+
+              <View>
+                <Text>Café da Manhã </Text>
+                <View>
+                  <RadioButton value="Café da manhã"/>
+                </View>
+              </View>
+
+              <View>
+                <Text>Almoço </Text>
+                <View>
+                  <RadioButton value="Almoço"/>
+                </View>
+              </View>
+
+              <View>
+                <Text>Café da tarde</Text>
+                <View>
+                  <RadioButton value="Café da tarde"/>
+                </View>
+              </View>
+
+              <View>
+                <Text>Janta </Text>
+                <View>
+                  <RadioButton value="Janta"/>
+                </View>
+              </View>
+
+            </View>
+          </RadioButton.Group>
 
         <View style={Styles.dropDownContainer}>
          <DropDownPicker
