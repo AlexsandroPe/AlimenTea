@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create({
   imageContainer: {
-    height: 400,
+    height: 350,
   },
   imageContainerKeyboardAct: {
     height: 350,

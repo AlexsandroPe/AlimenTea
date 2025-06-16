@@ -19,7 +19,8 @@ const Styles = StyleSheet.create ({
     },
     topicosContainer:{
         flexDirection: "row",
-        paddingHorizontal:10
+        paddingHorizontal:10,
+        borderBottomWidth: 1,
     
     },
     rotinaContainer:{
@@ -32,9 +33,9 @@ const Styles = StyleSheet.create ({
     },
     diaContainer:{
         flexDirection: "row",
-      
+        
         paddingHorizontal:10,
-        marginTop: 10
+        marginTop: 10,
     },
     buttonContainer:{
         marginTop: 10,
@@ -42,17 +43,20 @@ const Styles = StyleSheet.create ({
     },
     textoTopicoData:{
         width: 90,
-        fontSize: 18
+        fontSize: 20,
+        fontWeight: "600",
     },
     textoTopicoRefeicao:{
         width: 90, 
         marginLeft: 30,
-        fontSize: 18
+        fontSize: 20,
+        fontWeight: "600",
     },
     textoTopicoReceita:{
         width: 90,
         marginLeft: 30,
-        fontSize: 18
+        fontSize: 20,
+        fontWeight: "600",
     },
     textoData:{
         width: 90

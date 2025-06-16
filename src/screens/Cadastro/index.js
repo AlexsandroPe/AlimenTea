@@ -49,7 +49,7 @@ function Cadastro() {
 
   return (
     <SafeAreaView style={Styles.safeArea}>
-      <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={10}>
+      <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} >
         <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
           <ImageBackground
             resizeMethod="auto"

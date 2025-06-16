@@ -20,7 +20,9 @@ const styles = StyleSheet.create({
     height: 400,
     borderWidth: 1,
     marginHorizontal: 16,
-    borderRadius: 6,
+    borderRadius: 15,
+
+     
   },
   label: {
     flex: 1,
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
 
   cadastrarButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
   },
   ingredienteTopico: {

@@ -73,6 +73,7 @@ const Styles = StyleSheet.create ({
     buttonContainer:{
         padding: 20,
         alignSelf: "center",
+        marginTop: 20
     }
 
 
