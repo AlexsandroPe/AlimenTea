@@ -63,6 +63,7 @@ const Styles = StyleSheet.create ({
     //     width: 40,
     //     marginLeft: 50
     // },
+
     containerDescricao:{
         borderWidth: 1,
         width: 300,
@@ -73,8 +74,13 @@ const Styles = StyleSheet.create ({
     buttonContainer:{
         padding: 20,
         alignSelf: "center",
-        marginTop: 20
-    }
+        marginTop: 40
+    },
+      dropDownContainer: {
+    width: 300,
+    alignSelf: "center",
+    top: 20
+  },
 
 
 })
