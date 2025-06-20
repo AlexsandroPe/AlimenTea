@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, ImageBackground, Text, View, KeyboardAvoidingView, Platform, ScrollView} from "react-native";
+import { Alert, ImageBackground, Text, View, KeyboardAvoidingView, Platform, Image, ScrollView} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import InputBox from "../../components/InputBox";
@@ -23,7 +23,7 @@ function Login() {
         <ScrollView  contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
           <View style={Styles.container}>
             <ImageBackground
-              source={require("../../assets/login.png")}
+              source={require("../../assets/loginBG2.png")}
               resizeMode="cover"
               style={
                 keyboardAct
@@ -31,17 +31,19 @@ function Login() {
                   : Styles.imageContainer
               }>
               <View style={Styles.imageContent}>
+                <View  style={{flexDirection: "row", alignItems: "center"}}>
+                <Image source={require("../../assets/logo.png")} style={{width: 40, height: 40}}/>
                 <Text
                   style={
                     keyboardAct
-                      ? { fontSize: 30, fontWeight: "700", paddingLeft: 20 }
-                      : { fontSize: 24, fontWeight: "500", paddingLeft: 20 }
+                      ? { fontSize: 30, fontWeight: "700"}
+                      : { fontSize: 24, fontWeight: "500"}
                   }>
-                
+                    Alimentea
                 </Text>
-                <Text
-                  style={keyboardAct ? Styles.messageKeyboard : Styles.message}
-                  onPress={() => deleteAdmin(1)}>
+
+                </View>
+                <Text style={keyboardAct ? Styles.messageKeyboard : Styles.message}>
                   Vamos controlar alimentação de forma saudável
                 </Text>
               </View>

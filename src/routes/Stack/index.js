@@ -67,7 +67,7 @@ function StackNav() {
       <Screen
         name="DiarioCadastro"
         component={CadastroDiario}
-        options={{ headerShown: true, animation: "slide_from_right"}}
+        options={{ headerShown: true, title:"", animation: "slide_from_right"}}
       />
        <Screen
         name="CadastroIngredientes"

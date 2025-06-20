@@ -26,7 +26,6 @@ const Styles = StyleSheet.create ({
     rotinaContainer:{
         borderWidth:1,
         height:250,
-    
         alignSelf:"center",
         borderRadius: 15,
         bottom: 30

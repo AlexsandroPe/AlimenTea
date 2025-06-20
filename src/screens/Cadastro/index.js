@@ -85,14 +85,6 @@ function Cadastro() {
                   />
                 )}
               </Pressable>
-
-              {/* 
-                Precisa ver depois esse icon
-              
-              {!image && <Feather name="trash" size={25} color="#636363" />} 
-                
-              
-              */}
             </View>
 
           <View style={Styles.forms}>

@@ -4,10 +4,10 @@
     "slug": "AlimenTea",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logoapp.jpg",
+    "icon": "./assets/icon.png",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/logoapp.jpg",
+      "image": "./assets/splash-icon.png",
       "resizeMode": "contain"
     },
     "ios": {
@@ -15,7 +15,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logoapp.jpg"
+        "foregroundImage": "./assets/favicon.png"
       },
       "edgeToEdgeEnabled": true
     },

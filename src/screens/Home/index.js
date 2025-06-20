@@ -23,19 +23,13 @@ function Home() {
 
   const callUsuariosTea = async () => {
     const response = await getUsuariosTea();
-    // console.log(response.map((item) => { 
-    //   return item
-    // }))
-    // console.log(response);s
     if(!response.error){
       setUsuariosTea(response);
     }
   }
 
   useFocusEffect(() => {
-    // setFoco(() => foco + foco)
-        callUsuariosTea();
-    // console.log("em foco", foco)
+    callUsuariosTea();
   })
 
   return (
@@ -76,6 +70,8 @@ function Home() {
                       ? { height: 150, width: 150, borderRadius: 100, borderWidth: 2   }
                       : { height: 130, width: 130, borderRadius: 100, }
                     }
+
+                  
                   />
 
                 </TouchableOpacity>

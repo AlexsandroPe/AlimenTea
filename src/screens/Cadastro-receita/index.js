@@ -73,76 +73,26 @@ function CadastroReceita() {
               style= {{width:"100%", height:250, resizeMode:"cover",}}
           />
         </View>
-
-      
-          <Text style={Styles.topicoReceita}>
-            Cadastrar Receita
-          </Text>
-
-
+        <Text style={Styles.topicoReceita}>
+          Cadastrar Receita
+        </Text>
         <View style={Styles.textInput}>
           <InputBox onChangeText={(nome) => setNomereceita(nome)} placeholder={"Nome da Receita"}/>
         </View>
-
-        {/*O value={periodo} informa ao componente qual botão será marcado. Primerio ele atualiza o periodo com o onValueChange, depois ele avisa qual será marcado por meio do value={periodo} :) */}
-        {/* <RadioButton.Group onValueChange={novaOpcao => setPeriodo(novaOpcao)} value={periodo}> 
-          <View style={Styles.radioContainer}>  
-            
-            <View>
-              <Text style={Styles.textoCafe}>Café da Manhã</Text>
-              <View style={Styles.manha}>
-                <RadioButton  value="Café da manhã" />  
-              </View>
-            </View>  
-            
-            <View>
-              <Text style={Styles.textoAlmoco}>Almoço</Text>
-              <View style={Styles.almoco}>
-                <RadioButton value="Almoço"/>  
-              </View>
-            </View>  
-
-            </View>
-
-            <View style={Styles.radioContainer2}>
-
-              <View>
-                <Text style={Styles.textoTarde}>Café da tarde</Text>
-                <View style={Styles.tarde}> 
-                  <RadioButton value="Café da tarde"/>  
-                </View>
-              </View>  
-              
-                <View>
-                <Text style={Styles.textoJanta}>Janta</Text>
-                <View style={Styles.janta}>
-                  <RadioButton value="Janta"/>  
-                </View>
-              </View>
-
-            </View>
-
-        </RadioButton.Group> */}
-      <View style={{gap: 10}}>
+        <View style={{gap: 10}}>
           <View style={Styles.containerDescricao}>
             <Text style={{alignSelf: "center"}}>
               Modo de preparo
             </Text>
-
-          <View>
-            <TextInput placeholder="Modo de preparo..." style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} onChangeText={(modo) => setModoPreparao(modo)}  multiline={true} />
+            <View>
+              <TextInput placeholder="Modo de preparo..." style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} onChangeText={(modo) => setModoPreparao(modo)}  multiline={true} />
+            </View>
           </View>
-        </View>
           <View style={Styles.containerDescricao}>
             <Text style={{alignSelf: "center"}}>
               Ingredientes
             </Text>
             <FlatList
-            // contentContainerStyle={{
-            //   alignSelf: "center",
-            //   paddingVertical: 16,
-            //   gap: 10,
-            // }}
             data={ingredientes}
             renderItem={({ item }) =>(
                 <View>
@@ -157,7 +107,7 @@ function CadastroReceita() {
         </View>
       </View>
 
-          <View style={Styles.dropDownContainer}>
+          {/* <View style={Styles.dropDownContainer}>
          <DropDownPicker
         //  multiple={true} 
           open={abrir}
@@ -183,7 +133,7 @@ function CadastroReceita() {
           }}
           itemKey={(item)=> item.id}
          />
-        </View>
+        </View> */}
 
 
         <View style={Styles.buttonContainer}>

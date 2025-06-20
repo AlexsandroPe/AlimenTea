@@ -25,6 +25,7 @@ const Styles = StyleSheet.create({
 
   bgContainer: {
     flex: 1,
+    // borderWidth: 1,
     justifyContent: "center",
     paddingVertical: 20,
   },

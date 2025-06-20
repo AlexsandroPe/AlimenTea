@@ -2,7 +2,7 @@ import  {useContext } from "react";
 import {
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Image, ImageBackground } from "react-native";
 import Home from "../../screens/Home";
 import AdminProfile from "../../screens/AdminProfile";
 import PerfilAutista from "../../screens/Perfil-Autista";
@@ -58,12 +58,9 @@ function BottomTabs() {
         component={PerfilAutista}
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name="person-outline"
-              color={focused ? "#282C33" : "#01161E"}
-              size={33}
-            />
+          tabBarIcon: () => (
+            <Image source={autista.image ? {uri: autista.image}: require("../../assets/nophoto.png")} style={{height: 40, width: 40, borderRadius: 100
+            }} />
           ),
         }}
       />
@@ -91,7 +88,7 @@ function BottomTabs() {
           headerTransparent: true,
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name="settings-outline"
+              name="person-outline"
               color={focused ? "#282C33" : "#01161E"}
               size={33}
             />

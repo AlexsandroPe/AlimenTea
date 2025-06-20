@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, StyleSheet, View, Image, title, SafeAreaView, ScrollView, TextInput, Platform} from "react-native";
+import {Text, TouchableOpacity, StyleSheet, View, Image, title, ScrollView, TextInput, Platform} from "react-native";
 import {useContext, useEffect, useState} from "react";
 import Styles from "./style";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -10,6 +10,7 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { getReceitas } from "../../services/receita/receitaServices";
 import { addDiario } from "../../services/diario/diarioService";
 import  {Autista}  from "../../contexts/autistContext.js";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 
 function CadastroDiario() {
@@ -25,66 +26,49 @@ function CadastroDiario() {
   const [idreceita, setIdreceita] = useState();
   const [itens, setItens] = useState();
 
-  const nav = useNavigation()
-
-
+  const nav = useNavigation();
   
   function aoMudar (event, novaData){
     setMostrar(false);
 
     if (novaData) {
-      setDataSelecionada(novaData)
+      setDataSelecionada(novaData);
     }
   };
       const callReceitas = async () => {
         const receitasRes = await getReceitas();
-        // console.log(receitasRes)
-        const idreceita = receitasRes
-        // console.log("id:", idreceita);
         const itens = receitasRes.map(({id, nomeReceita}) => {
           return {
             id: id,
             label: nomeReceita,
             value: nomeReceita,
           };
-        })
-        // console.log( "itens: ", itens)
+        });
         setItens(itens);
-          // setReceitaState(false);
-        // if (!receitasRes.error) {
-        //   //  console.log("receitasRes:", typeof receitasRes);
-        //   setReceitas(receitasRes);
-        // }
       };
-      useEffect(() => {
-        callReceitas();
-      }, [])
 
-    
-      // useFocusEffect(() => {
-       
-      //     callReceitas();
-      //   // setFoco(() => foco + foco)
-      //   // console.log("em foco", foco)
-      // });
+  useEffect(() => {
+    callReceitas();
+  }, [])
+
 
   return (
     <SafeAreaView style={{flex: 2}}>
       <ScrollView style={{flex:1}}>
         <View>
             <Image
-            source={require('../../assets/diario.png')}
-            style= {{width:"100%", height:310, resizeMode:"cover",}}
-            />
+            source={autista.image ? {uri: autista.image}: require("../../assets/nophoto.png")}
+            style={{ width: 412, height: 310, resizeMode: "cover" }}
+          />
         </View>
 
           <View style={Styles.autistaContainer}>
-              <Image
-              source={require('../../assets/autista.png')}
-              style= {{width:100, height:100, borderRadius:100}}
+               <Image
+                source={autista.image ? {uri: autista.image}: require("../../assets/nophoto.png")}
+                style={{ width: 100, height: 100, borderRadius: 100}}
               />
               <Text style={{fontSize: 35, fontWeight:"bold"}}>
-                  Registrar Diário
+                Registrar Diário
               </Text>
 
           </View>
@@ -101,6 +85,7 @@ function CadastroDiario() {
               value={dataSelecionada}
               mode="date"
               onChange={aoMudar}
+              display="spinner"
               />
           )}
           </View>
