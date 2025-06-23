@@ -44,18 +44,8 @@ function BottomTabs() {
             opacity: 0.1,
           },
           
-<<<<<<< HEAD
           tabBarIcon: (focused, color) => (
             <Ionicons name="home-outline" color="black" size={30} />
-=======
-           headerRight: () => (
-            <TouchableOpacity style={{paddingRight: 20}}>
-              <Ionicons name="menu-outline" color="black" size={28}/>
-            </TouchableOpacity>
-          ),
-          tabBarIcon: ({ focused}) => (           
-              <Ionicons name="home-outline" color="black" size={30} />
->>>>>>> b122ccd9fd7c7e93b56d4379fa7da9050d410f9e
           ),
           tabBarActiveBackgroundColor: "#9e9e9e",
           tabBarInactiveBackgroundColor: "#BABABA"
