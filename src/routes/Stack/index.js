@@ -18,6 +18,8 @@ function StackNav() {
     <Navigator screenOptions={{
       headerTintColor: "#fff",
       headerTransparent: true,
+      animation: "slide_from_right",
+      
     }}>
       <Screen name="Login" component={Login} options={{ headerShown: false }} />
 
@@ -49,7 +51,7 @@ function StackNav() {
       <Screen
         name="Diario"
         component={Diario}
-        options={{ headerShown: true, title:"", headerBlurEffect: "dark", headerTransparent: true,  headerTintColor: "#fff", }}
+        options={{ headerShown: true, title:"", headerTransparent: true,  headerTintColor: "#fff", }}
 
       />
 
@@ -62,12 +64,16 @@ function StackNav() {
       <Screen
         name="ReceitaCadastro"
         component={CadastroReceita}
-        options={{ headerShown: true, headerTintColor: "#000", title: ""}}
+        options={{ headerShown: true, headerTintColor: "#000", title: "",}}
       />
       <Screen
         name="DiarioCadastro"
         component={CadastroDiario}
+<<<<<<< HEAD
         options={{ headerShown: true, title:"", animation: "slide_from_right"}}
+=======
+        options={{ headerShown: true, title: ""}}
+>>>>>>> b122ccd9fd7c7e93b56d4379fa7da9050d410f9e
       />
        <Screen
         name="CadastroIngredientes"

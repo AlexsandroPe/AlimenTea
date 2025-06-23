@@ -22,7 +22,7 @@ function Button({ title, nav, goback, perm, ...rest }) {
   return (
     <TouchableOpacity
       style={Styles.buttonContainer}
-      activeOpacity={0.96}
+      activeOpacity={0.80}
       onPress={() => handleNavigation(nav, goback, perm)}
       {...rest}
       

@@ -37,10 +37,7 @@ function AdminProfile() {
             <Text>{admin.telefone}</Text>
           </View>
         </View>
-        <Button
-          title="Editar perfil"
-          nav="EditarAdminProfile"
-        />
+        
       </View>
     </SafeAreaView>
   );

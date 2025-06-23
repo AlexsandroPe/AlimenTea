@@ -20,7 +20,7 @@ function Login() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={10}>
-        <ScrollView  contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
+        <ScrollView  contentContainerStyle={{flexGrow: 1}}  keyboardShouldPersistTaps="handled">
           <View style={Styles.container}>
             <ImageBackground
               source={require("../../assets/loginBG2.png")}

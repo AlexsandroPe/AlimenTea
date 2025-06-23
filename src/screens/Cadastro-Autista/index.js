@@ -100,7 +100,7 @@ function CadastroAutista() {
       <ScrollView style={{ gap: 8, padding: 16 }}>
         <ImageBackground
           resizeMode="cover"
-          source={image ? { uri: image } : require("../../assets/nophoto.png")}
+          source={image ? { uri: image } : require("../../assets/cadReceita.png")}
           style={Styles.userImageProfile}>
           <Pressable onPress={pickImage} style={{ flex: 1 }}>
             {!image && (
@@ -200,7 +200,7 @@ function CadastroAutista() {
 
         <TouchableOpacity
           style={Styles.buttonContainer}
-          activeOpacity={0.96}
+          activeOpacity={0.80}
           onPress={() => {
             handleCadastroAut(
               nome,

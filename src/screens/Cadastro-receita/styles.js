@@ -2,8 +2,9 @@ import { StyleSheet } from "react-native";
 
 const Styles = StyleSheet.create ({ 
     topicoReceita:{
-        fontSize: 25,
-        alignSelf: "center"
+        fontSize: 35,
+        alignSelf: "center",
+        fontWeight:"bold"
     },
     textInput:{
         padding: 10

@@ -60,7 +60,7 @@ const Styles = StyleSheet.create({
     height: 60,
     padding: 10,
     width: 300,
-    marginTop: 70,
+    marginTop: 61,
     alignSelf: "center",
   },
 

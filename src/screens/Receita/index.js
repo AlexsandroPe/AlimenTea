@@ -57,7 +57,7 @@ function Receita() {
         </View>
 
         <View style={Styles.receitaTextContainer}>
-          <Text style={{ fontSize: 32 }}> Receitas</Text>
+          <Text style={{ fontSize: 35, fontWeight:"bold" }}> Receitas</Text>
         </View>
 
         <View style={Styles.receitaContainer}>

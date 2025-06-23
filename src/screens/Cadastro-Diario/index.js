@@ -146,7 +146,7 @@ function CadastroDiario() {
         </View>
 
         <View>
-          <TouchableOpacity style={Styles.buttonContainer} activeOpacity={0.96} 
+          <TouchableOpacity style={Styles.buttonContainer} activeOpacity={0.80} 
           onPress={() => {
             console.log(autista.id)
             console.log(itens)
