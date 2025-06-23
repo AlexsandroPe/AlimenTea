@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import CadastroAutista from "../../screens/Cadastro-Autista";
 import { Autista } from "../../contexts/autistContext.js";
 
+
 const { Navigator, Screen } = createBottomTabNavigator();
 function BottomTabs() {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ function BottomTabs() {
     <Navigator
       screenOptions={{
         tabBarButton: (props) => (
-          <TouchableOpacity {...props} activeOpacity={0.7} />
+          <TouchableOpacity {...props} activeOpacity={0.10} />
         ),
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -40,7 +41,7 @@ function BottomTabs() {
           title: autista.name ? autista.name : "Alimentea",
           headerStyle: {
             backgroundColor: "#c2c2c2",
-            // opacity: 0.1,
+            opacity: 0.1,
           },
           
            headerRight: () => (
@@ -48,9 +49,11 @@ function BottomTabs() {
               <Ionicons name="menu-outline" color="black" size={28}/>
             </TouchableOpacity>
           ),
-          tabBarIcon: (focused, color) => (
-            <Ionicons name="home-outline" color="black" size={30} />
+          tabBarIcon: ({ focused}) => (           
+              <Ionicons name="home-outline" color="black" size={30} />
           ),
+          tabBarActiveBackgroundColor: "#9e9e9e",
+          tabBarInactiveBackgroundColor: "#BABABA"
         }}
       />
       <Screen
@@ -65,6 +68,8 @@ function BottomTabs() {
               size={33}
             />
           ),
+          tabBarActiveBackgroundColor: "#9e9e9e",
+          tabBarInactiveBackgroundColor: "#BABABA"
         }}
       />
       <Screen
@@ -79,6 +84,9 @@ function BottomTabs() {
               size={33}
             />
           ),
+          tabBarActiveBackgroundColor: "#9e9e9e",
+          tabBarInactiveBackgroundColor: "#BABABA"
+          
         }}
       />
       <Screen
@@ -95,13 +103,16 @@ function BottomTabs() {
               color={focused ? "#282C33" : "#01161E"}
               size={33}
             />
+            
           ),
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Ionicons name="menu-sharp" color="black" size={30}/>
             </TouchableOpacity>
           ),
-          headerRightContainerStyle: {alignItems: "center", paddingRight: 30, paddingTop: 30}
+          headerRightContainerStyle: {alignItems: "center", paddingRight: 30, paddingTop: 30},
+          tabBarActiveBackgroundColor: "#9e9e9e",
+          tabBarInactiveBackgroundColor: "#BABABA"
         }}
       />
     </Navigator>

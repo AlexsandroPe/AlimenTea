@@ -16,7 +16,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 20,
+    fontSize: 35,
     fontWeight: "bold",
     marginBottom: 20,
   },
