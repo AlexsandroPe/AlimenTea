@@ -3,19 +3,19 @@ import Button from "../../components/Button";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import { useEffect, useState } from "react";
-import {getAdminData} from "../../services/adminServices/adminService.js"
+import {loginGet} from "../../services/adminServices/adminService.js"
 
 function AdminProfile() {
 
   
-  const [data, setData] = useState({});
-
-  useEffect(() => { 
-    const fetchData = async () => {
-      const data = await getAdminData();
-      console.log(data.data);
+  const [admin, setData] = useState({});
+  const fetchData = async () => {
+      const admindata = await loginGet();
+      console.log( "user", admindata.data);
       setData(data.data);
     }
+  useEffect(() => { 
+    fetchData();
   });
 
   return (
@@ -26,15 +26,15 @@ function AdminProfile() {
           <Text style={Styles.subtitle}>Minhas informações</Text>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Nome</Text>
-            <Text>Regiane Soraia Cunha</Text>
+            <Text>{admin.nome}</Text>
           </View>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Email</Text>
-            <Text>regiane23@gmail.com</Text>
+            <Text>data.email</Text>
           </View>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Telefone</Text>
-            <Text>{data.telefone}</Text>
+            <Text>{admin.telefone}</Text>
           </View>
         </View>
         <Button

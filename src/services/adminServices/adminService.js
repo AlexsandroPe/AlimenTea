@@ -39,6 +39,7 @@ export async function loginGet(data) {
   if(loginRetorno.data.id > 0){
     console.log("existe")
     existe = true
+    return loginRetorno
   }else{
     console.log("nao existe") 
     existe = false
