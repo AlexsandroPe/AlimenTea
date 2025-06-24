@@ -56,37 +56,8 @@ function Cadastro() {
             resizeMode="cover"
             source={require("../../assets/cadastroBG3.png")}
             style={Styles.bgContainer}>
-            <View style={Styles.userImageProfile}>
-              <Pressable onPress={pickImage}>
-                <Image
-                  source={
-                    image
-                      ? { uri: image }
-                      : require("../../assets/noProfilePhoto.png")
-                  }
-                  style={{
-                    width: 140,
-                    height: 140,
-                    borderRadius: 100,
-                  }}
-                />
-
-                {!image && (
-                  <Feather
-                    name="camera"
-                    size={28}
-                    style={{
-                      position: "absolute",
-                      left: 56,
-                      top: 55,
-                      zIndex: 1,
-                    }}
-                    color="#636363"
-                  />
-                )}
-              </Pressable>
-            </View>
-
+            
+          <Text style={{fontSize: 40, textAlign: "center", color: "white"}}>Cadastro</Text>
           <View style={Styles.forms}>
             <View style={Styles.inputs}>
               <InputBox

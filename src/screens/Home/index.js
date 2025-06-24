@@ -7,6 +7,7 @@ import {
   FlatList,
   Text,
   TouchableOpacity,
+  PanResponder,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
@@ -24,9 +25,12 @@ function Home() {
 
   const callUsuariosTea = async () => {
     const response = await getUsuariosTea();
+// console.log(response)
+
     if(!response.error){
       setUsuariosTea(response);
     }
+    return response
   }
 
   useFocusEffect(() => {
@@ -83,11 +87,13 @@ function Home() {
               scrollIndicatorInsets={false}
               showsHorizontalScrollIndicator={false}
             />
-              ) :(
-                <View style={{borderRadius: 10, backgroundColor: "rgba(239, 241, 237, 0.51)", height: 40, justifyContent: "center"}}>
-                    <Text style={{textAlign: "center"}}>Carrossel vazio, adicione alguém...</Text>
-                </View>
-              )
+              ) :
+                 (
+                  <View style={{borderRadius: 10, backgroundColor: "rgba(239, 241, 237, 0.51)", height: 40, justifyContent: "center"}}>
+                  <Text style={{textAlign: "center"}}>Carrossel vazio, adicione alguém...</Text>
+                  </View>
+                )
+              
             }
           
           </View>
