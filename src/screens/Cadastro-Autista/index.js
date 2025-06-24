@@ -6,6 +6,8 @@ import {
   TextInput,
   Pressable,
   ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import Styles from "./style";
 import * as ImagePicker from "expo-image-picker";
@@ -24,8 +26,6 @@ import { adicionarTeaUsers } from "../../services/usuariosTeaServices";
 
 function CadastroAutista() {
   const [abrirEspectro, setAbrirEspectro] = useState(false);
-  const [abrirAlergia, setAbrirAlergia] = useState(false);
-  const [abrirIntolerancia, setAbrirIntolerancia] = useState(false);
   const [valorEspectro, setValorEspectro] = useState(null);
   const [image, setImage] = useState();
   const [nome, setNome] = useState("");
@@ -42,15 +42,9 @@ function CadastroAutista() {
     { label: "Nível 3", value: "nivel3" },
   ]);
 
-  const [itensAlergia, setItensAlergia] = useState([
-    { label: "Sim", value: "sim" },
-    { label: "Não", value: "nao" },
-  ]);
+  const [alergias, setAlergias] = useState();
 
-  const [itensIntolerancia, setItensIntolerancia] = useState([
-    { label: "Sim", value: "sim" },
-    { label: "Não", value: "nao" },
-  ]);
+  const [intolerancias, setIntolerancias] = useState()
 
   const nav = useNavigation();
 
@@ -96,109 +90,74 @@ function CadastroAutista() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView style={{ gap: 8, padding: 16 }}>
-        <ImageBackground
-          resizeMode="cover"
-          source={image ? { uri: image } : require("../../assets/nophoto.png")}
-          style={Styles.userImageProfile}>
-          <Pressable onPress={pickImage} style={{ flex: 1 }}>
-            {!image && (
-              <Feather
-                name="camera"
-                size={58}
-                style={{
-                  position: "absolute",
-                  alignSelf: "center",
+      <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={38} // ajuste conforme seu cabeçalho ou safe area
+    >
+    <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+        // style={{paddingVertical: 10}}
+      >
+      <View style={{flex: 1, }}>
+        <View style={Styles.userForm}>
+          <View style={Styles.selectImage}>
+            <ImageBackground
+              resizeMode="cover"
+              source={image ? { uri: image } : require("../../assets/nophoto.png")}
+              style={Styles.userImageProfile}>
+              <Pressable onPress={pickImage} style={{ flex: 1 }}>
+                {!image && (
+                  <Feather
+                    name="camera"
+                    size={58}
+                    style={{
+                      position: "absolute",
+                      alignSelf: "center",
                   top: "37%",
                   zIndex: 1,
                 }}
-                color="#929292"
-              />
-            )}
-          </Pressable>
-
-          {/* 
-              Precisa ver depois esse icon
-            {!image && <Feather name="trash" size={25} color="#636363" />} 
-            */}
-        </ImageBackground>
-
-        <View style={Styles.inputContainer}>
-          <TextInput
-            style={{ width: "100%" }}
-            placeholder="Nome completo:"
-            keyboardType="default"
-            placeholderTextColor="#353535"
-            onChangeText={setNome}
-            value={nome}
-          />
-        </View>
-
-        <View style={Styles.dateInput}>
-          <Text>Data nascimento: {dataSelecionada.toLocaleDateString()} </Text>
-
-          <View style={{ width: 328, position: "absolute" }}>
-            <Button onPress={() => setMostrar(true)}></Button>
+                color="#929292"/>
+                )}
+              </Pressable>
+            </ImageBackground>
           </View>
-          {/*Se mostrar for (true), ele vai executar o datetimepicker*/}
-          {mostrar && (
-            <DateTimePicker
-              value={dataSelecionada}
-              mode="date"
-              onChange={aoMudar}
-              display="calendar"
+          <View style={Styles.inputs}>
+            <InputBox placeholder={"Nome completo:"} onChangeText={(nome) => {setNome(nome)}}/>
+            <TouchableOpacity style={Styles.inputDataNascimento} activeOpacity={0.9} onPress={() => setMostrar(true)}>
+              <Text style={{opacity: 0.4, fontSize: 18}}>Data de nascimento:</Text>
+              <Text style={Styles.dataSelecionada}>{dataSelecionada.toLocaleDateString()}</Text>
+              {mostrar && (
+                <DateTimePicker
+                value={dataSelecionada}
+                mode="date"
+                onChange={aoMudar}
+                display="calendar"
+                />
+              )}
+            </TouchableOpacity>
+            <DropDownPicker
+              style={Styles.inputDataNascimento}
+              open={abrirEspectro}
+              value={valorEspectro}
+              items={itensEspectro}
+              setOpen={setAbrirEspectro}
+              setValue={setValorEspectro}
+              setItems={setItensEspectro}
+              placeholder="Espectro"
+              placeholderStyle={{opacity: 0.7, fontSize: 15}}
+              scrollViewProps={{ nestedScrollEnabled: true }}
+              zIndex={3000}
             />
-          )}
+            <InputBox placeholder="Alergias:" onChangeText={(alergias) => {setAlergias(alergias)}} multiline/>
+            <InputBox placeholder="Intolerancias:" onChangeText={(intolerancias) => {setIntolerancias(intolerancias)}} multiline/>
+          </View>
         </View>
-
-        <View style={Styles.espectroContainer}>
-          <DropDownPicker
-            open={abrirEspectro}
-            value={valorEspectro}
-            items={itensEspectro}
-            setOpen={setAbrirEspectro}
-            setValue={setValorEspectro}
-            setItems={setItensEspectro}
-            placeholder="Espectro"
-            scrollViewProps={{ nestedScrollEnabled: true }}
-            zIndex={3000}
-          />
-        </View>
-
-        <View style={Styles.alergiaContainer}>
-          <DropDownPicker
-            open={abrirAlergia}
-            value={valorAlergia}
-            items={itensAlergia}
-            setOpen={setAbrirAlergia}
-            setValue={setValorAlergia}
-            setItems={setItensAlergia}
-            placeholder="Alergia Alimentar"
-            listMode="SCROLLVIEW"
-            scrollViewProps={{ nestedScrollEnabled: true }}
-            zIndex={2000}
-          />
-        </View>
-
-        <View style={Styles.intoleranciaContainer}>
-          <DropDownPicker
-            open={abrirIntolerancia}
-            value={valorIntolerancia}
-            items={itensIntolerancia}
-            setOpen={setAbrirIntolerancia}
-            setValue={setValorIntolerancia}
-            setItems={setItensIntolerancia}
-            placeholder="Intorlerância Alimentar"
-            searchPlaceholderTextColor="#298938"
-            listMode="SCROLLVIEW"
-            scrollViewProps={{ nestedScrollEnabled: true }}
-            zIndex={1000}
-            dropDownDirection="BOTTOM"
-          />
-        </View>
-
-        <TouchableOpacity
+          <View style={Styles.submitButton}>
+              <TouchableOpacity
           style={Styles.buttonContainer}
           activeOpacity={0.80}
           onPress={() => {
@@ -207,13 +166,13 @@ function CadastroAutista() {
               image,
               dataSelecionada.toISOString().split("T")[0],
               valorEspectro,
-              valorAlergia,
-              valorIntolerancia
+              alergias,
+              intolerancias
             );
             setNome("");
             setValorEspectro("");
-            setValorAlergia("");
-            setValorIntolerancia("");
+            setAlergias("")
+            setIntolerancias("")
             setImage("");
             setDataSelecionada(new Date());
             nav.goBack();
@@ -230,8 +189,11 @@ function CadastroAutista() {
             Salvar
           </Text>
         </TouchableOpacity>
+          </View>
+      </View>
       </ScrollView>
     </SafeAreaView>
+      </KeyboardAvoidingView>
   );
 }
 export default CadastroAutista;

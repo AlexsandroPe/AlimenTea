@@ -7,7 +7,12 @@ const Styles = StyleSheet.create({
   },
 
   carrossel: {
+    // borderWidth: 1,
+    height: 200,
+    // borderBottomWidth: 1,
+    justifyContent: "flex-end",
     paddingVertical: 16,
+    // backgroundColor: "rgba(239, 241, 237, 0.34)",
     // paddingHorizontal: 16,
   },
 });

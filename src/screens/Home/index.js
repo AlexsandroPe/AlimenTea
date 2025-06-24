@@ -5,6 +5,7 @@ import {
   Image,
   ImageBackground,
   FlatList,
+  Text,
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -40,28 +41,33 @@ function Home() {
         resizeMode="cover">
         <View style={Styles.container}>
           <View style={Styles.carrossel}>
-            <FlatList
+            {
+             Array.isArray(usuariosTea) && usuariosTea.length > 0 ? (
+                 <FlatList
               contentContainerStyle={{
                 alignSelf: "center",
                 paddingVertical: 16,
                 gap: 10,
               }}
+
               data={usuariosTea}
               renderItem={({ item }) => (
                 <TouchableOpacity
-                  onLongPress={() => { 
-                    // setClick("");
-                    // setImageUrl("");
-                    // setName({});
-                    // setClick(false)
-                    // navigation.navigate("AdminProfile")
-                  }}
+                
+                  // onLongPress={() => { 
+                  //   // setClick("");
+                  //   // setImageUrl("");
+                  //   // setName({});
+                  //   // setClick(false)
+                  //   // navigation.navigate("AdminProfile")
+                  // }}
                   onPress={() => {
                     console.log(item.id);
                     setClick(item.id);
                     setImageUrl(item.imgtea);
                     setName({...autista, name: item.nome, image: item.imgtea, id: item.id, });
                   }}
+               
                   activeOpacity={0.9}> 
                   <Image
                     source={{ uri: item.imgtea }}
@@ -78,6 +84,13 @@ function Home() {
               scrollIndicatorInsets={false}
               showsHorizontalScrollIndicator={false}
             />
+              ) :(
+                <View style={{borderRadius: 10, backgroundColor: "rgba(239, 241, 237, 0.51)", height: 40, justifyContent: "center"}}>
+                    <Text style={{textAlign: "center"}}>Carrossel vázio, adicione alguém...</Text>
+                </View>
+              )
+            }
+          
           </View>
 
           <View
