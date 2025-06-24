@@ -28,7 +28,7 @@ function BottomTabs() {
         tabBarStyle: {
           borderWidth: 0,
           backgroundColor: "#EFF1ED",
-          height: 80,
+          height: 100,
         },
         tabBarIconStyle: { flex: 1, alignItems: "center", width: "50%", color: "black"},
         
