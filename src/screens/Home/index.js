@@ -67,7 +67,6 @@ function Home() {
                     setImageUrl(item.imgtea);
                     setName({...autista, name: item.nome, image: item.imgtea, id: item.id, });
                   }}
-               
                   activeOpacity={0.9}> 
                   <Image
                     source={{ uri: item.imgtea }}

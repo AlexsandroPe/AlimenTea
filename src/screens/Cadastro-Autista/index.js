@@ -126,7 +126,7 @@ function CadastroAutista() {
             </ImageBackground>
           </View>
           <View style={Styles.inputs}>
-            <InputBox placeholder={"Nome completo:"} onChangeText={(nome) => {setNome(nome)}}/>
+            <InputBox placeholder={"Nome completo:"} value={nome} onChangeText={(nome) => {setNome(nome)}}/>
             <TouchableOpacity style={Styles.inputDataNascimento} activeOpacity={0.9} onPress={() => setMostrar(true)}>
               <Text style={{opacity: 0.4, fontSize: 18}}>Data de nascimento:</Text>
               <Text style={Styles.dataSelecionada}>{dataSelecionada.toLocaleDateString()}</Text>
@@ -152,8 +152,8 @@ function CadastroAutista() {
               scrollViewProps={{ nestedScrollEnabled: true }}
               zIndex={3000}
             />
-            <InputBox placeholder="Alergias:" onChangeText={(alergias) => {setAlergias(alergias)}} multiline/>
-            <InputBox placeholder="Intolerancias:" onChangeText={(intolerancias) => {setIntolerancias(intolerancias)}} multiline/>
+            <InputBox placeholder="Alergias:" value={alergias} onChangeText={(alergias) => {setAlergias(alergias)}} multiline/>
+            <InputBox placeholder="Intolerancias:" value={intolerancias} onChangeText={(intolerancias) => {setIntolerancias(intolerancias)}} multiline/>
           </View>
         </View>
           <View style={Styles.submitButton}>
@@ -192,7 +192,7 @@ function CadastroAutista() {
           </View>
       </View>
       </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
       </KeyboardAvoidingView>
   );
 }
