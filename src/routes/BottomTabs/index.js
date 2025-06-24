@@ -1,8 +1,8 @@
-import  {useContext } from "react";
+import  {useContext, useState } from "react";
 import {
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
-import { TouchableOpacity, Image, ImageBackground } from "react-native";
+import { TouchableOpacity, Image, View} from "react-native";
 import Home from "../../screens/Home";
 import AdminProfile from "../../screens/AdminProfile";
 import PerfilAutista from "../../screens/Perfil-Autista";
@@ -15,39 +15,43 @@ import { Autista } from "../../contexts/autistContext.js";
 const { Navigator, Screen } = createBottomTabNavigator();
 function BottomTabs() {
   const navigation = useNavigation();
+
+  const {iconstate, setIconState} = useState();
   const { autista } = useContext(Autista);
   return (
     <Navigator
       screenOptions={{
         tabBarButton: (props) => (
-          <TouchableOpacity {...props} activeOpacity={0.10} />
+          <TouchableOpacity {...props} activeOpacity={0.8} />
         ),
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: "#BABABA",
-          borderTopWidth: 0,
-          height: 90,
+          borderWidth: 0,
+          backgroundColor: "#EFF1ED",
+          height: 80,
         },
-        tabBarIconStyle: { flex: 1 },
-         tabBarActiveTintColor: "white",
-      }}
-
-      initialRouteName="Home" >
+        tabBarIconStyle: { flex: 1, alignItems: "center", width: "50%", color: "black"},
+        
+        
+        tabBarHideOnKeyboard: true,
+      }} 
+      >
       <Screen
         name="Home"
         component={Home}
         options={{
           headerShown: true,
           title: autista.name ? autista.name : "AlimenTEA",
-          headerStyle: {
-            backgroundColor: "#c2c2c2",
-          },
-          
-          tabBarIcon: (focused, color) => (
-            <Ionicons name="home-outline" color="black" size={30} />
+          tabBarIcon: ({focused, color}) => (
+            <View 
+            style={{
+              alignItems: "center",
+            }}
+            >
+              <Ionicons name={focused ? "home-sharp" : "home-outline"}  color={focused ? "black" : "black"} size={focused ? 35 : 30}
+ />
+            </View>
           ),
-          tabBarActiveBackgroundColor: "#9e9e9e",
-          tabBarInactiveBackgroundColor: "#BABABA"
         }}
       />
       <Screen
@@ -55,30 +59,51 @@ function BottomTabs() {
         component={PerfilAutista}
         options={{
           headerShown: false,
-          tabBarIcon: () => (
-            <Image source={autista.image ? {uri: autista.image}: require("../../assets/nophoto.png")} style={{height: 40, width: 40, borderRadius: 100
+          tabBarIcon: ({focused}) => (
+            <View 
+            style={{
+              borderRadius: 100,
+              width: 33, 
+              height: 33,
+              alignItems: "center",
+              overflow: "hidden"
+            }}
+            >
+            <Image source={autista.image ? {uri: autista.image}: require("../../assets/nophoto.png")} style={{height: focused ? 35 : 30, width: focused ? 40 : 30, borderRadius: 100
             }} />
+            </View>
           ),
-          tabBarActiveBackgroundColor: "#9e9e9e",
-          tabBarInactiveBackgroundColor: "#BABABA"
+         
         }}
       />
+       
       <Screen
         name="CadastroAutista"
         component={CadastroAutista}
         options={{
           headerShown: false,
           tabBarIcon: ({ focused }) => (
+             <View 
+            style={{
+
+              borderRadius: 100,
+              width: 35, 
+              height: 35,
+              overflow: "hidden",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+            >
+      
             <Ionicons
-              name="add-circle-outline"
-              color={focused ? "#282C33" : "#01161E"}
-              size={33}
+              name= {focused ? "add-circle-sharp" : "add-circle-outline"} 
+              color={focused ? "black" : "black"}
+             size={focused ? 35 : 30}
             />
-          ),
-          tabBarActiveBackgroundColor: "#9e9e9e",
-          tabBarInactiveBackgroundColor: "#BABABA"
-          
-        }}
+                  </View>
+          )
+        }
+        }
       />
       <Screen
         name="AdminProfile"
@@ -90,21 +115,20 @@ function BottomTabs() {
           headerTransparent: true,
           tabBarIcon: ({ focused }) => (
             <Ionicons
-              name="person-outline"
-              color={focused ? "#282C33" : "#01161E"}
-              size={33}
+              name= {focused ? "person-sharp" : "person-outline"}
+              color={focused ? "black" : "black"}
+                          size={focused ? 35 : 30}
+
             />
             
           ),
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-            <Ionicons name="menu-sharp" color="black" size={30}/>
+            <Ionicons name="menu-sharp"  />
             </TouchableOpacity>
           ),
           headerRightContainerStyle: {alignItems: "center", paddingRight: 30, paddingTop: 30},
-          tabBarActiveBackgroundColor: "#9e9e9e",
-          tabBarInactiveBackgroundColor: "#BABABA"
-        }}
+        }}  
       />
     </Navigator>
   );

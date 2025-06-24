@@ -70,10 +70,7 @@ function Home() {
                       ? { height: 150, width: 150, borderRadius: 100, borderWidth: 2   }
                       : { height: 130, width: 130, borderRadius: 100, }
                     }
-
-                  
                   />
-
                 </TouchableOpacity>
               )}
               keyExtractor={(item) => item.id.toString()}
