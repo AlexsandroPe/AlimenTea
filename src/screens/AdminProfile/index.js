@@ -26,7 +26,7 @@ function AdminProfile() {
           <Text style={Styles.subtitle}>Minhas informações</Text>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Nome</Text>
-            <Text>{admin.nome}</Text>
+            <Text>João Silva</Text>
           </View>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Email</Text>
@@ -34,7 +34,7 @@ function AdminProfile() {
           </View>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Telefone</Text>
-            <Text>{admin.telefone}</Text>
+            <Text>11991381266</Text>
           </View>
         </View>
         

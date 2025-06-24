@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-export const Autista = createContext();
+export const Autista = createContext({});
 
 function ContextProvider({ children }) {
 
