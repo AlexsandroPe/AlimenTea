@@ -85,7 +85,7 @@ function Home() {
             />
               ) :(
                 <View style={{borderRadius: 10, backgroundColor: "rgba(239, 241, 237, 0.51)", height: 40, justifyContent: "center"}}>
-                    <Text style={{textAlign: "center"}}>Carrossel vázio, adicione alguém...</Text>
+                    <Text style={{textAlign: "center"}}>Carrossel vazio, adicione alguém...</Text>
                 </View>
               )
             }
