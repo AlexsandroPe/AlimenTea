@@ -68,36 +68,6 @@ function CadastroReceita() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
        <ScrollView style={{flex: 1, paddingHorizontal: 16}}>
-<<<<<<< HEAD
-        <View>
-          <Image
-              source={require("../../assets/receita.png")}
-              style= {{width:"100%", height:250, resizeMode:"cover",}}
-          />
-        </View>
-        <Text style={Styles.topicoReceita}>
-          Cadastrar Receita
-        </Text>
-        <View style={Styles.textInput}>
-          <InputBox onChangeText={(nome) => setNomereceita(nome)} placeholder={"Nome da Receita"}/>
-        </View>
-        <View style={{gap: 10}}>
-          <View style={Styles.containerDescricao}>
-            <Text style={{alignSelf: "center"}}>
-              Modo de preparo
-            </Text>
-            <View>
-              <TextInput placeholder="Modo de preparo..." style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} onChangeText={(modo) => setModoPreparao(modo)}  multiline={true} />
-            </View>
-          </View>
-          <View style={Styles.containerDescricao}>
-            <Text style={{alignSelf: "center"}}>
-              Ingredientes
-            </Text>
-            <FlatList
-            data={ingredientes}
-            renderItem={({ item }) =>(
-=======
           <View>
             <Image
                 source={require("../../assets/receita.png")}
@@ -137,7 +107,6 @@ function CadastroReceita() {
 
               <View style={Styles.radioContainer2}>
 
->>>>>>> b122ccd9fd7c7e93b56d4379fa7da9050d410f9e
                 <View>
                   <Text style={Styles.textoTarde}>Café da tarde</Text>
                   <View style={Styles.tarde}> 
@@ -215,40 +184,7 @@ function CadastroReceita() {
             }}
             itemKey={(item)=> item.id}
           />
-<<<<<<< HEAD
-        </View>
-      </View>
-
-          {/* <View style={Styles.dropDownContainer}>
-         <DropDownPicker
-        //  multiple={true} 
-          open={abrir}
-          value={valorSelecionado}
-          items={itens}
-          setOpen={setAbrir}
-          setValue={setValorSelecionado}
-          setItems={setItens}
-          placeholder="Escolha"
-          dropDownDirection="BOTTOM"
-          listMode="SCROLLVIEW"
-          scrollViewProps={{nestedScrollEnabled: true}}
-          style={{zIndex:1000}}
-          dropDownContainerStyle={{zIndex: 100, maxHeight: 100}}
-          // onChangeValue={(valor) => console.log("Valor selecionado", valor )}
-          onSelectItem={(item) => {
-            console.log(ingredientes)
-            setIngredientes([
-              ...ingredientes,
-              item
-            ])
-            // setItemId(item.id)
-          }}
-          itemKey={(item)=> item.id}
-         />
-        </View> */}
-=======
           </View>
->>>>>>> b122ccd9fd7c7e93b56d4379fa7da9050d410f9e
 
 
           <View style={Styles.buttonContainer}>
