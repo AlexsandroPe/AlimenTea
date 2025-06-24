@@ -4,9 +4,7 @@ const Styles = StyleSheet.create({
   imageContainer: {
     height: 350,
   },
-  imageContainerKeyboardAct: {
-    height: 350,
-  },
+
 
   container: {
     flex: 1,

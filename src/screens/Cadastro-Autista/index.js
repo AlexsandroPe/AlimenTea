@@ -135,7 +135,7 @@ function CadastroAutista() {
                 value={dataSelecionada}
                 mode="date"
                 onChange={aoMudar}
-                display="calendar"
+                display="spinner"
                 />
               )}
             </TouchableOpacity>

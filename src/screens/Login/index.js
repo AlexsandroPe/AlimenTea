@@ -19,28 +19,21 @@ function Login() {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={10}>
+      <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} >
         <ScrollView  contentContainerStyle={{flexGrow: 1}}  keyboardShouldPersistTaps="handled">
           <View style={Styles.container}>
             <ImageBackground
               source={require("../../assets/loginBG2.png")}
               resizeMode="cover"
               style={
-                keyboardAct
-                  ? Styles.imageContainerKeyboardAct
-                  : Styles.imageContainer
+                  Styles.imageContainer
               }>
               <View style={Styles.imageContent}>
                 <View  style={{flexDirection: "row", alignItems: "center"}}>
-                {/* <Image source={require("../../assets/logo13.png")} style={{width: 200, height: 70}} resizeMode="contain"/> */}
-                <Text
-                  style={
-                    keyboardAct
-                      ? { fontSize: 30, fontWeight: "700"}
-                      : { fontSize: 24, fontWeight: "500"}
-                  }>
-                    Alimen<Text style={Styles.tea}>TEA</Text>
-                </Text>
+                   <Image source={require("../../assets/logoMaca.png")} style={{width: 50, height: 70}} resizeMode="contain"/> 
+                  <Text>
+                      Alimen<Text style={Styles.tea}>TEA</Text>
+                  </Text>
 
                 </View>
                 <Text style={keyboardAct ? Styles.messageKeyboard : Styles.message}>
