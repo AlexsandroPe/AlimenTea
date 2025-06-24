@@ -54,6 +54,10 @@ const Styles = StyleSheet.create({
     color: "blue",
     fontSize: 18,
   },
+
+  tea: {
+    color: "#FF000"
+  }
 });
 
 export default Styles;

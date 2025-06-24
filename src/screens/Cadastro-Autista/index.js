@@ -100,7 +100,7 @@ function CadastroAutista() {
       <ScrollView style={{ gap: 8, padding: 16 }}>
         <ImageBackground
           resizeMode="cover"
-          source={image ? { uri: image } : require("../../assets/cadReceita.png")}
+          source={image ? { uri: image } : require("../../assets/nophoto.png")}
           style={Styles.userImageProfile}>
           <Pressable onPress={pickImage} style={{ flex: 1 }}>
             {!image && (

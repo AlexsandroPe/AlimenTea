@@ -67,11 +67,11 @@ function CadastroReceita() {
         style={{ flex: 1, }} 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-       <ScrollView style={{flex: 1, paddingHorizontal: 16}}>
+       <ScrollView style={{flex: 1,}}>
           <View>
             <Image
-                source={require("../../assets/receita.png")}
-                style= {{width:"100%", height:250, resizeMode:"cover",}}
+                source={require("../../assets/cadReceita.png")}
+                style= {{width:"100%", height:250}}
             />
           </View>
 

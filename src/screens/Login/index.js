@@ -32,14 +32,14 @@ function Login() {
               }>
               <View style={Styles.imageContent}>
                 <View  style={{flexDirection: "row", alignItems: "center"}}>
-                <Image source={require("../../assets/logo.png")} style={{width: 40, height: 40}}/>
+                {/* <Image source={require("../../assets/logo13.png")} style={{width: 200, height: 70}} resizeMode="contain"/> */}
                 <Text
                   style={
                     keyboardAct
                       ? { fontSize: 30, fontWeight: "700"}
                       : { fontSize: 24, fontWeight: "500"}
                   }>
-                    Alimentea
+                    Alimen<Text style={Styles.tea}>TEA</Text>
                 </Text>
 
                 </View>

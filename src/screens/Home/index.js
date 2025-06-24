@@ -93,7 +93,7 @@ function Home() {
             }}>
             <Button title="Diario" nav="Diario" />
             <Button title="Receitas" nav="Receitas"/>
-            <Button title="ingredientes" nav="Ingredientes" />
+            <Button title="Ingredientes" nav="Ingredientes" />
           </View>
         </View>
       </ImageBackground>

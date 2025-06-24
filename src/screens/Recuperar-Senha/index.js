@@ -32,7 +32,7 @@ function RecuperarSenha() {
         <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
           <View style={Styles.imageContainer}>
             <Image
-              source={require("../../assets/logo.png")}
+              source={require("../../assets/logo13.png")}
               style={{ width: 150, height: 150, marginTop: 60 }}
             />
           </View>
