@@ -30,7 +30,7 @@ function AdminProfile() {
           </View>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Email</Text>
-            <Text></Text>
+            <Text>joao@gmail.com</Text>
           </View>
           <View style={Styles.dadoContainer}>
             <Text style={Styles.label}>Telefone</Text>

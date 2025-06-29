@@ -31,8 +31,8 @@ function Login() {
               <View style={Styles.imageContent}>
                 <View  style={{flexDirection: "row", alignItems: "center"}}>
                    <Image source={require("../../assets/logoMaca.png")} style={{width: 50, height: 70}} resizeMode="contain"/> 
-                  <Text>
-                      Alimen<Text style={Styles.tea}>TEA</Text>
+                  <Text style={{fontSize: 28, fontWeight: "500"}}>
+                      AlimenTEA
                   </Text>
 
                 </View>

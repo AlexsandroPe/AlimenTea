@@ -134,7 +134,8 @@ function CadastroReceita() {
               <TextInput placeholder="Modo de preparo..." style={{ height: 130, borderColor: 'gray',    padding: 10,  textAlignVertical: 'top', borderRadius: 15}} onChangeText={(modo) => setModoPreparao(modo)}  multiline={true} />
             </View>
           </View>
-            <View style={Styles.containerDescricao}>
+          </View>
+            {/* <View style={Styles.containerDescricao}>
               <Text style={{alignSelf: "center"}}>
                 Ingredientes
               </Text>
@@ -155,7 +156,6 @@ function CadastroReceita() {
               scrollIndicatorInsets={false}
               showsHorizontalScrollIndicator={false}
             />
-          </View>
           </View>
 
             <View style={Styles.dropDownContainer}>
@@ -184,7 +184,7 @@ function CadastroReceita() {
             }}
             itemKey={(item)=> item.id}
           />
-          </View>
+          </View> */}
 
 
           <View style={Styles.buttonContainer}>

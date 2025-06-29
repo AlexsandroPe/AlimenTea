@@ -2,6 +2,8 @@ import  {useContext, useState } from "react";
 import {
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
+
+
 import { TouchableOpacity, Image, View} from "react-native";
 import Home from "../../screens/Home";
 import AdminProfile from "../../screens/AdminProfile";
@@ -10,6 +12,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import CadastroAutista from "../../screens/Cadastro-Autista";
 import { Autista } from "../../contexts/autistContext.js";
+import { Airplay, HomeIcon, PersonStanding, PlusCircle, User, UserRound } from "lucide-react-native";
 
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -42,16 +45,7 @@ function BottomTabs() {
         options={{
           headerShown: true,
           title: autista.name ? autista.name : "AlimenTEA",
-          tabBarIcon: ({focused, color}) => (
-            <View 
-            style={{
-              alignItems: "center",
-            }}
-            >
-              <Ionicons name={focused ? "home-sharp" : "home-outline"}  color={focused ? "black" : "black"} size={focused ? 35 : 30}
- />
-            </View>
-          ),
+          tabBarIcon: ({focused}) => <HomeIcon color="black" size={focused ? 33:30}/>
         }}
       />
       <Screen
@@ -82,26 +76,7 @@ function BottomTabs() {
         component={CadastroAutista}
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-             <View 
-            style={{
-
-              borderRadius: 100,
-              width: 35, 
-              height: 35,
-              overflow: "hidden",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-            >
-      
-            <Ionicons
-              name= {focused ? "add-circle-sharp" : "add-circle-outline"} 
-              color={focused ? "black" : "black"}
-             size={focused ? 35 : 30}
-            />
-                  </View>
-          )
+          tabBarIcon: ({focused}) => <PlusCircle size={focused ? 33:30}/>
         }
         }
       />
@@ -113,15 +88,8 @@ function BottomTabs() {
           title:"",
           headerShown: true,
           headerTransparent: true,
-          tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name= {focused ? "person-sharp" : "person-outline"}
-              color={focused ? "black" : "black"}
-                          size={focused ? 35 : 30}
-
-            />
-            
-          ),
+          tabBarIcon: ({focused}) => <UserRound size={focused ? 33: 30} />, 
+        
           headerRight: () => (
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Ionicons name="menu-sharp"  />

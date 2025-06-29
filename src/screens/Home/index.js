@@ -25,7 +25,7 @@ function Home() {
 
   const callUsuariosTea = async () => {
     const response = await getUsuariosTea();
-// console.log(response)
+console.log(response)
 
     if(!response.error){
       setUsuariosTea(response);
@@ -43,34 +43,24 @@ function Home() {
         source={require("../../assets/homeBGv11.png")}
         style={{ flex: 1 }}
         resizeMode="cover">
-        <View style={Styles.container}>
-          <View style={Styles.carrossel}>
-            {
-             Array.isArray(usuariosTea) && usuariosTea.length > 0 ? (
-                 <FlatList
+      <View style={Styles.container}>
+        <View style={Styles.carrossel}>
+          { Array.isArray(usuariosTea) && usuariosTea.length > 0 ? (
+            <FlatList
               contentContainerStyle={{
                 alignSelf: "center",
                 paddingVertical: 16,
                 gap: 10,
               }}
-
               data={usuariosTea}
               renderItem={({ item }) => (
-                <TouchableOpacity
-                
-                  // onLongPress={() => { 
-                  //   // setClick("");
-                  //   // setImageUrl("");
-                  //   // setName({});
-                  //   // setClick(false)
-                  //   // navigation.navigate("AdminProfile")
-                  // }}
-                  onPress={() => {
-                    console.log(item.id);
-                    setClick(item.id);
-                    setImageUrl(item.imgtea);
-                    setName({...autista, name: item.nome, image: item.imgtea, id: item.id, });
-                  }}
+              <TouchableOpacity
+                onPress={() => {
+                  console.log(item.id);
+                  setClick(item.id);
+                  setImageUrl(item.imgtea);
+                  setName({...autista, name: item.nome, image: item.imgtea, id: item.id, });
+                }}
                   activeOpacity={0.9}> 
                   <Image
                     source={{ uri: item.imgtea }}
@@ -89,15 +79,12 @@ function Home() {
             />
               ) :
                  (
-                  <View style={{borderRadius: 10, backgroundColor: "rgba(239, 241, 237, 0.51)", height: 40, justifyContent: "center"}}>
-                  <Text style={{textAlign: "center"}}>Carrossel vazio, adicione alguém...</Text>
+                  <View style={{borderRadius: 10, backgroundColor: "rgba(239, 241, 237, 0.68)", height: 40, justifyContent: "center"}}>
+                  <Text style={{textAlign: "center", fontSize: 18, fontWeight: "500"}}>Carrossel vazio, adicione alguém...</Text>
                   </View>
                 )
-              
             }
-          
           </View>
-
           <View
             style={{
               flex: 1,

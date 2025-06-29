@@ -105,7 +105,7 @@ export default function CadastroIngrediente() {
                 </TouchableOpacity>
 
                   <TouchableOpacity
-                    onPress={() => alterarCheckbox("carboidratos")}
+                    onPress={() => alterarCheckbox("Grãos, massas e tubérculos")}
                     style={styles.checkboxRow}>
                     <View
                       style={[
