@@ -17,7 +17,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/favicon.png"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "softwareKeyboardLayoutMode":"pan"
     },
     "web": {
       "favicon": "./assets/favicon.png"

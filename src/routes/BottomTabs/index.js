@@ -8,17 +8,15 @@ import { TouchableOpacity, Image, View} from "react-native";
 import Home from "../../screens/Home";
 import AdminProfile from "../../screens/AdminProfile";
 import PerfilAutista from "../../screens/Perfil-Autista";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import CadastroAutista from "../../screens/Cadastro-Autista";
 import { Autista } from "../../contexts/autistContext.js";
-import { Airplay, HomeIcon, PersonStanding, PlusCircle, User, UserRound } from "lucide-react-native";
+import {HomeIcon, PlusCircle,UserRound } from "lucide-react-native";
 
 
 const { Navigator, Screen } = createBottomTabNavigator();
 function BottomTabs() {
   const navigation = useNavigation();
-
   const {iconstate, setIconState} = useState();
   const { autista } = useContext(Autista);
   return (
@@ -34,9 +32,7 @@ function BottomTabs() {
           height: 100,
         },
         tabBarIconStyle: { flex: 1, alignItems: "center", width: "50%", color: "black"},
-        
-        
-        tabBarHideOnKeyboard: true,
+        // tabBarHideOnKeyboard: true,
       }} 
       >
       <Screen
@@ -84,18 +80,10 @@ function BottomTabs() {
         name="AdminProfile"
         component={AdminProfile}
         options={{
-          
           title:"",
           headerShown: true,
           headerTransparent: true,
-          tabBarIcon: ({focused}) => <UserRound size={focused ? 33: 30} />, 
-        
-          headerRight: () => (
-            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-            <Ionicons name="menu-sharp"  />
-            </TouchableOpacity>
-          ),
-          headerRightContainerStyle: {alignItems: "center", paddingRight: 30, paddingTop: 30},
+          tabBarIcon: ({focused}) => <UserRound size={focused ? 33: 30} />,
         }}  
       />
     </Navigator>
