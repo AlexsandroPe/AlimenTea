@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
-import Button from "../../components/Button";
+import { View, Text, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import { useEffect, useState } from "react";
 import {loginGet} from "../../services/adminServices/adminService.js"
+import { getStorage, insertStorage } from "../../storage/async.js";
 
 function AdminProfile() {
 
@@ -15,7 +15,7 @@ function AdminProfile() {
       setData(data.data);
     }
   useEffect(() => { 
-    fetchData();
+    fetchData();  
   });
 
   return (
@@ -37,7 +37,12 @@ function AdminProfile() {
             <Text>11991381266</Text>
           </View>
         </View>
-        
+          <Button title="Inserir" onPress={()=> {
+            insertStorage("token", "0101010101010111010010011110010110110")
+          }}/>
+          <Button title="Buscar" onPress={()=> {
+            getStorage("token1")
+          }}/>
       </View>
     </SafeAreaView>
   );

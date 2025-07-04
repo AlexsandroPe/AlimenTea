@@ -1,3 +1,4 @@
+import { insertStorage } from "../../storage/async.js";
 import api from "../api.js";
 
 // export async function getPosts(id) {
@@ -28,23 +29,25 @@ export async function criarAdmin(data) {
 }
 
 export async function loginGet(data) { 
-  console.log(data.senha)
-  const loginRetorno = await api.get(`/admin/${data.email}/${data.senha}`);
-  console.log(loginRetorno)
-  console.log(typeof loginRetorno.data.id);
+  const loginRetorno = await api.post(`/login`, data);
+  // console.log(loginRetorno.data);
+  // console.log("Retorno login -->", loginRetorno.data);
+  // console.log(typeof loginRetorno.data.id);
   
-  console.log(loginRetorno.data.id);
+  let message = loginRetorno.data.message;
   let existe;
-  if(loginRetorno.data.id > 0){
+  if(loginRetorno.data.idUsuario.id > 0){
     console.log("existe")
-    existe = true
-    return loginRetorno
+    console.log(typeof loginRetorno.data.token)
+    insertStorage("token1", loginRetorno.data.token);
+    existe = true;
+    return loginRetorno;
   }else{
-    console.log("nao existe") 
-    existe = false
+    console.log("nao existe"); 
+    existe = false;
   }
-  console.log(existe)
-  return existe;
+  console.log(existe);
+  return {status: existe, loginMessage: message};
 }
 
 export async function deleteAdmin(idadmin) { 

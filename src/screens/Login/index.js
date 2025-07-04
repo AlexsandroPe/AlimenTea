@@ -13,6 +13,7 @@ function Login() {
   const [email, setEmail] = useState();
   const [keyboardAct, setKeyboardAct] = useState();
   const [senha, setSenha] = useState();
+  const [message, setMessage] = useState();
   const handleNavigation = (nav) => {
     navigation.navigate(nav);
   };
@@ -50,12 +51,14 @@ function Login() {
                 
                   onChangeText={(emailValue) => setEmail(emailValue)}
                 />
+                 {message ? (<Text>Informe email</Text>):null}
                 <InputBox
                   placeholder="Informe sua senha:"
                   onChangeText={(senhaValue) => setSenha(senhaValue)}
                   passw={true}
                 
                 />
+                {message ? (<Text>Informe senha</Text>):null}
                 <Text
                   style={{
                     alignSelf: "flex-end",
@@ -72,10 +75,11 @@ function Login() {
                 <Button
                   title="Entrar"
                   onPress={async () => {
-                    // let ex = await loginGet({ email: email, senha: senha });x'
-                    let ex = true;
-                    console.log("alert:", ex);
-                    ex ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
+                    let {status, loginMessage} = await loginGet({ email: email, senha: senha });
+                    setMessage(loginMessage)
+                    console.log("alert:", status);
+                    console.log("alertMessage:", loginMessage);
+                    status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
                   }}
                 />
               </View>
