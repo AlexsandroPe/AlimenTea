@@ -14,27 +14,24 @@ import Styles from "./styles";
 import Button from "../../components/Button";
 import { useNavigation,useFocusEffect, } from "@react-navigation/native";
 import { getUsuariosTea } from "../../services/usuariosTeaServices/";
+import { getStorage } from "../../storage/async.js";
 
 function Home() {
   const [click, setClick] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
-  const [foco, setFoco] = useState(0);
+  const [foco, setFoco] = useState(0);  
   const [usuariosTea, setUsuariosTea] = useState([]);
   const { autista, setName } = useContext(Autista);
-  const navigation = useNavigation();
-
-  const callUsuariosTea = async () => {
-    const response = await getUsuariosTea();
-// console.log(response)
-
-    if(!response.error){
-      setUsuariosTea(response);
-    }
-    return response
-  }
+  const navigation = useNavigation(); 
 
   useFocusEffect(() => {
-    callUsuariosTea();
+    (async () => {
+      const response = await getUsuariosTea();
+      if(!response.error){
+        setUsuariosTea(response);
+      }
+      return response;
+    })() 
   })
 
   return (

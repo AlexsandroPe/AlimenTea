@@ -6,14 +6,12 @@ import InputBox from "../../components/InputBox";
 import Styles from "./style";
 import Button from "../../components/Button";
 import { loginGet } from "../../services/adminServices/adminService.js";
-import { deleteAdmin } from "../../services/adminServices/adminService.js";
-
 function Login() {
   const navigation = useNavigation();
-  const [email, setEmail] = useState();
+  const [inputEmail, setEmail] = useState();
   const [keyboardAct, setKeyboardAct] = useState();
-  const [senha, setSenha] = useState();
-  const [message, setMessage] = useState();
+  const [inputSenha, setSenha] = useState();
+  const [message, setMessage] = useState({email: true, senha: true});
   const handleNavigation = (nav) => {
     navigation.navigate(nav);
   };
@@ -23,7 +21,7 @@ function Login() {
       <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} >
         <ScrollView  contentContainerStyle={{flexGrow: 1}}  keyboardShouldPersistTaps="handled">
           <View style={Styles.container}>
-            <ImageBackground
+            <ImageBackground  
               source={require("../../assets/loginBG2.png")}
               resizeMode="cover"
               style={
@@ -48,17 +46,21 @@ function Login() {
                 <InputBox
                   placeholder="Informe seu email:"
                   keyboardType="email-address"
-                
-                  onChangeText={(emailValue) => setEmail(emailValue)}
+                  onChangeText={(emailValue) => {
+                    setEmail(emailValue)
+                    setMessage({...message, email: true})
+                  }}
                 />
-                 {message ? (<Text>Informe email</Text>):null}
+                 {!message.email ? (<Text style={{color: "#9A0202"}}>Informe email</Text>):null}
                 <InputBox
                   placeholder="Informe sua senha:"
-                  onChangeText={(senhaValue) => setSenha(senhaValue)}
+                  onChangeText={(senhaValue) => {
+                    setSenha(senhaValue)
+                    setMessage({...message, senha: true})
+                  }}
                   passw={true}
-                
                 />
-                {message ? (<Text>Informe senha</Text>):null}
+                {!message.senha ? (<Text style={{color: "#9A0202"}}>Informe senha</Text>): null}
                 <Text
                   style={{
                     alignSelf: "flex-end",
@@ -75,20 +77,22 @@ function Login() {
                 <Button
                   title="Entrar"
                   onPress={async () => {
-                    let {status, loginMessage} = await loginGet({ email: email, senha: senha });
-                    setMessage(loginMessage)
-                    console.log("alert:", status);
-                    console.log("alertMessage:", loginMessage);
-                    status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
+                      if(inputEmail && inputSenha) {
+                          let {status, email, senha} = await loginGet({ email: inputEmail, senha: inputSenha });
+                          setMessage({email: email, senha: senha})
+                          status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
+                          return;
+                      }
+                      Alert.alert("Preencha tudo")
                   }}
                 />
               </View>
 
               <Text style={Styles.cadastroText}>
-                Não possui conta?{" "}
+                Não possui conta?
                 <Text
                   onPress={() => handleNavigation("cadastro")}
-                  style={Styles.cadastroLink}>
+                  style={Styles.cadastroLink}>{" "}
                   Cadastre-se
                 </Text>
               </Text>
