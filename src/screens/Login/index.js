@@ -78,8 +78,8 @@ function Login() {
                   title="Entrar"
                   onPress={async () => {
                       if(inputEmail && inputSenha) {
-                          let {status, email, senha} = await loginGet({ email: inputEmail, senha: inputSenha });
-                          setMessage({email: email, senha: senha})
+                          let {status, email, password} = await loginGet({ email: inputEmail, password: inputSenha });
+                          setMessage({email: email, senha: password})
                           status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
                           return;
                       }

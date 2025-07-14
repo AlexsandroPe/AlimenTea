@@ -71,6 +71,7 @@ function Cadastro() {
                 onChangeText={(emailvalue) => {
                   setEmail(emailvalue);
                 }}
+                keyboardType="email-address"
               />
               <InputBox
                 placeholder="Informe sua senha:"
@@ -92,11 +93,11 @@ function Cadastro() {
               title="Cadastrar"
               onPress={() => {
                 criarAdmin({
-                  nome: nome,
+                  name: nome,
                   email: email,
-                  senha: senha,
-                  telefone: telefone,
-                  dataNascimento: "2025-05-05",
+                  password: senha,
+                  telephone: telefone,
+                  birthDate: "2025-05-05",
                 });
                 handleNavigation("Login");
               }}

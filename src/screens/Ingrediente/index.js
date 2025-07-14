@@ -17,18 +17,13 @@ import { useFocusEffect } from "@react-navigation/native";
 export default function ListarIngredientes() {
   const [ingredientes, setIngredientes] = useState({});
 
-  const callIngredientes = async () => {
-    const response = await getIngredientes();
-    // console.log(response);
-    if (!response.error) {
-      setIngredientes(response);
-    }
-  };
-
   useFocusEffect(() => {
-    // setFoco(() => foco + foco)
-    callIngredientes();
-    // console.log("em foco", foco)
+    (async ()=> {
+      const ingredientsResult = await getIngredientes();
+      if(!ingredientsResult.error) {
+        setIngredientes(ingredientsResult);
+      }
+    })()
   });
 
   return (

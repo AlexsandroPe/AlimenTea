@@ -4,7 +4,7 @@ const Styles = StyleSheet.create({
 
   userForm: {
     flex: 4,
-    // backgroundColor: "red"
+    alignItems: "center"
   },
   submitButton: { 
     flex: 1,
@@ -31,8 +31,6 @@ const Styles = StyleSheet.create({
     // borderWidth: 1,
     gap: 10,
     justifyContent: "center",
-    paddingVertical: 16,
-    paddingHorizontal: 16
   },
   dataSelecionada: {
     fontSize: 16

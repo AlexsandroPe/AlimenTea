@@ -26,13 +26,6 @@ export async function getIngredientes() {
 export async function addIngredientes(data) {
   try {
     console.log("service ", data)
-    // while(Object.keys(data.categorias) == true ){ 
-    //     // console.log(Object.keys(data.categorias));
-    // }
-    // const dataFormat = Object.entries(data.categorias).find(value => {
-    //     return value[1] === true;
-    // })
-    // console.log(dataFormat)
     const responde = await api.post("/ingrediente", data);
     console.log("Post Criado:", responde.data);
   } catch (error) {

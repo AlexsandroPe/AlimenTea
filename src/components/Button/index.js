@@ -13,10 +13,7 @@ function Button({ title, nav, goback, perm, ...rest }) {
       }, 400)
       return;
     }
-
- 
-      navigation.navigate(route)
-    
+    navigation.navigate(route)
   };
 
   return (

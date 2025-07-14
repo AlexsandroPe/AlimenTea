@@ -29,17 +29,19 @@ export async function criarAdmin(data) {
 }
 
 export async function loginGet(data) { 
+  console.log(data)
   try {
     const loginRetorno = await api.post(`/login`, data);
-    if(!loginRetorno.data.email || !loginRetorno.data.senha) {
+    console.log("loginREsult: ", loginRetorno.data)
+    if(!loginRetorno.data.email || !loginRetorno.data.password) {
       console.log("Precisa botar todos os dados");
-      return {email: loginRetorno.data.email, senha: loginRetorno.data.senha}
+      return {email: loginRetorno.data.email, senha: loginRetorno.data.password}
     }
     insertStorage("token", loginRetorno.data.token);
     return {status: true, token: loginRetorno.data.token}
   } catch (error) {
     console.log("usuario não encontrado")
-    return {status: false, email: true, senha: true}
+    return {status: false, email: true, password: true}
   }
 }
 

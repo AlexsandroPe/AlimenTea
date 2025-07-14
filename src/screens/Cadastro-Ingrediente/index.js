@@ -152,8 +152,8 @@ export default function CadastroIngrediente() {
                   title="Salvar"
                   onPress={() => {
                     addIngredientes({
-                      nome: nome,
-                      categorias: Object.entries(categorias).find((value) => {
+                      name: nome,
+                      category: Object.entries(categorias).find((value) => {
                         return value[1] === true;
                       }),
                       gluten: contGluten,

@@ -19,7 +19,6 @@ function StackNav() {
       headerTintColor: "#fff",
       headerTransparent: true,
       animation: "slide_from_right",
-      
     }}>
       <Screen name="Login" component={Login} options={{ headerShown: false }} />
 

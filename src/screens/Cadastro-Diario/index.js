@@ -151,10 +151,10 @@ function CadastroDiario() {
             console.log(autista.id)
             console.log(itens)
             addDiario({
-              idreceita: itemId,
-              idusuariotea: autista.id,
-              refeicaodia: periodo,
-              datarefeicao: dataSelecionada.toISOString().split("T")[0],
+              recipeId: itemId,
+              userTeaId: autista.id,
+              mealTime: periodo,
+              mealDate: dataSelecionada.toISOString().split("T")[0],
             });
             nav.goBack()
             }}>

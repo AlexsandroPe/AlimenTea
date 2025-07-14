@@ -72,7 +72,7 @@ function BottomTabs() {
         component={CadastroAutista}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => <PlusCircle size={focused ? 33:30}/>
+          tabBarIcon: ({focused}) => (<PlusCircle size={focused ? 33:30}/>)
         }
         }
       />
@@ -80,11 +80,11 @@ function BottomTabs() {
         name="AdminProfile"
         component={AdminProfile}
         options={{
-          title:"",
           headerShown: true,
           headerTransparent: true,
+          title: "",
           tabBarIcon: ({focused}) => <UserRound size={focused ? 33: 30} />,
-        }}  
+        }}
       />
     </Navigator>
   );
