@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   PanResponder,
+  Pressable,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
@@ -15,7 +16,7 @@ import Button from "../../components/Button";
 import { useNavigation,useFocusEffect, } from "@react-navigation/native";
 import { getUsuariosTea } from "../../services/usuariosTeaServices/";
 import { getStorage } from "../../storage/async.js";
-
+import { X} from "lucide-react-native"
 function Home() {
   const [click, setClick] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
@@ -41,6 +42,7 @@ function Home() {
         style={{ flex: 1 }}
         resizeMode="cover">
       <View style={Styles.container}>
+       
         <View style={Styles.carrossel}>
           { Array.isArray(usuariosTea) && usuariosTea.length > 0 ? (
             <FlatList
@@ -51,23 +53,25 @@ function Home() {
               }}
               data={usuariosTea}
               renderItem={({ item }) => (
+              
               <TouchableOpacity
                 onPress={() => {
                   console.log(item.id);
                   setClick(item.id);
                   setImageUrl(item.imgtea);
-                  setName({...autista, name: item.nome, image: item.imgtea, id: item.id, });
+                  setName(   {...autista, name: item.nome, image: item.imgtea, id: item.id, });
                 }}
                   activeOpacity={0.9}> 
-                  <Image
-                    source={{ uri: item.imgtea }}
-                    style={
-                      click === item.id
-                      ? { height: 150, width: 150, borderRadius: 100, borderWidth: 2   }
-                      : { height: 130, width: 130, borderRadius: 100, }
-                    }
-                  />
+                   <ImageBackground source={{ uri: item.imgtea }} style={{height: 150, width: 150}} imageStyle={  click === item.id ? {height: 150, width: 150, borderRadius: 100, borderWidth: 1, }: {borderRadius: 100, height: 130, width: 130
+                   }}>
+                      {click === item.id ? (<X onPress={() => {
+                        setClick(null)
+                    setName({...autista, name: "", image: undefined, id: undefined})
+                      }} style={{position: "absolute", left: 55, top: 55, backgroundColor: "#d6d7a934", borderRadius: 100,}} size={40} color={"#000000ff"}/>): null}
+                   </ImageBackground>
+                  
                 </TouchableOpacity>
+                 
               )}
               keyExtractor={(item) => item.id.toString()}
               horizontal
@@ -81,8 +85,8 @@ function Home() {
                   </View>
                 )
             }
-          </View>
-          <View
+        </View>
+        <View
             style={{
               flex: 1,
               // borderWidth: 1,
@@ -90,13 +94,14 @@ function Home() {
               alignItems: "center",
               gap: 40,
             }}>
+              
             <Button title="Diario" nav="Diario" />
             <Button title="Receitas" nav="Receitas"/>
             <Button title="Ingredientes" nav="Ingredientes" />
-          </View>
         </View>
-      </ImageBackground>
-    </SafeAreaView>
+      </View>
+    </ImageBackground>
+  </SafeAreaView>
   );
 }
 

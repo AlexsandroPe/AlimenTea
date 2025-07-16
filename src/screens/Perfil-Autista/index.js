@@ -12,12 +12,17 @@ function PerfilAutista() {
   const [tea, setTea] = useState({ default: "carregando" });
 
   const buscarPorId = async (id) => {
-    const response = await getUsuariosTeid(id);
-    // console.log("dado por id", response.data[0])
-    // consol.log("deu certo")
-    setTea(response.data[0]);
-    console.log(tea);
-    // console.log(error.message)
+    try {
+      if(id) {
+        const response = await getUsuariosTeid(id);
+        setTea(response.data[0]);
+        console.log(tea);
+        return
+      }
+      setTea({espectro: undefined, alergia: undefined, intolerancia: undefined})
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -47,7 +52,7 @@ function PerfilAutista() {
             <Text style={Styles.text}>
               Espectro:{" "}
               <Text style={Styles.dadoAutista}>
-                {tea ? tea.espectro : "aguardando..."}
+                {tea.espectro ? tea.espectro : "aguardando..."}
               </Text>
             </Text>
           </View>
@@ -56,7 +61,7 @@ function PerfilAutista() {
             <Text style={Styles.text}>
               Alergia alimentar:{" "}
               <Text style={Styles.dadoAutista}>
-                {tea ? tea.alergia : "aguardando..."}
+                {tea.alergia ? tea.alergia : "aguardando..."}
               </Text>
             </Text>
           </View>
@@ -65,7 +70,7 @@ function PerfilAutista() {
             <Text style={Styles.text}>
               Intôlerancia alimentar:{" "}
               <Text style={Styles.dadoAutista}>
-                {tea ? tea.intolerancia : "aguardando..."}
+                {tea.intolerancia ? tea.intolerancia : "aguardando..."}
               </Text>
             </Text>
           </View>

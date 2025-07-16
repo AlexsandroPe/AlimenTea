@@ -55,7 +55,7 @@ function CadastroAutista() {
             <Text>Data de nascimento: <Text>{selectedDate.toLocaleDateString()}</Text></Text>
             {
               isDatePickerVisible ? (<DateTimePicker value={selectedDate} display='spinner' onChange={(event, newDate) => handleDatePicker(newDate)}/>): null
-            }
+            } 
           </Pressable>
           <DropDownPicker style={Styles.inputDataNascimento} open={isDropDowSpectrum} value={selectedSpectrum} items={spectrums} setOpen={setIsDropDowSpectrum} setValue={setSelectedSpectrum} setItems={setSpectrums} />
           <InputBox placeholder="Alimentos Alérgico: " onChangeText={() => {}}/> 
