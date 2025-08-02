@@ -48,7 +48,7 @@ function Home() {
             <FlatList
               contentContainerStyle={{
                 alignSelf: "center",
-                paddingVertical: 16,
+                paddingHorizontal: 16,
                 gap: 10,
               }}
               data={usuariosTea}
@@ -66,7 +66,7 @@ function Home() {
                    }}>
                       {click === item.id ? (<X onPress={() => {
                         setClick(null)
-                    setName({...autista, name: "", image: undefined, id: undefined})
+                        setName({...autista, name: "", image: undefined, id: undefined})
                       }} style={{position: "absolute", left: 55, top: 55, backgroundColor: "#d6d7a934", borderRadius: 100,}} size={40} color={"#000000ff"}/>): null}
                    </ImageBackground>
                   

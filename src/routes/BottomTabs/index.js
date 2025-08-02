@@ -41,7 +41,7 @@ function BottomTabs() {
         options={{
           headerShown: true,
           title: autista.name ? autista.name : "AlimenTEA",
-          tabBarIcon: ({focused}) => <HomeIcon color="black" size={focused ? 33:30}/>
+          tabBarIcon: ({focused}) => <HomeIcon color="black" size={focused ? 30:28}/>
         }}
       />
       <Screen
@@ -72,7 +72,7 @@ function BottomTabs() {
         component={CadastroAutista}
         options={{
           headerShown: false,
-          tabBarIcon: ({focused}) => (<PlusCircle size={focused ? 33:30}/>)
+          tabBarIcon: ({focused}) => (<PlusCircle size={focused ? 30:28}/>)
         }
         }
       />
@@ -83,7 +83,7 @@ function BottomTabs() {
           headerShown: true,
           headerTransparent: true,
           title: "",
-          tabBarIcon: ({focused}) => <UserRound size={focused ? 33: 30} />,
+          tabBarIcon: ({focused}) => <UserRound size={focused ? 30: 28} />,
         }}
       />
     </Navigator>

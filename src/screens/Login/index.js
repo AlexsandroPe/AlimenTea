@@ -12,9 +12,20 @@ function Login() {
   const [keyboardAct, setKeyboardAct] = useState();
   const [inputSenha, setSenha] = useState();
   const [message, setMessage] = useState({email: true, senha: true});
+
   const handleNavigation = (nav) => {
     navigation.navigate(nav);
   };
+
+  const handleLogin = async () => {
+    if(inputEmail && inputSenha) {
+      let {status, email, password} = await loginGet({ email: inputEmail, password: inputSenha });
+      setMessage({email: email, senha: password})
+      status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
+      return;
+    }
+    Alert.alert("Preencha tudo")
+  }
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -76,15 +87,7 @@ function Login() {
               <View style={{marginTop: 50}}>
                 <Button
                   title="Entrar"
-                  onPress={async () => {
-                      if(inputEmail && inputSenha) {
-                          let {status, email, password} = await loginGet({ email: inputEmail, password: inputSenha });
-                          setMessage({email: email, senha: password})
-                          status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
-                          return;
-                      }
-                      Alert.alert("Preencha tudo")
-                  }}
+                  onPress={handleLogin}
                 />
               </View>
 

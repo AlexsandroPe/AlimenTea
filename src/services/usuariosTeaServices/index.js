@@ -12,7 +12,7 @@ export async function getUsuariosTea() {
 
 export async function getUsuariosTeid(id) {
   try {
-    const usuarioTEA = await api.get(`/autista/${id}`);
+    const usuarioTEA = await api.get(`/autistas/${id}`);
     return usuarioTEA;
   } catch (error) {
     console.log("deu ruim")
@@ -23,7 +23,7 @@ export async function getUsuariosTeid(id) {
 export async function adicionarTeaUsers(data) {
   try {
     // console.log(data)
-    const responde = await api.post("/autista", data);
+    const responde = await api.post("/autistas", data);
     // console.log("Post Criado:", responde.data);
   } catch (error) {
     console.error("Erro ao criar post:", error);

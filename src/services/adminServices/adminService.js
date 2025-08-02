@@ -31,8 +31,9 @@ export async function criarAdmin(data) {
 export async function loginGet(data) { 
   console.log(data)
   try {
-    const loginRetorno = await api.post(`/login`, data);
+    const loginRetorno = await api.post(`/admin/login`, data);
     console.log("loginREsult: ", loginRetorno.data)
+    
     if(!loginRetorno.data.email || !loginRetorno.data.password) {
       console.log("Precisa botar todos os dados");
       return {email: loginRetorno.data.email, senha: loginRetorno.data.password}
