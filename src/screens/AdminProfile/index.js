@@ -3,7 +3,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
 import { useEffect, useState } from "react";
 import {loginGet} from "../../services/adminServices/adminService.js"
-import { deleteStorage, getStorage, insertStorage } from "../../storage/async.js";
 
 function AdminProfile() {
   

@@ -9,8 +9,8 @@ import { loginGet } from "../../services/adminServices/adminService.js";
 function Login() {
   const navigation = useNavigation();
   const [inputEmail, setEmail] = useState();
-  const [keyboardAct, setKeyboardAct] = useState();
   const [inputSenha, setSenha] = useState();
+  const [keyboardAct, setKeyboardAct] = useState();
   const [message, setMessage] = useState({email: true, senha: true});
 
   const handleNavigation = (nav) => {
@@ -20,11 +20,10 @@ function Login() {
   const handleLogin = async () => {
     if(inputEmail && inputSenha) {
       let {status, email, password} = await loginGet({ email: inputEmail, password: inputSenha });
-      setMessage({email: email, senha: password})
       status ? navigation.navigate("tabs") : Alert.alert("Usuário não cadastrado");
       return;
     }
-    Alert.alert("Preencha tudo")
+    setMessage({email: false, senha: false})
   }
 
   return (
@@ -32,7 +31,7 @@ function Login() {
       <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"} >
         <ScrollView  contentContainerStyle={{flexGrow: 1}}  keyboardShouldPersistTaps="handled">
           <View style={Styles.container}>
-            <ImageBackground  
+            <ImageBackground
               source={require("../../assets/loginBG2.png")}
               resizeMode="cover"
               style={
@@ -44,7 +43,6 @@ function Login() {
                   <Text style={{fontSize: 28, fontWeight: "500"}}>
                       AlimenTEA
                   </Text>
-
                 </View>
                 <Text style={keyboardAct ? Styles.messageKeyboard : Styles.message}>
                   Vamos controlar alimentação de forma saudável
@@ -57,21 +55,21 @@ function Login() {
                 <InputBox
                   placeholder="Informe seu email:"
                   keyboardType="email-address"
-                  onChangeText={(emailValue) => {
+                 onChangeText={(emailValue) => {
                     setEmail(emailValue)
-                    setMessage({...message, email: true})
                   }}
+                  onChange={() => setMessage({...message, email: true})}
                 />
-                 {!message.email ? (<Text style={{color: "#9A0202"}}>Informe email</Text>):null}
+                {message.email ? null:(<Text style={{color: "red"}}>Insira o e-mail</Text>)}
                 <InputBox
                   placeholder="Informe sua senha:"
                   onChangeText={(senhaValue) => {
                     setSenha(senhaValue)
-                    setMessage({...message, senha: true})
                   }}
+                  onChange={() => setMessage({...message, senha: true})}
                   passw={true}
                 />
-                {!message.senha ? (<Text style={{color: "#9A0202"}}>Informe senha</Text>): null}
+                 {message.senha ? null:(<Text style={{color: "red"}}>Insira a senha</Text>)}
                 <Text
                   style={{
                     alignSelf: "flex-end",

@@ -1,22 +1,20 @@
-import React, { useContext, useState, useEffect} from "react";
+import React, { useContext, useState} from "react";
 import { Autista } from "../../contexts/autistContext.js";
 import {
   View,
-  Image,
   ImageBackground,
   FlatList,
   Text,
   TouchableOpacity,
-  PanResponder,
-  Pressable,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Styles from "./styles";
-import Button from "../../components/Button";
+import Button from "../../components/Button/index.js";
 import { useNavigation,useFocusEffect, } from "@react-navigation/native";
 import { getUsuariosTea } from "../../services/usuariosTeaServices/";
-import { getStorage } from "../../storage/async.js";
 import { X} from "lucide-react-native"
+
+
 function Home() {
   const [click, setClick] = useState(null);
   const [imageUrl, setImageUrl] = useState("");

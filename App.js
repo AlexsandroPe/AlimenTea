@@ -6,12 +6,11 @@ import { AuthProvider } from "./src/contexts/authContext.js";
 export default function App() {
   return (
   
-    <AuthProvider>
+
       <ContextProvider>
         <NavigationContainer>
           <Routes />
         </NavigationContainer>
       </ContextProvider>
-    </AuthProvider>
   );
 }
